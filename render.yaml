@@ -1,0 +1,66 @@
+services:
+  # Backend API Service
+  - type: web
+    name: symposium-backend
+    env: python
+    region: oregon
+    plan: free
+    branch: main
+    buildCommand: "cd backend && pip install -r requirements.txt && cd ../ingestion && pip install -r ../backend/requirements.txt && cd ../backend && python init_vector_db.py"
+    startCommand: "cd backend && uvicorn main:app --host 0.0.0.0 --port $PORT"
+    envVars:
+      - key: OPENAI_API_KEY
+        sync: false
+      - key: ANTHROPIC_API_KEY
+        sync: false
+      - key: OPENROUTER_API_KEY
+        sync: false
+      - key: VECTOR_DB_TYPE
+        value: chromadb
+      - key: CHROMA_PERSIST_DIR
+        value: /opt/render/project/src/vector_db_data
+      - key: DEFAULT_LLM_PROVIDER
+        value: openai
+      - key: DEFAULT_MODEL
+        value: gpt-4-turbo-preview
+      - key: EMBEDDING_MODEL
+        value: text-embedding-3-small
+      - key: EMBEDDING_PROVIDER
+        value: openai
+      - key: HOST
+        value: 0.0.0.0
+      - key: PORT
+        value: 10000
+      - key: RELOAD
+        value: false
+      - key: LOG_LEVEL
+        value: info
+      - key: ALLOWED_ORIGINS
+        value: https://symposium-frontend.onrender.com
+      - key: ENABLE_MULTI_AGENT
+        value: true
+      - key: ENABLE_CONVERSATION_HISTORY
+        value: true
+      - key: ENABLE_CITATIONS
+        value: true
+    disk:
+      name: vector-db
+      mountPath: /opt/render/project/src/vector_db_data
+      sizeGB: 1
+
+  # Frontend Static Site
+  - type: web
+    name: symposium-frontend
+    env: static
+    region: oregon
+    plan: free
+    branch: main
+    buildCommand: "cd frontend && npm install && npm run build"
+    staticPublishPath: frontend/dist
+    envVars:
+      - key: VITE_API_URL
+        value: https://symposium-backend.onrender.com
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
