@@ -1,0 +1,64 @@
+
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="author" content="J. V. Stalin">
+<title>Marxism and the National Question</title>
+<link rel="stylesheet" type="text/css" href="../../border-stalin.css">
+<style type="text/css">
+p.fst {text-align: left; }
+</style>
+</head>
+<body>
+
+<p class="title"><a href="../../../../../index.htm" class="title">MIA</a>: <a href="../../../../../history/ussr/index.htm" class="title">Soviet History</a>: <a href="../../index.htm" class="title">J. V. Stalin Archive</a>: Marxism and the National Question</p>
+<blockquote>
+
+
+<blockquote>
+<div class="border">
+<center><img src="header.jpg" width="715" height="250" alt=""></center>
+<br />
+<hr class="end">
+
+<p class="information">
+		<span class="info">First Published:</span> <I>Prosveshcheniye</I>, Nos. 3-5, March-May 1913<br>
+                <span class="info">Transcription/Markup:</span> Carl Kavanagh<br>	
+                <span class=info>Public Domain:</span> Marxists Internet Archive. You may freely copy, distribute, display and perform this work; as well as make derivative and commercial works. Please credit &#8220;Marxists Internet Archive&#8221; as your source.</p>
+		
+<hr class="end">
+
+
+<h4>C O N T E N T S </h4>
+
+<p class="index">
+&#160;&#160;&#160;&#160;<A HREF="03a.htm">Introduction</A></p>
+<p class="index">
+1. <A HREF="03a.htm#s1">The Nation</A></p>
+<p class="index">
+2. <A HREF="03a.htm#s2">The National Movement</A></p>
+<p class="index">
+3. <A HREF="03a.htm#s3">Presentation Of The Question</A></p>
+<p class="index">
+4. <A HREF="03a.htm#s4">Cultural-National Autonomy</A></p>
+<p class="index">
+5. <A HREF="03a.htm#s5">The Bund, Its Nationalism, Its Separatism</A></p>
+<p class="index">
+6. <A HREF="03a.htm#n6">The Caucasians, The Conference Of The Liquidators</A></p>
+<p class="index">
+7. <A HREF="03a.htm#s7">The National Question In Russia</A></p>
+<p class="index">
+<A HREF="03a.htm#s8">Notes</A></p>
+<br />
+
+
+<hr class="end">
+<p class="footer">
+<a href="../collected/index.htm">Collected Works Index</a> | <a href="../collected/volume2/index.htm">Volume 2 Index</a><br />
+<a href="../../index.htm">J. V. Stalin Archive</a> | <a href="../decades-index.htm">Works by Date</a>
+</BODY>
+</HTML>
