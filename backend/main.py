@@ -32,6 +32,42 @@ async def lifespan(app: FastAPI):
     logger.info("Starting Symposium.ai API")
     logger.info(f"Vector DB: {settings.vector_db_type}")
     logger.info(f"LLM Provider: {settings.default_llm_provider}")
+
+    # Auto-initialize vector database if empty
+    try:
+        total_chunks = sum(
+            rag_engine.get_figure_stats(fig_id)["chunk_count"]
+            for fig_id in FIGURE_REGISTRY.keys()
+        )
+
+        if total_chunks == 0:
+            logger.info("Vector database is empty. Running initialization...")
+            import subprocess
+            import os
+
+            # Run initialization script
+            init_script = os.path.join(os.path.dirname(__file__), "init_vector_db.py")
+            if os.path.exists(init_script):
+                logger.info(f"Running {init_script}...")
+                result = subprocess.run(
+                    ["python", init_script],
+                    capture_output=True,
+                    text=True,
+                    cwd=os.path.dirname(__file__)
+                )
+
+                if result.returncode == 0:
+                    logger.info("Vector database initialization completed successfully")
+                    logger.info(result.stdout)
+                else:
+                    logger.error(f"Initialization failed: {result.stderr}")
+            else:
+                logger.warning(f"Initialization script not found at {init_script}")
+        else:
+            logger.info(f"Vector database already initialized with {total_chunks} chunks")
+    except Exception as e:
+        logger.error(f"Error checking/initializing vector database: {e}")
+
     yield
     logger.info("Shutting down Symposium.ai API")
 
