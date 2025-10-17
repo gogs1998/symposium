@@ -12,5 +12,5 @@ COPY backend ./backend
 # Set working directory to backend
 WORKDIR /app/backend
 
-# Start application
-CMD uvicorn main:app --host 0.0.0.0 --port ${PORT}
+# Start application (using exec form to avoid shell issues)
+CMD ["sh", "-c", "uvicorn main:app --host 0.0.0.0 --port $PORT"]
