@@ -1,0 +1,34 @@
+# Core Framework
+fastapi>=0.104.1
+uvicorn[standard]>=0.24.0
+pydantic>=2.5.0
+pydantic-settings>=2.1.0
+
+# RAG & Embeddings
+langchain>=0.1.0
+langchain-openai>=0.0.2
+chromadb>=0.4.22
+# NOTE: sentence-transformers removed - using OpenAI embeddings instead
+
+# LLM APIs
+openai>=1.6.1
+anthropic>=0.8.1
+httpx>=0.25.2
+
+# Data Processing
+pypdf>=3.17.4
+python-docx>=1.1.0
+beautifulsoup4>=4.12.2
+markdown>=3.5.1
+tiktoken>=0.5.2
+
+# Web Framework Extras
+python-multipart>=0.0.6
+python-jose[cryptography]>=3.3.0
+passlib[bcrypt]>=1.7.4
+
+# Utilities
+python-dotenv>=1.0.0
+pyyaml>=6.0.1
+requests>=2.31.0
+tenacity>=8.2.3

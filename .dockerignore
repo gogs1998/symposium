@@ -1,0 +1,53 @@
+# Python
+__pycache__
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info
+dist/
+build/
+
+# Virtual environments
+venv/
+env/
+ENV/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Git
+.git/
+.gitignore
+
+# Frontend (not needed in backend image)
+frontend/
+node_modules/
+
+# Documentation
+*.md
+README.md
+RAILWAY_SETUP.md
+
+# Environment files (use Railway variables instead)
+.env
+backend/.env
+*.env
+
+# Logs
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Keep only the vector database
+!backend/vector_db_data/
