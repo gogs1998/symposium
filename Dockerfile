@@ -9,8 +9,8 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copy application code and vector database
 COPY backend ./backend
 
-# Expose port
-EXPOSE $PORT
+# Set working directory to backend
+WORKDIR /app/backend
 
 # Start application
-CMD cd backend && uvicorn main:app --host 0.0.0.0 --port $PORT
+CMD uvicorn main:app --host 0.0.0.0 --port ${PORT}
