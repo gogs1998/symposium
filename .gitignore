@@ -15,11 +15,6 @@ build/
 .env
 .env.local
 
-# Vector Database
-vector_db_data/
-*.db
-*.sqlite
-
 # IDEs
 .vscode/
 .idea/
