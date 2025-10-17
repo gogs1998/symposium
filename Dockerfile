@@ -9,8 +9,12 @@ RUN pip install --no-cache-dir -r requirements.prod.txt
 # Copy application code and vector database
 COPY backend ./backend
 
+# Copy and make start script executable
+COPY start.sh /app/backend/start.sh
+RUN chmod +x /app/backend/start.sh
+
 # Set working directory to backend
 WORKDIR /app/backend
 
-# Start application (using exec form to avoid shell issues)
-CMD ["sh", "-c", "uvicorn main:app --host 0.0.0.0 --port $PORT"]
+# Start application
+CMD ["/app/backend/start.sh"]
