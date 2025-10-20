@@ -4,7 +4,7 @@ RAG Engine - Core retrieval and generation logic
 from typing import List, Optional, Dict, Any
 import chromadb
 from chromadb.config import Settings as ChromaSettings
-from langchain.text_splitter import RecursiveCharacterTextSplitter
+from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_openai import OpenAIEmbeddings
 from openai import OpenAI
 import logging

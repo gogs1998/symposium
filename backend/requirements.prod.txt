@@ -7,6 +7,7 @@ pydantic-settings>=2.1.0
 # RAG & Embeddings
 langchain>=0.1.0
 langchain-openai>=0.0.2
+langchain-text-splitters>=0.3.0
 chromadb>=0.4.22
 # NOTE: sentence-transformers removed - using OpenAI embeddings instead
 
