@@ -38,7 +38,12 @@ function App() {
   const loadFigures = async () => {
     try {
       console.log('API_BASE:', API_BASE)
-      const response = await axios.get(`${API_BASE}/figures`)
+      const response = await axios.get(`${API_BASE}/figures`, {
+        headers: {
+          'ngrok-skip-browser-warning': 'true',
+          'User-Agent': 'Symposium-Frontend'
+        }
+      })
       console.log('Response:', response.data)
 
       // Make sure response.data is an array
@@ -147,6 +152,11 @@ function App() {
             message: messageToSend,
             conversation_id: newConversationIds[figure.id],
             include_citations: showCitations
+          }, {
+            headers: {
+              'ngrok-skip-browser-warning': 'true',
+              'User-Agent': 'Symposium-Frontend'
+            }
           })
 
           const assistantMessage = {
