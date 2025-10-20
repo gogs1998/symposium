@@ -37,10 +37,21 @@ function App() {
 
   const loadFigures = async () => {
     try {
+      console.log('API_BASE:', API_BASE)
       const response = await axios.get(`${API_BASE}/figures`)
-      setFigures(response.data)
+      console.log('Response:', response.data)
+
+      // Make sure response.data is an array
+      if (Array.isArray(response.data)) {
+        setFigures(response.data)
+      } else {
+        console.error('API returned non-array:', response.data)
+        setFigures([])
+      }
     } catch (error) {
       console.error('Error loading figures:', error)
+      console.error('API_BASE was:', API_BASE)
+      setFigures([])
     }
   }
 
