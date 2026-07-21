@@ -104,6 +104,8 @@ def main():
     p_yt.add_argument("--min-duration", type=int, default=120)
     p_yt.add_argument("--include", default="", help="Comma-separated video IDs to force-include")
     p_yt.add_argument("--exclude", default="", help="Comma-separated video IDs to exclude")
+    p_yt.add_argument("--sleep", type=float, default=4.0,
+                      help="Seconds between caption fetches (avoid YouTube rate limits)")
     args = parser.parse_args()
 
     conn = connect(settings.db_path)
@@ -121,6 +123,7 @@ def main():
             args.channel, max_videos=args.max_videos, min_duration=args.min_duration,
             include_ids={s for s in args.include.split(",") if s},
             exclude_ids={s for s in args.exclude.split(",") if s},
+            sleep_between=args.sleep,
         )
         jsonl = Path("ingestion/sources_data/creators") / args.figure / "transcripts.jsonl"
         stats = ingest_youtube(conn, engine, args.figure, source, jsonl_path=jsonl)

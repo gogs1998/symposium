@@ -110,7 +110,8 @@ class ChainedFetcher:
 class YouTubeSource:
     def __init__(self, channel_url: str, *, lister=None, transcripts=None,
                  max_videos: int = 100, min_duration: int = 120,
-                 include_ids: set[str] | None = None, exclude_ids: set[str] | None = None):
+                 include_ids: set[str] | None = None, exclude_ids: set[str] | None = None,
+                 sleep_between: float = 0.0):
         self.channel_url = channel_url
         self.lister = lister or YtDlpLister()
         self.transcripts = transcripts or ChainedFetcher(
@@ -119,7 +120,9 @@ class YouTubeSource:
         self.min_duration = min_duration
         self.include_ids = include_ids or set()
         self.exclude_ids = exclude_ids or set()
+        self.sleep_between = sleep_between   # seconds between caption fetches (YouTube politeness)
         self.skipped: list[tuple[str, str]] = []   # (video_id, reason)
+        self._fetched_any = False
 
     def documents(self):
         videos = self.lister.list_videos(self.channel_url, self.max_videos, self.min_duration)
@@ -132,6 +135,10 @@ class YouTubeSource:
                 self.skipped.append((vid, f"multi-speaker title: {video['title']!r} (allow-list to include)"))
                 continue
             try:
+                if self.sleep_between and self._fetched_any:
+                    import time
+                    time.sleep(self.sleep_between)
+                self._fetched_any = True
                 raw = self.transcripts.fetch(vid)
             except Exception as exc:
                 self.skipped.append((vid, f"no captions: {exc}"))
