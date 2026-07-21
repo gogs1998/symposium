@@ -16,6 +16,8 @@ import registry
 from config import settings
 from db import connect, init_db
 from ingestion.sources.files import FilesSource
+from ingestion.sources.youtube import YouTubeSource
+from ingestion.transcripts import append_jsonl, chunk_video
 from providers.fastembed_local import FastEmbedLocal
 from rag.chunker import chunk_text
 from rag.engine import Chunk, RAGEngine
@@ -64,12 +66,44 @@ def ingest(conn, engine: RAGEngine, figure_id: str, source) -> dict:
     return stats
 
 
+def ingest_youtube(conn, engine: RAGEngine, figure_id: str, source, *, jsonl_path) -> dict:
+    registry.get_figure(conn, figure_id)
+    stats = {"done": 0, "skipped": 0, "error": 0}
+    for doc in source.documents():
+        if already_done(conn, figure_id, doc.item_id):
+            stats["skipped"] += 1
+            continue
+        try:
+            chunks = chunk_video(doc, chunk_size=settings.chunk_size, overlap=settings.chunk_overlap)
+            n = engine.ingest_chunks(figure_id, chunks)
+            append_jsonl(jsonl_path, doc)
+            log_item(conn, figure_id, doc.item_id, "done", f"{n} chunks")
+            stats["done"] += 1
+            print(f"  OK   {doc.item_id} {doc.metadata['source'][:50]!r}: {n} chunks")
+        except Exception as exc:
+            log_item(conn, figure_id, doc.item_id, "error", str(exc))
+            stats["error"] += 1
+            print(f"  FAIL {doc.item_id}: {exc}")
+    for vid, reason in source.skipped:
+        log_item(conn, figure_id, vid, "skipped", reason)
+        stats["skipped"] += 1
+        print(f"  SKIP {vid}: {reason}")
+    return stats
+
+
 def main():
     parser = argparse.ArgumentParser(description="Ingest a corpus for a figure")
     sub = parser.add_subparsers(dest="source_type", required=True)
     p_files = sub.add_parser("files", help="Ingest local files")
     p_files.add_argument("--figure", required=True)
     p_files.add_argument("--source-dir", required=True)
+    p_yt = sub.add_parser("youtube", help="Ingest a YouTube channel's captions")
+    p_yt.add_argument("--figure", required=True)
+    p_yt.add_argument("--channel", required=True, help="Channel URL or @handle URL")
+    p_yt.add_argument("--max-videos", type=int, default=100)
+    p_yt.add_argument("--min-duration", type=int, default=120)
+    p_yt.add_argument("--include", default="", help="Comma-separated video IDs to force-include")
+    p_yt.add_argument("--exclude", default="", help="Comma-separated video IDs to exclude")
     args = parser.parse_args()
 
     conn = connect(settings.db_path)
@@ -80,7 +114,16 @@ def main():
         chat=None,  # not needed for ingestion
         chat_model=settings.chat_model, temperature=settings.temperature, max_tokens=settings.max_tokens,
     )
-    stats = ingest(conn, engine, args.figure, FilesSource(args.source_dir))
+    if args.source_type == "files":
+        stats = ingest(conn, engine, args.figure, FilesSource(args.source_dir))
+    else:
+        source = YouTubeSource(
+            args.channel, max_videos=args.max_videos, min_duration=args.min_duration,
+            include_ids={s for s in args.include.split(",") if s},
+            exclude_ids={s for s in args.exclude.split(",") if s},
+        )
+        jsonl = Path("ingestion/sources_data/creators") / args.figure / "transcripts.jsonl"
+        stats = ingest_youtube(conn, engine, args.figure, source, jsonl_path=jsonl)
     print(f"\nSummary: {stats['done']} done, {stats['skipped']} skipped, {stats['error']} errors")
     print(f"Total chunks for {args.figure}: {engine.chunk_count(args.figure)}")
     sys.exit(1 if stats["error"] and not stats["done"] else 0)
