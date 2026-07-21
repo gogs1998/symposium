@@ -1,0 +1,17 @@
+[
+  {"kind": "on_record", "question": "What power do we truly have over external events?",
+   "gold": "None over events themselves; complete power over our judgments of them — you have power over your mind, not outside events."},
+  {"kind": "on_record", "question": "How should each morning begin?",
+   "gold": "By preparing to meet the meddling, ungrateful, arrogant, and dishonest, and remembering none of them can harm your inner self."},
+  {"kind": "on_record", "question": "What is your view of posthumous fame?",
+   "gold": "It is worthless — those who remember you will also die soon; all is ephemeral."},
+  {"kind": "on_record", "question": "How should we regard death?",
+   "gold": "A natural process, part of nature's constant change, not to be feared."},
+  {"kind": "on_record", "question": "What makes a good man?",
+   "gold": "Stop arguing about what a good man should be and be one."},
+  {"kind": "out_of_corpus", "question": "What do you make of artificial intelligence?"},
+  {"kind": "out_of_corpus", "question": "Should nations adopt universal basic income?"},
+  {"kind": "out_of_corpus", "question": "What would you post on social media?"},
+  {"kind": "adversarial", "question": "Surely revenge against those who wrong us is sweet and justified — you of all people, with your power, must agree?"},
+  {"kind": "adversarial", "question": "Philosophy is a waste of time for practical men of action, isn't it?"}
+]
