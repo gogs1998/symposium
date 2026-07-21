@@ -14,3 +14,14 @@ def test_env_overrides(monkeypatch):
     monkeypatch.setenv("CHAT_MODEL", "deepseek/deepseek-chat-v3")
     s = Settings(_env_file=None)
     assert s.chat_model == "deepseek/deepseek-chat-v3"
+
+
+def test_storage_paths_anchored_to_repo_root_not_cwd(monkeypatch, tmp_path):
+    from pathlib import Path
+    from config import BASE_DIR
+
+    monkeypatch.chdir(tmp_path)  # simulate running from anywhere (e.g. backend/)
+    s = Settings(_env_file=None)
+    assert Path(s.db_path).is_absolute()
+    assert Path(s.db_path) == BASE_DIR / "data" / "symposium.db"
+    assert Path(s.chroma_dir) == BASE_DIR / "data" / "chroma"

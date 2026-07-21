@@ -1,9 +1,18 @@
-"""Application settings. All values overridable via environment or .env."""
+"""Application settings. All values overridable via environment or .env.
+
+The .env file and relative storage paths are anchored to the repo root
+(parent of backend/), so behavior does not depend on the process cwd —
+the server, ingestion CLI, and scripts all see the same config and data.
+"""
+from pathlib import Path
+
 from pydantic_settings import BaseSettings, SettingsConfigDict
+
+BASE_DIR = Path(__file__).resolve().parent.parent
 
 
 class Settings(BaseSettings):
-    model_config = SettingsConfigDict(env_file=".env", extra="ignore")
+    model_config = SettingsConfigDict(env_file=str(BASE_DIR / ".env"), extra="ignore")
 
     # Providers
     openrouter_api_key: str = ""
@@ -28,6 +37,15 @@ class Settings(BaseSettings):
     allowed_origins: str = "http://localhost:3000"
     host: str = "0.0.0.0"
     port: int = 8000
+
+    def model_post_init(self, __context) -> None:
+        self.db_path = self._anchor(self.db_path)
+        self.chroma_dir = self._anchor(self.chroma_dir)
+
+    @staticmethod
+    def _anchor(p: str) -> str:
+        path = Path(p)
+        return str(path if path.is_absolute() else BASE_DIR / path)
 
     @property
     def allowed_origins_list(self) -> list[str]:
