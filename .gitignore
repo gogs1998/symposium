@@ -52,3 +52,9 @@ htmlcov/
 *.pid
 *.seed
 *.pid.lock
+
+# v2 additions
+data/
+vector_db_data/
+.env.old
+backend/venv/
