@@ -79,3 +79,40 @@ def test_allowlist_overrides_multi_speaker_skip():
 def test_exclude_ids():
     docs = list(make_source(exclude_ids={"v1"}).documents())
     assert docs == []
+
+
+# --- yt-dlp caption fallback ---
+
+from ingestion.sources.youtube import ChainedFetcher, parse_json3
+
+
+def test_parse_json3_converts_events_to_segments():
+    data = {"events": [
+        {"tStartMs": 0, "dDurationMs": 2000, "segs": [{"utf8": "hello "}, {"utf8": "world"}]},
+        {"tStartMs": 2500, "dDurationMs": 1500, "segs": [{"utf8": "\n"}]},
+        {"tStartMs": 4000, "dDurationMs": 1000, "segs": [{"utf8": "goodbye"}]},
+        {"tStartMs": 5000},
+    ]}
+    segments = parse_json3(data)
+    assert segments == [
+        {"text": "hello world", "start": 0.0, "duration": 2.0},
+        {"text": "goodbye", "start": 4.0, "duration": 1.0},
+    ]
+
+
+def test_chained_fetcher_falls_back_and_aggregates_errors():
+    class Failing:
+        def fetch(self, video_id):
+            raise LookupError("ip blocked")
+
+    class Working:
+        def fetch(self, video_id):
+            return [{"text": "ok", "start": 0.0, "duration": 1.0}]
+
+    chain = ChainedFetcher([Failing(), Working()])
+    assert chain.fetch("v1")[0]["text"] == "ok"
+
+    import pytest
+    chain_bad = ChainedFetcher([Failing(), Failing()])
+    with pytest.raises(LookupError, match="ip blocked"):
+        chain_bad.fetch("v1")

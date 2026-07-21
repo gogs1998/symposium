@@ -51,13 +51,70 @@ class TranscriptApiFetcher:
         return [{"text": s.text, "start": s.start, "duration": s.duration} for s in fetched]
 
 
+def parse_json3(data: dict) -> list[dict]:
+    """YouTube timedtext json3 -> caption segments {text, start, duration}."""
+    segments = []
+    for event in data.get("events", []):
+        text = "".join(seg.get("utf8", "") for seg in event.get("segs") or []).strip()
+        if not text:
+            continue
+        segments.append({
+            "text": text,
+            "start": event.get("tStartMs", 0) / 1000.0,
+            "duration": event.get("dDurationMs", 0) / 1000.0,
+        })
+    return segments
+
+
+class YtDlpCaptionFetcher:
+    """Caption fetch via yt-dlp's timedtext extraction — a different YouTube
+    endpoint than youtube-transcript-api, so it keeps working when YouTube
+    IP-blocks the transcript API. Manual subtitles preferred over auto."""
+
+    LANGS = ["en", "en-US", "en-GB", "en-orig"]
+
+    def fetch(self, video_id: str) -> list[dict]:
+        import json
+        import urllib.request
+        import yt_dlp
+        opts = {"quiet": True, "skip_download": True,
+                "writesubtitles": True, "writeautomaticsub": True}
+        with yt_dlp.YoutubeDL(opts) as ydl:
+            info = ydl.extract_info(f"https://www.youtube.com/watch?v={video_id}", download=False)
+        for pool_name in ("subtitles", "automatic_captions"):
+            pool = info.get(pool_name) or {}
+            for lang in self.LANGS:
+                url = next((f["url"] for f in pool.get(lang) or [] if f.get("ext") == "json3"), None)
+                if url:
+                    with urllib.request.urlopen(url) as resp:
+                        return parse_json3(json.loads(resp.read().decode("utf-8")))
+        raise LookupError(f"no captions found via yt-dlp for {video_id}")
+
+
+class ChainedFetcher:
+    """Try fetchers in order; raise with all reasons if every one fails."""
+
+    def __init__(self, fetchers):
+        self.fetchers = fetchers
+
+    def fetch(self, video_id: str) -> list[dict]:
+        errors = []
+        for fetcher in self.fetchers:
+            try:
+                return fetcher.fetch(video_id)
+            except Exception as exc:
+                errors.append(f"{type(fetcher).__name__}: {str(exc)[:120]}")
+        raise LookupError("; ".join(errors))
+
+
 class YouTubeSource:
     def __init__(self, channel_url: str, *, lister=None, transcripts=None,
                  max_videos: int = 100, min_duration: int = 120,
                  include_ids: set[str] | None = None, exclude_ids: set[str] | None = None):
         self.channel_url = channel_url
         self.lister = lister or YtDlpLister()
-        self.transcripts = transcripts or TranscriptApiFetcher()
+        self.transcripts = transcripts or ChainedFetcher(
+            [TranscriptApiFetcher(), YtDlpCaptionFetcher()])
         self.max_videos = max_videos
         self.min_duration = min_duration
         self.include_ids = include_ids or set()
