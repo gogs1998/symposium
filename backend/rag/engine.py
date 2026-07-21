@@ -69,6 +69,8 @@ class RAGEngine:
             f"[{c['metadata'].get('source', 'unknown')}]\n{c['text']}" for c in context
         )
         system = persona_prompt + CONTEXT_HEADER + context_block
+        anchor_name = persona_prompt.split(".")[0].removeprefix("You are ").strip() or "the figure"
+        system += f"\n\nRespond as {anchor_name} — never as an AI assistant persona."
         messages = [{"role": "system", "content": system}]
         messages += [{"role": m["role"], "content": m["content"]} for m in history]
         messages.append({"role": "user", "content": user_message})

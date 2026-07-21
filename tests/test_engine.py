@@ -67,3 +67,21 @@ async def test_stream_reply_yields_events(engine):
     assert content == "Marcus says hello"
     assert events[-1]["type"] == "end"
     assert events[-1]["full_response"] == "Marcus says hello"
+
+
+def test_citations_pass_through_video_metadata(engine):
+    context = [{"text": "clip text", "score": 0.9,
+                "metadata": {"source": "My video", "video_id": "v1",
+                             "url": "https://youtu.be/v1", "start_seconds": 754.0}}]
+    citation = engine.citations_from(context)[0]
+    assert citation["metadata"]["start_seconds"] == 754.0
+    assert citation["metadata"]["url"] == "https://youtu.be/v1"
+
+
+def test_system_block_ends_with_reanchor(engine):
+    messages = engine.build_messages(persona_prompt="You are Marcus Aurelius.",
+                                     context=[{"text": "ctx", "metadata": {"source": "s"}, "score": 0.5}],
+                                     history=[], user_message="hi")
+    system = messages[0]["content"]
+    assert system.rstrip().endswith("Respond as Marcus Aurelius — never as an AI assistant persona.")
+    assert system.index("ctx") < system.index("never as an AI assistant persona")
