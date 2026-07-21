@@ -113,22 +113,22 @@ class RAGEngine:
         conversation_history: Optional[List[Dict[str, str]]] = None
     ) -> Dict[str, Any]:
         """Generate a response using retrieved context"""
-        
+
         # Format context
         context_text = "\n\n".join([
             f"[Source: {chunk['metadata'].get('source', 'Unknown')}]\n{chunk['content']}"
             for chunk in context_chunks
         ])
-        
+
         # Build messages
         messages = [
             {"role": "system", "content": system_prompt},
         ]
-        
+
         # Add conversation history if provided
         if conversation_history:
             messages.extend(conversation_history[-10:])  # Last 10 messages
-        
+
         # Add context and current query
         user_message = f"""Based on the following source material about this historical figure:
 
@@ -141,9 +141,9 @@ Remember to:
 2. Reference specific sources when relevant
 3. If the question goes beyond your documented knowledge, acknowledge that thoughtfully
 """
-        
+
         messages.append({"role": "user", "content": user_message})
-        
+
         try:
             # Generate response
             response = self.llm_client.chat.completions.create(
@@ -152,9 +152,9 @@ Remember to:
                 temperature=settings.temperature,
                 max_tokens=settings.max_tokens
             )
-            
+
             response_text = response.choices[0].message.content
-            
+
             # Extract citations if enabled
             citations = []
             if settings.enable_citations:
@@ -164,16 +164,102 @@ Remember to:
                         "excerpt": chunk["content"][:200] + "...",
                         "relevance_score": chunk["relevance_score"]
                     })
-            
+
             return {
                 "response": response_text,
                 "citations": citations if citations else None,
                 "context_chunks": [chunk["content"] for chunk in context_chunks]
             }
-            
+
         except Exception as e:
             logger.error(f"Error generating response: {e}")
             raise
+
+    def generate_response_stream(
+        self,
+        figure_id: str,
+        query: str,
+        context_chunks: List[Dict[str, Any]],
+        system_prompt: str,
+        conversation_history: Optional[List[Dict[str, str]]] = None
+    ):
+        """Generate a streaming response using retrieved context"""
+
+        # Format context
+        context_text = "\n\n".join([
+            f"[Source: {chunk['metadata'].get('source', 'Unknown')}]\n{chunk['content']}"
+            for chunk in context_chunks
+        ])
+
+        # Build messages
+        messages = [
+            {"role": "system", "content": system_prompt},
+        ]
+
+        # Add conversation history if provided
+        if conversation_history:
+            messages.extend(conversation_history[-10:])  # Last 10 messages
+
+        # Add context and current query
+        user_message = f"""Based on the following source material about this historical figure:
+
+{context_text}
+
+Please respond to: {query}
+
+Remember to:
+1. Stay true to the historical figure's documented views and personality
+2. Reference specific sources when relevant
+3. If the question goes beyond your documented knowledge, acknowledge that thoughtfully
+"""
+
+        messages.append({"role": "user", "content": user_message})
+
+        try:
+            # Generate streaming response
+            stream = self.llm_client.chat.completions.create(
+                model=settings.default_model,
+                messages=messages,
+                temperature=settings.temperature,
+                max_tokens=settings.max_tokens,
+                stream=True
+            )
+
+            # Extract citations
+            citations = []
+            if settings.enable_citations:
+                for chunk in context_chunks[:3]:  # Top 3 most relevant
+                    citations.append({
+                        "source": chunk["metadata"].get("source", "Unknown"),
+                        "excerpt": chunk["content"][:200] + "...",
+                        "relevance_score": chunk["relevance_score"]
+                    })
+
+            # Yield metadata first (citations)
+            yield {
+                "type": "metadata",
+                "citations": citations if citations else None
+            }
+
+            # Yield content chunks
+            for chunk in stream:
+                if chunk.choices[0].delta.content:
+                    yield {
+                        "type": "content",
+                        "content": chunk.choices[0].delta.content
+                    }
+
+            # Yield end signal
+            yield {
+                "type": "end"
+            }
+
+        except Exception as e:
+            logger.error(f"Error generating streaming response: {e}")
+            yield {
+                "type": "error",
+                "error": str(e)
+            }
     
     def ingest_documents(
         self,

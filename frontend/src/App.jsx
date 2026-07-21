@@ -11,6 +11,7 @@ function App() {
   const [messages, setMessages] = useState([])
   const [input, setInput] = useState('')
   const [loading, setLoading] = useState(false)
+  const [sessionId, setSessionId] = useState(null)
   const [conversationIds, setConversationIds] = useState({})
   const [showCitations, setShowCitations] = useState(true)
   const [chatMode, setChatMode] = useState(false) // false = selection, true = chatting
@@ -18,6 +19,11 @@ function App() {
 
   useEffect(() => {
     loadFigures()
+    // Try to restore session from localStorage
+    const savedSessionId = localStorage.getItem('currentSessionId')
+    if (savedSessionId) {
+      setSessionId(savedSessionId)
+    }
   }, [])
 
   useEffect(() => {
@@ -83,14 +89,21 @@ function App() {
       role: 'system',
       content: greeting
     }])
-    setConversationIds({})
+
+    // Create new session if none exists
+    if (!sessionId) {
+      // Backend will create session on first message
+      setSessionId(null)
+    }
   }
 
   const backToSelection = () => {
     setChatMode(false)
     setMessages([])
     setSelectedFigures([])
-    setConversationIds({})
+    // Start a new session for next conversation
+    setSessionId(null)
+    localStorage.removeItem('currentSessionId')
   }
 
   const sendMessage = async (e) => {
@@ -147,31 +160,119 @@ function App() {
             messageToSend = `The user asked: "${currentInput}"\n\nOther panel members have already responded:\n\n${previousResponses}\n\nNow, please give your perspective. You may agree, disagree, or build upon what others have said.`
           }
 
-          const response = await axios.post(`${API_BASE}/chat`, {
-            figure: figure.id,
-            message: messageToSend,
-            conversation_id: newConversationIds[figure.id],
-            include_citations: showCitations
-          }, {
+          // Stream the response
+          const response = await fetch(`${API_BASE}/chat/stream`, {
+            method: 'POST',
             headers: {
+              'Content-Type': 'application/json',
               'ngrok-skip-browser-warning': 'true',
               'User-Agent': 'Symposium-Frontend'
-            }
+            },
+            body: JSON.stringify({
+              figure: figure.id,
+              message: messageToSend,
+              conversation_id: sessionId,
+              include_citations: showCitations
+            })
           })
 
-          const assistantMessage = {
-            role: 'assistant',
-            content: response.data.message,
-            figure: figure.id,
-            figureName: figure.name,
-            citations: response.data.citations
+          if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`)
           }
 
-          panelResponses.push(assistantMessage)
-          newConversationIds[figure.id] = response.data.conversation_id
+          const reader = response.body.getReader()
+          const decoder = new TextDecoder()
+          let buffer = ''
+          let fullContent = ''
+          let citations = null
+          let conversationId = null
 
-          // Update messages incrementally so user sees responses as they arrive
+          // Create a placeholder message that we'll update
+          const placeholderIndex = messages.length + panelResponses.length + 1
+          const assistantMessage = {
+            role: 'assistant',
+            content: '',
+            figure: figure.id,
+            figureName: figure.name,
+            citations: null,
+            streaming: true
+          }
+
           setMessages(prev => [...prev, assistantMessage])
+
+          while (true) {
+            const { done, value } = await reader.read()
+            if (done) break
+
+            buffer += decoder.decode(value, { stream: true })
+            const lines = buffer.split('\n')
+            buffer = lines.pop() || ''
+
+            for (const line of lines) {
+              if (line.startsWith('data: ')) {
+                try {
+                  const data = JSON.parse(line.slice(6))
+
+                  if (data.type === 'start') {
+                    conversationId = data.conversation_id
+                    // Save session ID to state and localStorage
+                    if (!sessionId && conversationId) {
+                      setSessionId(conversationId)
+                      localStorage.setItem('currentSessionId', conversationId)
+                    }
+                  } else if (data.type === 'citations') {
+                    citations = data.citations
+                  } else if (data.type === 'content') {
+                    fullContent += data.content
+                    // Update the message in real-time
+                    setMessages(prev => {
+                      const newMessages = [...prev]
+                      const msgIndex = newMessages.findIndex(
+                        (m, idx) => idx === placeholderIndex && m.figure === figure.id && m.streaming
+                      )
+                      if (msgIndex !== -1) {
+                        newMessages[msgIndex] = {
+                          ...newMessages[msgIndex],
+                          content: fullContent
+                        }
+                      }
+                      return newMessages
+                    })
+                  } else if (data.type === 'end') {
+                    // Finalize the message
+                    const finalMessage = {
+                      role: 'assistant',
+                      content: fullContent,
+                      figure: figure.id,
+                      figureName: figure.name,
+                      citations: citations,
+                      streaming: false
+                    }
+
+                    panelResponses.push(finalMessage)
+                    if (conversationId) {
+                      newConversationIds[figure.id] = conversationId
+                    }
+
+                    setMessages(prev => {
+                      const newMessages = [...prev]
+                      const msgIndex = newMessages.findIndex(
+                        (m, idx) => idx === placeholderIndex && m.figure === figure.id
+                      )
+                      if (msgIndex !== -1) {
+                        newMessages[msgIndex] = finalMessage
+                      }
+                      return newMessages
+                    })
+                  } else if (data.type === 'error') {
+                    throw new Error(data.error)
+                  }
+                } catch (e) {
+                  console.error('Error parsing SSE data:', e)
+                }
+              }
+            }
+          }
         } catch (error) {
           console.error(`Error getting response from ${figure.name}:`, error)
           const errorMessage = {

@@ -3,9 +3,11 @@ Symposium.ai FastAPI Application
 """
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import StreamingResponse
 from contextlib import asynccontextmanager
 import logging
 import uuid
+import json
 
 from config import settings
 from models.schemas import (
@@ -14,6 +16,7 @@ from models.schemas import (
 )
 from rag.engine import rag_engine
 from agents.figures import get_figure, list_figures, FIGURE_REGISTRY
+from database import conversation_db
 
 # Configure logging
 logging.basicConfig(
@@ -21,9 +24,6 @@ logging.basicConfig(
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
 )
 logger = logging.getLogger(__name__)
-
-# In-memory conversation storage (use Redis/DB in production)
-conversations = {}
 
 
 @asynccontextmanager
@@ -158,26 +158,31 @@ async def chat_with_figure(request: ChatRequest):
     try:
         # Get figure configuration
         figure = get_figure(request.figure)
-        
-        # Get or create conversation ID
-        conversation_id = request.conversation_id or str(uuid.uuid4())
-        
-        # Get conversation history
-        conversation_history = conversations.get(conversation_id, [])
-        
+
+        # Get or create session and conversation
+        session_id = request.conversation_id or conversation_db.create_session()
+        conversation_id = conversation_db.get_or_create_conversation(session_id, request.figure)
+
+        # Get conversation history from database
+        messages = conversation_db.get_conversation_history(conversation_id, limit=10)
+        conversation_history = [
+            {"role": msg["role"], "content": msg["content"]}
+            for msg in messages
+        ]
+
         # Retrieve relevant context
         context_chunks = rag_engine.retrieve_context(
             figure_id=request.figure,
             query=request.message
         )
-        
+
         if not context_chunks:
             logger.warning(f"No context found for figure {request.figure}")
             raise HTTPException(
                 status_code=404,
                 detail=f"No knowledge base found for {figure.name}. Please ingest source materials first."
             )
-        
+
         # Generate response
         result = rag_engine.generate_response(
             figure_id=request.figure,
@@ -186,12 +191,16 @@ async def chat_with_figure(request: ChatRequest):
             system_prompt=figure.system_prompt,
             conversation_history=conversation_history
         )
-        
-        # Update conversation history
-        conversation_history.append({"role": "user", "content": request.message})
-        conversation_history.append({"role": "assistant", "content": result["response"]})
-        conversations[conversation_id] = conversation_history
-        
+
+        # Save messages to database
+        conversation_db.save_message(conversation_id, "user", request.message)
+        conversation_db.save_message(
+            conversation_id,
+            "assistant",
+            result["response"],
+            citations=result.get("citations")
+        )
+
         # Format citations
         citations = None
         if request.include_citations and result.get("citations"):
@@ -203,19 +212,116 @@ async def chat_with_figure(request: ChatRequest):
                 )
                 for c in result["citations"]
             ]
-        
+
         return ChatResponse(
             figure=request.figure,
             message=result["response"],
             citations=citations,
-            conversation_id=conversation_id,
+            conversation_id=session_id,
             retrieved_chunks=result["context_chunks"] if settings.log_level == "debug" else None
         )
-        
+
     except ValueError as e:
         raise HTTPException(status_code=404, detail=str(e))
     except Exception as e:
         logger.error(f"Chat error: {e}")
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+@app.post("/chat/stream", tags=["Chat"])
+async def chat_with_figure_stream(request: ChatRequest):
+    """Chat with a historical figure (streaming response)"""
+    try:
+        # Get figure configuration
+        figure = get_figure(request.figure)
+
+        # Get or create session and conversation
+        session_id = request.conversation_id or conversation_db.create_session()
+        conversation_id = conversation_db.get_or_create_conversation(session_id, request.figure)
+
+        # Get conversation history from database
+        messages = conversation_db.get_conversation_history(conversation_id, limit=10)
+        conversation_history = [
+            {"role": msg["role"], "content": msg["content"]}
+            for msg in messages
+        ]
+
+        # Retrieve relevant context
+        context_chunks = rag_engine.retrieve_context(
+            figure_id=request.figure,
+            query=request.message
+        )
+
+        if not context_chunks:
+            logger.warning(f"No context found for figure {request.figure}")
+            raise HTTPException(
+                status_code=404,
+                detail=f"No knowledge base found for {figure.name}. Please ingest source materials first."
+            )
+
+        # Generator function for streaming
+        async def generate():
+            full_response = ""
+            citations_list = None
+
+            # Send initial metadata
+            yield f"data: {json.dumps({'type': 'start', 'conversation_id': session_id, 'figure': request.figure})}\n\n"
+
+            # Stream the response
+            for chunk in rag_engine.generate_response_stream(
+                figure_id=request.figure,
+                query=request.message,
+                context_chunks=context_chunks,
+                system_prompt=figure.system_prompt,
+                conversation_history=conversation_history
+            ):
+                if chunk["type"] == "metadata" and request.include_citations:
+                    # Send citations
+                    if chunk.get("citations"):
+                        citations_list = chunk["citations"]
+                        citations_data = {
+                            "type": "citations",
+                            "citations": chunk["citations"]
+                        }
+                        yield f"data: {json.dumps(citations_data)}\n\n"
+
+                elif chunk["type"] == "content":
+                    # Send content chunk
+                    full_response += chunk["content"]
+                    yield f"data: {json.dumps({'type': 'content', 'content': chunk['content']})}\n\n"
+
+                elif chunk["type"] == "error":
+                    # Send error
+                    yield f"data: {json.dumps({'type': 'error', 'error': chunk['error']})}\n\n"
+                    return
+
+                elif chunk["type"] == "end":
+                    # Save messages to database
+                    conversation_db.save_message(conversation_id, "user", request.message)
+                    conversation_db.save_message(
+                        conversation_id,
+                        "assistant",
+                        full_response,
+                        citations=citations_list
+                    )
+
+                    # Send end signal
+                    yield f"data: {json.dumps({'type': 'end'})}\n\n"
+
+        return StreamingResponse(
+            generate(),
+            media_type="text/event-stream",
+            headers={
+                "Cache-Control": "no-cache",
+                "Connection": "keep-alive",
+                "X-Accel-Buffering": "no"  # Disable buffering for nginx
+            }
+        )
+
+    except ValueError as e:
+        raise HTTPException(status_code=404, detail=str(e))
+    except Exception as e:
+        logger.error(f"Chat stream error: {e}")
         raise HTTPException(status_code=500, detail=str(e))
 
 
@@ -281,13 +387,65 @@ async def multi_agent_chat(request: MultiAgentChatRequest):
         raise HTTPException(status_code=500, detail=str(e))
 
 
-@app.delete("/conversations/{conversation_id}", tags=["Chat"])
-async def delete_conversation(conversation_id: str):
-    """Delete a conversation"""
-    if conversation_id in conversations:
-        del conversations[conversation_id]
-        return {"message": "Conversation deleted"}
-    raise HTTPException(status_code=404, detail="Conversation not found")
+@app.get("/sessions", tags=["Sessions"])
+async def get_sessions(user_id: str = "default", limit: int = 50):
+    """Get all sessions for a user"""
+    try:
+        sessions = conversation_db.get_user_sessions(user_id, limit)
+        return {"sessions": sessions}
+    except Exception as e:
+        logger.error(f"Error getting sessions: {e}")
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+@app.get("/sessions/{session_id}", tags=["Sessions"])
+async def get_session(session_id: str):
+    """Get a specific session with all its conversations"""
+    try:
+        conversations = conversation_db.get_session_conversations(session_id)
+        return {"session_id": session_id, "conversations": conversations}
+    except Exception as e:
+        logger.error(f"Error getting session: {e}")
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+@app.get("/sessions/{session_id}/history", tags=["Sessions"])
+async def get_session_history(session_id: str):
+    """Get complete conversation history for a session"""
+    try:
+        conversations = conversation_db.get_session_conversations(session_id)
+
+        history = {}
+        for conv in conversations:
+            messages = conversation_db.get_conversation_history(conv['id'])
+            history[conv['figure_id']] = messages
+
+        return {"session_id": session_id, "history": history}
+    except Exception as e:
+        logger.error(f"Error getting session history: {e}")
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+@app.put("/sessions/{session_id}/title", tags=["Sessions"])
+async def update_session_title(session_id: str, title: str):
+    """Update session title"""
+    try:
+        conversation_db.update_session_title(session_id, title)
+        return {"message": "Title updated", "session_id": session_id, "title": title}
+    except Exception as e:
+        logger.error(f"Error updating session title: {e}")
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+@app.delete("/sessions/{session_id}", tags=["Sessions"])
+async def delete_session(session_id: str):
+    """Delete a session and all associated conversations/messages"""
+    try:
+        conversation_db.delete_session(session_id)
+        return {"message": "Session deleted", "session_id": session_id}
+    except Exception as e:
+        logger.error(f"Error deleting session: {e}")
+        raise HTTPException(status_code=500, detail=str(e))
 
 
 if __name__ == "__main__":
