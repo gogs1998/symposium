@@ -1,5 +1,4 @@
-# tests/test_providers_fake.py
-import pytest
+﻿# tests/test_providers_fake.py
 from providers.fake import FakeChat, FakeEmbed
 
 
