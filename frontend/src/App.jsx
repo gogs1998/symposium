@@ -54,7 +54,14 @@ function App() {
 
       // Make sure response.data is an array
       if (Array.isArray(response.data)) {
-        setFigures(response.data)
+        // v2 API nests era/fields/categories in metadata; availability = has chunks
+        setFigures(response.data.map(f => ({
+          ...f,
+          era: f.metadata?.era ?? '',
+          fields: f.metadata?.fields ?? [],
+          categories: f.metadata?.categories ?? [],
+          available: f.chunk_count > 0,
+        })))
       } else {
         console.error('API returned non-array:', response.data)
         setFigures([])
