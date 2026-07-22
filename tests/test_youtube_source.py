@@ -116,3 +116,9 @@ def test_chained_fetcher_falls_back_and_aggregates_errors():
     chain_bad = ChainedFetcher([Failing(), Failing()])
     with pytest.raises(LookupError, match="ip blocked"):
         chain_bad.fetch("v1")
+
+
+def test_cookies_browser_propagates_to_default_fetchers():
+    source = YouTubeSource("https://youtube.com/@x", cookies_browser="edge")
+    assert source.lister.browser == "edge"
+    assert source.transcripts.fetchers[1].browser == "edge"

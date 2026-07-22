@@ -106,6 +106,8 @@ def main():
     p_yt.add_argument("--exclude", default="", help="Comma-separated video IDs to exclude")
     p_yt.add_argument("--sleep", type=float, default=4.0,
                       help="Seconds between caption fetches (avoid YouTube rate limits)")
+    p_yt.add_argument("--cookies-from-browser", default=None, dest="cookies_browser",
+                      help="Browser to read YouTube cookies from (chrome/edge/firefox) — defeats bot checks")
     args = parser.parse_args()
 
     conn = connect(settings.db_path)
@@ -123,7 +125,7 @@ def main():
             args.channel, max_videos=args.max_videos, min_duration=args.min_duration,
             include_ids={s for s in args.include.split(",") if s},
             exclude_ids={s for s in args.exclude.split(",") if s},
-            sleep_between=args.sleep,
+            sleep_between=args.sleep, cookies_browser=args.cookies_browser,
         )
         jsonl = Path("ingestion/sources_data/creators") / args.figure / "transcripts.jsonl"
         stats = ingest_youtube(conn, engine, args.figure, source, jsonl_path=jsonl)

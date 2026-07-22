@@ -20,9 +20,14 @@ def looks_multi_speaker(title: str) -> bool:
 class YtDlpLister:
     """Video listing via yt-dlp flat extraction (no downloads, no API key)."""
 
+    def __init__(self, browser: str | None = None):
+        self.browser = browser   # pass browser cookies to defeat bot checks
+
     def list_videos(self, channel_url: str, max_videos: int, min_duration: int) -> list[dict]:
         import yt_dlp
         opts = {"extract_flat": True, "quiet": True, "playlistend": max_videos * 2}
+        if self.browser:
+            opts["cookiesfrombrowser"] = (self.browser,)
         with yt_dlp.YoutubeDL(opts) as ydl:
             info = ydl.extract_info(f"{channel_url.rstrip('/')}/videos", download=False)
         videos = []
@@ -73,12 +78,17 @@ class YtDlpCaptionFetcher:
 
     LANGS = ["en", "en-US", "en-GB", "en-orig"]
 
+    def __init__(self, browser: str | None = None):
+        self.browser = browser   # pass browser cookies to defeat bot checks
+
     def fetch(self, video_id: str) -> list[dict]:
         import json
         import urllib.request
         import yt_dlp
         opts = {"quiet": True, "skip_download": True,
                 "writesubtitles": True, "writeautomaticsub": True}
+        if self.browser:
+            opts["cookiesfrombrowser"] = (self.browser,)
         with yt_dlp.YoutubeDL(opts) as ydl:
             info = ydl.extract_info(f"https://www.youtube.com/watch?v={video_id}", download=False)
         for pool_name in ("subtitles", "automatic_captions"):
@@ -111,11 +121,11 @@ class YouTubeSource:
     def __init__(self, channel_url: str, *, lister=None, transcripts=None,
                  max_videos: int = 100, min_duration: int = 120,
                  include_ids: set[str] | None = None, exclude_ids: set[str] | None = None,
-                 sleep_between: float = 0.0):
+                 sleep_between: float = 0.0, cookies_browser: str | None = None):
         self.channel_url = channel_url
-        self.lister = lister or YtDlpLister()
+        self.lister = lister or YtDlpLister(browser=cookies_browser)
         self.transcripts = transcripts or ChainedFetcher(
-            [TranscriptApiFetcher(), YtDlpCaptionFetcher()])
+            [TranscriptApiFetcher(), YtDlpCaptionFetcher(browser=cookies_browser)])
         self.max_videos = max_videos
         self.min_duration = min_duration
         self.include_ids = include_ids or set()
