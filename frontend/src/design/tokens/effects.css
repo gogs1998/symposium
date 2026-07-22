@@ -1,0 +1,37 @@
+/* SYMPOSIUM — RADII, BORDERS, SHADOWS, MOTION, TEXTURE
+   Restrained. Sharp editorial corners with occasional soft cards; warm low shadows, never glossy. */
+:root {
+  /* radii — small and confident, not pill-happy */
+  --radius-none: 0;
+  --radius-xs: 2px;
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 10px;
+  --radius-xl: 14px;
+  --radius-pill: 999px;   /* reserved: category chips, availability dots */
+
+  /* borders */
+  --border-w: 1px;
+  --border-w-2: 1.5px;
+  --border-w-hair: 0.5px;
+
+  /* shadows — warm-tinted, soft, low. No blue/black glow. */
+  --shadow-xs: 0 1px 2px rgba(40, 30, 16, 0.06);
+  --shadow-sm: 0 1px 2px rgba(40, 30, 16, 0.05), 0 2px 8px rgba(40, 30, 16, 0.05);
+  --shadow-md: 0 4px 16px rgba(40, 30, 16, 0.08), 0 1px 3px rgba(40, 30, 16, 0.06);
+  --shadow-lg: 0 12px 34px rgba(40, 30, 16, 0.12), 0 3px 8px rgba(40, 30, 16, 0.07);
+  --shadow-inset: inset 0 1px 0 rgba(255, 250, 240, 0.5);
+
+  /* focus */
+  --ring: 0 0 0 3px color-mix(in oklab, var(--focus-ring) 45%, transparent); /* @kind shadow */
+
+  /* motion — measured, editorial; fades & gentle ease, no bounce */
+  --ease-out: cubic-bezier(0.22, 0.61, 0.36, 1); /* @kind other */
+  --ease-in-out: cubic-bezier(0.45, 0, 0.2, 1); /* @kind other */
+  --dur-fast: 120ms; /* @kind other */
+  --dur-med: 220ms; /* @kind other */
+  --dur-slow: 420ms; /* @kind other */
+
+  /* archival paper grain — subtle repeating tint overlay (use as background-image) */
+  --texture-grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E"); /* @kind other */
+}

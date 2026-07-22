@@ -1,0 +1,6 @@
+/* Webfonts — served from Google Fonts CDN (see readme CAVEATS: swap for self-hosted binaries in production).
+   Display: Libre Caslon Display — museum-catalog headline serif.
+   Reading serif: Newsreader — literary body + quotes/excerpts (optical sizing).
+   UI sans: Archivo — labels, meta, buttons, chips.
+   Mono: IBM Plex Mono — timestamps, citation source lines. */
+@import url('https://fonts.googleapis.com/css2?family=Libre+Caslon+Display&family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..500&family=Archivo:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap');
