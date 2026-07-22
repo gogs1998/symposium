@@ -1,0 +1,9 @@
+/* Desktop-first overrides. DS components render inline styles; these class hooks
+   (present on every DS component) let us adjust layout at small viewports. */
+@media (max-width: 720px) {
+  .sym-sidebar { display: none; }               /* hide the session rail on phones */
+  .sym-figurecard { padding: var(--space-4); }
+}
+@media (max-width: 520px) {
+  .sym-tabs { gap: var(--space-5); }
+}
