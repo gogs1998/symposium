@@ -4,6 +4,7 @@ Usage:
   venv python ingestion/cli.py files --figure aurelius --source-dir ingestion/sources_data/aurelius
 """
 import argparse
+import json
 import sys
 from pathlib import Path
 
@@ -15,7 +16,7 @@ import chromadb
 import registry
 from config import settings
 from db import connect, init_db
-from ingestion.sources.files import FilesSource
+from ingestion.sources.files import Document, FilesSource
 from ingestion.sources.youtube import YouTubeSource
 from ingestion.transcripts import append_jsonl, chunk_video
 from providers.fastembed_local import FastEmbedLocal
@@ -91,6 +92,56 @@ def ingest_youtube(conn, engine: RAGEngine, figure_id: str, source, *, jsonl_pat
     return stats
 
 
+def ingest_jsonl(conn, engine: RAGEngine, figure_id: str, path, *, replace: bool = False) -> dict:
+    """Ingest a transcripts JSONL (typically host-attributed) into the figure's
+    collection. Item ids are namespaced `host:<video_id>` so re-ingesting after
+    attribution is not skipped by the earlier YouTube ingest log.
+
+    `replace=True` deletes the figure's chroma collection first (guarded), so a
+    re-ingest reflects only the new records rather than accumulating old chunks.
+    """
+    registry.get_figure(conn, figure_id)  # raises FigureNotFound early
+    if replace:
+        try:
+            engine.chroma.delete_collection(name=f"figure_{figure_id}")
+        except Exception as exc:
+            print(f"  (no existing collection to replace: {exc})")
+
+    stats = {"done": 0, "skipped": 0, "error": 0}
+    for line in Path(path).read_text(encoding="utf-8").splitlines():
+        if not line.strip():
+            continue
+        record = json.loads(line)
+        video_id = record["video_id"]
+        item_id = f"host:{video_id}"
+        if already_done(conn, figure_id, item_id):
+            stats["skipped"] += 1
+            continue
+        try:
+            doc = Document(
+                item_id=item_id,
+                text=" ".join(s["text"] for s in record["segments"]),
+                metadata={
+                    "source": record["title"],
+                    "video_id": video_id,
+                    "url": record.get("url", ""),
+                    "upload_date": record.get("upload_date", ""),
+                    "duration": record.get("duration", 0),
+                    "segments": record["segments"],
+                },
+            )
+            chunks = chunk_video(doc, chunk_size=settings.chunk_size, overlap=settings.chunk_overlap)
+            n = engine.ingest_chunks(figure_id, chunks)
+            log_item(conn, figure_id, item_id, "done", f"{n} chunks")
+            stats["done"] += 1
+            print(f"  OK   {item_id} {record['title'][:50]!r}: {n} chunks")
+        except Exception as exc:
+            log_item(conn, figure_id, item_id, "error", str(exc))
+            stats["error"] += 1
+            print(f"  FAIL {item_id}: {exc}")
+    return stats
+
+
 def main():
     parser = argparse.ArgumentParser(description="Ingest a corpus for a figure")
     sub = parser.add_subparsers(dest="source_type", required=True)
@@ -108,6 +159,11 @@ def main():
                       help="Seconds between caption fetches (avoid YouTube rate limits)")
     p_yt.add_argument("--cookies-from-browser", default=None, dest="cookies_browser",
                       help="Browser to read YouTube cookies from (chrome/edge/firefox) — defeats bot checks")
+    p_jsonl = sub.add_parser("jsonl", help="Ingest a transcripts JSONL (e.g. host-attributed)")
+    p_jsonl.add_argument("--figure", required=True)
+    p_jsonl.add_argument("--path", required=True, help="Path to the transcripts JSONL")
+    p_jsonl.add_argument("--replace", action="store_true",
+                         help="Delete the figure's chroma collection before ingesting")
     args = parser.parse_args()
 
     conn = connect(settings.db_path)
@@ -120,6 +176,8 @@ def main():
     )
     if args.source_type == "files":
         stats = ingest(conn, engine, args.figure, FilesSource(args.source_dir))
+    elif args.source_type == "jsonl":
+        stats = ingest_jsonl(conn, engine, args.figure, args.path, replace=args.replace)
     else:
         source = YouTubeSource(
             args.channel, max_videos=args.max_videos, min_duration=args.min_duration,
