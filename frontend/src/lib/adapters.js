@@ -48,7 +48,7 @@ export function adaptCitation(c, channelColor) {
       excerpt: c.excerpt,
       videoTitle: md.source || c.source,
       timestamp: formatTimestamp(md.start_seconds || 0),
-      href: md.url ? `${md.url}?t=${start}s` : '#',
+      href: md.url ? `${md.url}${md.url.includes('?') ? '&' : '?'}t=${start}s` : '#',
       channelColor,
       thumbnail: md.thumbnail || undefined,
     }

@@ -55,4 +55,12 @@ describe('adaptCitation', () => {
     expect(c.href).toBe('https://youtu.be/abc?t=754s')
     expect(c.channelColor).toBe('#2A6DF4')
   })
+
+  it('appends t with & when the url already has a query string', () => {
+    const c = adaptCitation({
+      source: 'V', excerpt: 'x', score: 0.5,
+      metadata: { video_id: 'abc', url: 'https://www.youtube.com/watch?v=abc', start_seconds: 60 },
+    })
+    expect(c.href).toBe('https://www.youtube.com/watch?v=abc&t=60s')
+  })
 })
