@@ -39,8 +39,19 @@ async def extract_from_document(chat, *, model: str, figure_name: str,
                                 source_name: str, text: str) -> dict:
     prompt = MAP_PROMPT.format(figure_name=figure_name, source_name=source_name,
                                text=text[:MAX_DOC_CHARS])
-    raw = await chat.complete([{"role": "user", "content": prompt}],
-                              model=model, temperature=0.2, max_tokens=2000)
-    notes = parse_model_json(raw)
-    notes["source"] = source_name
-    return notes
+    messages = [{"role": "user", "content": prompt}]
+    last_error = None
+    for attempt in range(2):
+        raw = await chat.complete(messages, model=model, temperature=0.2, max_tokens=6000)
+        try:
+            notes = parse_model_json(raw)
+            notes["source"] = source_name
+            return notes
+        except ValueError as exc:
+            # Verbose authors can overrun the budget mid-JSON; retry once, tighter.
+            last_error = exc
+            messages = [{"role": "user", "content":
+                        prompt + "\n\nYour previous reply was cut off or invalid. "
+                        "Return ONLY the JSON object, and keep every field brief: "
+                        "style_notes one short paragraph, at most 6 stances, 4 heuristics, 2 quotes."}]
+    raise last_error

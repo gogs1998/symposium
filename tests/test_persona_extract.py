@@ -55,3 +55,20 @@ async def test_extract_truncates_very_long_documents():
     await extract_from_document(chat, model="m", figure_name="X", source_name="s",
                                 text="word " * 100_000)
     assert len(chat.calls[0]["messages"][-1]["content"]) < 60_000
+
+
+async def test_extract_retries_once_on_truncated_json():
+    truncated = '```json\n{"style_notes": "cut off mid sent'
+    chat = ScriptedChat([truncated, json.dumps(DOC_NOTES)])
+    notes = await extract_from_document(chat, model="m", figure_name="X",
+                                        source_name="s", text="text")
+    assert notes["stances"][0]["topic"] == "adversity"
+    assert len(chat.calls) == 2
+    assert "keep every field brief" in chat.calls[1]["messages"][-1]["content"]
+
+
+async def test_extract_raises_after_two_failures():
+    chat = ScriptedChat(["garbage", "more garbage"])
+    with pytest.raises(ValueError):
+        await extract_from_document(chat, model="m", figure_name="X",
+                                    source_name="s", text="text")
