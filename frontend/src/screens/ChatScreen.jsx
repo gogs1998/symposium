@@ -10,7 +10,7 @@ function ChatHeader({ figure, onBack }) {
   return (
     <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-4)', padding: 'var(--space-4) var(--space-6)', borderBottom: '1px solid var(--border-line)', background: 'var(--surface-page)' }}>
       <IconButton label="Back to roster" variant="ghost" onClick={onBack}>←</IconButton>
-      <FigurePortrait name={figure.name} category={figure.category} accentColor={figure.accentColor} shape="round" size={38} grain={false} />
+      <FigurePortrait name={figure.name} src={figure.imageUrl} category={figure.category} accentColor={figure.accentColor} shape="round" size={38} grain={false} />
       <div style={{ flex: 1, minWidth: 0 }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
           <span style={{ font: 'var(--fw-regular) var(--text-xl)/1 var(--font-display)', color: 'var(--text-strong)' }}>{figure.name}</span>
@@ -31,7 +31,7 @@ function EmptyState({ figure, onAsk }) {
   ]
   return (
     <div style={{ maxWidth: 'var(--width-chat)', margin: '0 auto', padding: 'var(--space-10) var(--space-6)', textAlign: 'center' }}>
-      <FigurePortrait name={figure.name} category={figure.category} accentColor={figure.accentColor} size={92} style={{ margin: '0 auto' }} />
+      <FigurePortrait name={figure.name} src={figure.imageUrl} category={figure.category} accentColor={figure.accentColor} size={92} style={{ margin: '0 auto' }} />
       <h2 style={{ margin: 'var(--space-5) 0 0', font: 'var(--fw-regular) var(--text-3xl)/1.1 var(--font-display)', color: 'var(--text-strong)' }}>{figure.name}</h2>
       <p style={{ margin: '12px auto 0', maxWidth: '46ch', font: 'var(--fw-regular) var(--text-md)/1.6 var(--font-serif)', color: 'var(--text-muted)', textWrap: 'pretty' }}>{figure.description}</p>
       <div style={{ display: 'flex', alignItems: 'center', gap: '12px', margin: 'var(--space-8) 0 var(--space-4)' }}>

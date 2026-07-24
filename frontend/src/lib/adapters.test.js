@@ -26,6 +26,11 @@ describe('adaptFigure', () => {
     })
     expect(f.meta).toBe('Science & Education')
   })
+
+  it('derives a portrait imageUrl from the figure id', () => {
+    const f = adaptFigure({ id: 'aurelius', name: 'Marcus Aurelius', type: 'historical', description: '', metadata: {}, chunk_count: 5 })
+    expect(f.imageUrl).toBe('/portraits/aurelius.png')
+  })
 })
 
 describe('formatTimestamp', () => {

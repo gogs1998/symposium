@@ -45,8 +45,8 @@ export function RosterScreen({ figures, loading, onOpenFigure }) {
           <RosterSkeleton />
         ) : (
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: 'var(--space-5)' }}>
-            {shown.map(({ chunkCount, fields, openers, ...card }) => (
-              <FigureCard key={card.id} {...card} onClick={() => card.status !== 'coming-soon' && onOpenFigure(shown.find((f) => f.id === card.id))} />
+            {shown.map(({ chunkCount, fields, openers, imageUrl, ...card }) => (
+              <FigureCard key={card.id} {...card} src={imageUrl} onClick={() => card.status !== 'coming-soon' && onOpenFigure(shown.find((f) => f.id === card.id))} />
             ))}
           </div>
         )}

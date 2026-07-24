@@ -25,6 +25,9 @@ export function adaptFigure(f) {
     fields: Array.isArray(m.fields) ? m.fields : [],
     status: f.chunk_count > 0 ? 'published' : 'coming-soon',
     chunkCount: f.chunk_count,
+    // Etched portrait served from /public/portraits/<id>.png. Missing files 404 and
+    // FigurePortrait falls back to the monogram plate (onError), so this is always safe.
+    imageUrl: `/portraits/${f.id}.png`,
     // static opener prompts per figure could come from the API later; empty for now.
     openers: Array.isArray(m.openers) ? m.openers : [],
   }

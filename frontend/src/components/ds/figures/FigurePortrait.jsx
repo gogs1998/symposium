@@ -17,6 +17,11 @@ export function FigurePortrait({
   style,
   ...rest
 }) {
+  // When the image 404s (portrait not yet commissioned), fall back to the monogram plate.
+  const [failed, setFailed] = React.useState(false);
+  React.useEffect(() => { setFailed(false); }, [src]);
+  const showImage = !!src && !failed;
+
   const initials = name
     .split(/\s+/)
     .filter(Boolean)
@@ -48,7 +53,7 @@ export function FigurePortrait({
         height: h,
         borderRadius: radius,
         overflow: "hidden",
-        background: src ? "var(--paper-2)" : plate,
+        background: showImage ? "var(--paper-2)" : plate,
         border: "1px solid var(--border-line)",
         boxShadow: "var(--shadow-inset)",
         flex: "none",
@@ -56,11 +61,12 @@ export function FigurePortrait({
       }}
       {...rest}
     >
-      {src ? (
+      {showImage ? (
         <img
           src={src}
           alt={name}
-          style={{ width: "100%", height: "100%", objectFit: "cover", display: "block", filter: "saturate(0.92) contrast(1.02)" }}
+          onError={() => setFailed(true)}
+          style={{ width: "100%", height: "100%", objectFit: "cover", display: "block", filter: "grayscale(1) contrast(1.03) saturate(0.9)" }}
         />
       ) : (
         <div
