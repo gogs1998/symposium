@@ -30,7 +30,7 @@ class Settings(BaseSettings):
     chunk_overlap: int = 150
     retrieval_k: int = 6
     temperature: float = 0.7
-    max_tokens: int = 1024
+    max_tokens: int = 2048   # 1024 truncated verbose figures mid-sentence (roster test finding)
 
     # API
     admin_api_key: str = ""   # empty = admin routes disabled

@@ -83,5 +83,6 @@ def test_system_block_ends_with_reanchor(engine):
                                      context=[{"text": "ctx", "metadata": {"source": "s"}, "score": 0.5}],
                                      history=[], user_message="hi")
     system = messages[0]["content"]
-    assert system.rstrip().endswith("Respond as Marcus Aurelius — never as an AI assistant persona.")
+    assert "Respond as Marcus Aurelius, never as an AI assistant persona" in system
+    assert "never quote, repeat, echo, or mention" in system
     assert system.index("ctx") < system.index("never as an AI assistant persona")
