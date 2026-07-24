@@ -2,12 +2,19 @@ import React from 'react'
 import { RosterScreen } from './screens/RosterScreen'
 import { ChatScreen } from './screens/ChatScreen'
 import { FigureIntroScreen } from './screens/FigureIntroScreen'
+import { LandingScreen } from './screens/LandingScreen'
 import { api } from './lib/api'
 import { adaptFigure } from './lib/adapters'
+
+const ENTERED_KEY = 'symposium.entered'
 
 export default function App() {
   const [figures, setFigures] = React.useState([])
   const [loadingFigures, setLoadingFigures] = React.useState(true)
+  // First-time visitors see the landing page until they enter the reading room.
+  const [entered, setEntered] = React.useState(() => {
+    try { return localStorage.getItem(ENTERED_KEY) === '1' } catch { return false }
+  })
   const [view, setView] = React.useState('roster')       // 'roster' | 'intro' | 'chat'
   const [figure, setFigure] = React.useState(null)
   const [sessions, setSessions] = React.useState([])
@@ -75,6 +82,22 @@ export default function App() {
   }
 
   const newConversation = () => { setRestored([]); setActiveSession(null); localStorage.removeItem('currentSessionId'); setView('roster') }
+
+  const enterReadingRoom = () => {
+    try { localStorage.setItem(ENTERED_KEY, '1') } catch { /* private mode: session-only */ }
+    setEntered(true)
+    setView('roster')
+  }
+
+  if (!entered) {
+    return (
+      <div style={{ position: 'fixed', inset: 0, overflow: 'hidden' }}>
+        <div style={{ height: '100%', overflowY: 'auto' }}>
+          <LandingScreen figures={figures} onEnter={enterReadingRoom} />
+        </div>
+      </div>
+    )
+  }
 
   return (
     <div style={{ position: 'fixed', inset: 0, overflow: 'hidden' }}>
