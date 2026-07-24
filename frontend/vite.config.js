@@ -5,6 +5,8 @@ export default defineConfig({
   plugins: [react()],
   server: {
     port: 3000,
+    // Accept tunnel hostnames (trycloudflare) for remote viewing; dev convenience.
+    allowedHosts: true,
     // Native FS watching crashes on this Windows setup (UNKNOWN errno -4094); poll instead.
     watch: { usePolling: true, interval: 400 },
     proxy: {

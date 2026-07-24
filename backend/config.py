@@ -11,6 +11,20 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
+def _is_network_path(p: str) -> bool:
+    """True for UNC paths and drive letters mapped to network shares (DRIVE_REMOTE)."""
+    if p.startswith("\\\\"):
+        return True
+    drive = Path(p).drive  # e.g. "D:"
+    if not drive:
+        return False
+    import ctypes
+    try:
+        return ctypes.windll.kernel32.GetDriveTypeW(f"{drive}\\") == 4  # DRIVE_REMOTE
+    except AttributeError:  # non-Windows
+        return False
+
+
 class Settings(BaseSettings):
     model_config = SettingsConfigDict(env_file=str(BASE_DIR / ".env"), extra="ignore")
 
@@ -41,6 +55,13 @@ class Settings(BaseSettings):
     def model_post_init(self, __context) -> None:
         self.db_path = self._anchor(self.db_path)
         self.chroma_dir = self._anchor(self.chroma_dir)
+        for label, p in (("DB_PATH", self.db_path), ("CHROMA_DIR", self.chroma_dir)):
+            if _is_network_path(p):
+                raise RuntimeError(
+                    f"{label}={p} is on a network drive. Chroma's mmap'd HNSW index "
+                    "corrupts over SMB ('Nothing found on disk'). Point it at a local "
+                    "disk, e.g. C:\\SymposiumData, via .env."
+                )
 
     @staticmethod
     def _anchor(p: str) -> str:
