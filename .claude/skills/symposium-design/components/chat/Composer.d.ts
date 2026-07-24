@@ -1,22 +1,7 @@
-import * as React from "react";
-
-/**
- * The message input — auto-sizing textarea, accent send control, and a persistent
- * AI-recreation disclosure. Enter sends, Shift+Enter newlines.
- * @startingPoint section="Chat" subtitle="Message composer with recreation disclosure" viewport="700x160"
- */
+/** Chat input bar with SEND plaque button. */
 export interface ComposerProps {
-  value: string;
-  onChange?: (v: string) => void;
-  onSend?: (v: string) => void;
+  /** e.g. "Ask Charles Darwin anything…" */
   placeholder?: string;
-  /** Personalizes placeholder + disclosure copy. */
-  figureName?: string;
-  /** Streaming in progress — disables send. */
-  busy?: boolean;
-  /** Show the AI-recreation disclosure line. @default true */
-  disclosure?: boolean;
-  style?: React.CSSProperties;
+  disabled?: boolean;
+  onSend?: (text: string) => void;
 }
-
-export function Composer(props: ComposerProps): JSX.Element;

@@ -1,5 +1,5 @@
-**Composer** — the chat input. Auto-sizing serif textarea + accent send button, with a persistent AI-recreation disclosure beneath (keep it on). Enter sends, Shift+Enter newlines.
+Chat input with an ink SEND plaque; disabled while a reply streams.
 
 ```jsx
-<Composer value={draft} onChange={setDraft} onSend={send} figureName="Churchill" busy={streaming} />
+<Composer placeholder="Ask Charles Darwin anything…" disabled={loading} onSend={send} />
 ```

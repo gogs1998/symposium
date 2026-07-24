@@ -1,26 +1,12 @@
-import * as React from "react";
-import type { CitationCardProps } from "./CitationCard";
-
-/**
- * One conversation turn. User turns are quiet right-aligned ink-on-paper; assistant turns
- * read as a passage from the figure with a name rule and an expandable citations tray.
- * @startingPoint section="Chat" subtitle="User + assistant turns with expandable citations" viewport="700x360"
- */
+import { ReactNode } from 'react';
+/** Chat message: 'assistant' manuscript plaque with optional citations, 'user' ink plaque, 'system' mono caption. */
 export interface MessageBubbleProps {
-  /** @default "assistant" */
-  role?: "user" | "assistant";
-  /** Assistant only — the figure's name shown above the passage. */
+  role?: 'assistant' | 'user' | 'system';
+  /** figure name, shown above assistant replies in Marcellus */
   author?: string;
-  /** Assistant name-dot / caret accent. */
-  accentColor?: string;
-  children?: React.ReactNode;
-  /** Sources to reveal under the message. */
-  citations?: CitationCardProps[];
-  /** Render the streaming caret; hides the citations toggle. */
-  streaming?: boolean;
-  /** Start with the citations tray open. */
-  defaultOpen?: boolean;
-  style?: React.CSSProperties;
+  /** which voice the reply draws from */
+  register?: 'on-camera' | 'conversational' | 'written';
+  children?: ReactNode;
+  /** CitationCard nodes, rendered under a double rule */
+  citations?: ReactNode[];
 }
-
-export function MessageBubble(props: MessageBubbleProps): JSX.Element;

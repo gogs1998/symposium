@@ -1,105 +1,69 @@
-# Symposium — Design System
+# Symposium Design System
 
-**Symposium** is a chat platform where you talk to AI recreations of real people, grounded in their own words. Two categories share one roster: **Historical figures** (Einstein, Marcus Aurelius, Churchill — built from their actual writings) and **Creators** (YouTubers — built from their video transcripts). Every response cites its sources: a book passage for a historical figure, or a clickable video moment (*"said in {Video Title} @ 12:34"*) for a creator.
-
-The tension *is* the brand: 2,000-year-old philosophers next to YouTubers. The system leans **editorial, archival-meets-modern** — a beautifully typeset library/museum-catalog voice (strong serif display, generous whitespace, warm paper-and-ink neutrals, one confident accent) collided with a crisp modern chat UI. Typography does the heavy lifting.
+**Symposium** (Symposium.ai) is an educational platform for having grounded conversations with recreations of historical figures and modern creators. Unlike generic AI roleplay, every persona is powered by retrieval over that person's actual corpus — books, papers, letters, speeches, videos, posts — and **every reply cites its source**. The product's trust promise is "grounded in their own words."
 
 ## Sources
-This system was built **from the product brief only** — no codebase, Figma, or existing brand assets were provided. All tokens, components, and screens are original interpretations of the written direction. There is **no supplied logo**; the brand name is set in the display serif wherever a mark would go (see Iconography). If a codebase or Figma exists, re-attach it and this system should be reconciled against it.
+- GitHub: https://github.com/gogs1998/symposium — FastAPI RAG backend (`backend/`), React chat frontend (`frontend/`), ingestion pipeline with per-figure source folders (`ingestion/sources/`). Explore this repo for real product copy, figure rosters, system prompts, and citation payload shapes when designing against this product.
+- The repo frontend is an early prototype (generic purple gradient); **this design system intentionally replaces it** with an original direction, per the product owner's request.
 
----
+## Product surfaces
+1. **The app** — roster of figures (Historical + Creators tabs), figure detail intro, streaming chat with citations (book citations for historical figures, timestamped video citations for creators), sources panel (trust surface), session sidebar, disclosure banners.
+2. **Marketing landing page** — hero, citation promise, roster showcase, ethics/disclosure.
+
+## Roster (from `backend/agents/figures.py`)
+Einstein, Caesar, Plato, Marcus Aurelius, Sun Tzu, Machiavelli, Franklin, Napoleon, Douglass, Darwin, Tesla, Confucius, Churchill, FDR (+ others); production adds modern creators (e.g. podcast/video creators) with multiple "registers" — on-camera, conversational, written voices. Each figure has `name`, `era`, `description`, `fields[]`, `categories[]`, `available` flag.
+
+## Design direction — "Aegean" (original)
+A modern-museum aesthetic: warm marble surfaces, deep sea-ink text, lapis and bronze accents, classical Marcellus display caps, Spectral body serif, plaque-like near-square cards with hairline stone borders and double-rule dividers. Quiet, credible, archival — the UI is the gallery; the figures are the exhibit.
 
 ## CONTENT FUNDAMENTALS
-
-**Voice (product chrome).** Literary but plain-spoken; confident, never salesy. The app speaks like a thoughtful curator, not a SaaS dashboard. Sentence case everywhere except uppercase eyebrows/labels. No exclamation marks in UI copy. No emoji — ever.
-
-- Eyebrows / category labels: UPPERCASE, letter-spaced, grotesque — `A ROOM OF REMARKABLE PEOPLE`, `HISTORICAL`, `CREATOR`, `BEGIN WITH`.
-- Headlines: serif display, sentence case, a touch of gravitas — *"Sit with the minds that shaped us — and the ones shaping us now."*
-- Buttons: verbs, plain — *Begin conversation*, *Back to roster*, *Try again*, *Sources*.
-- Empty/error states have a human, literary turn without being precious — error headline *"The line went quiet."* then a calm, practical next step.
-
-**The figure's own voice.** Assistant messages are written *in the figure's register* and set in the reading serif — they should read like a passage from that person, not a chatbot. Never put words in a figure's mouth without a citation; every assistant turn carries at least one source.
-
-**Person & address.** The figure speaks in first person ("I", "you"). Product chrome addresses the user as "you". The disclosure is unambiguous and always present: *"An AI recreation grounded in {figure}'s own words — not the real person. Responses may err."*
-
-**Citations.** Book: `{Work} · {locator}` (e.g. *Meditations · Book IV, 3*). Video: `said in {Title} @ {mm:ss}`, the timestamp a monospace deep-link. Timestamps and locators are always monospace.
-
----
+- **Tone**: curatorial and plainspoken — a good museum label, not marketing hype. Confident about grounding, humble about limits.
+- **Voice**: product speaks as "we" sparingly; addresses the user as "you". Figures speak in first person.
+- **Casing**: sentence case everywhere except two deliberate exceptions — figure names and screen titles set in Marcellus render in caps by design, and small mono META LABELS (eras, source types, registers) are uppercase with wide tracking.
+- **Emoji**: never. The prototype's 🏛️ is retired; iconography is typographic and hairline-stroke only.
+- **Numbers & meta**: eras ("1879–1955", "428–348 BCE"), corpus sizes ("412 pages", "3 h 12 m"), and timestamps ("01:14:32") always in IBM Plex Mono. En-dashes in ranges.
+- **Honesty scaffolding is copy, not chrome**: disclosure lines appear verbatim, e.g. "This is an AI recreation built from Albert Einstein's published writings. It is not Albert Einstein." Citations read "From *On the Origin of Species*, ch. 4" or "From The Joe Rogan Experience #1169 · 01:14:32".
+- **Examples of good copy**:
+  - Empty chat: "Ask anything. Replies draw only on what Darwin actually wrote."
+  - Sources panel intro: "Everything this recreation says is retrieved from the corpus below."
+  - Register nudge: "Talk to me like the podcast, not the show intro."
+  - Unavailable card: "No sources ingested yet."
 
 ## VISUAL FOUNDATIONS
-
-**Color.** Warm **paper-and-ink** neutrals plus **one** confident accent — **Cinnabar** (`--accent`, #C0442C), a rubricated-manuscript / wax-seal red. Paper ramps (`--paper-0…4`) are warm creams for surfaces; ink ramps (`--ink-0…4`) are warm near-blacks for text and lines. A quiet secondary **Indigo** tints historical-era elements and reading-text links. Semantic colors (success/warning/danger) are muted and warm-leaning. Max one accent per view; figure cards may carry a *personal* accent (era hue or creator channel color) on a 3px edge without breaking the system. **No purple→blue gradients, no glassmorphism, no floating blobs.**
-
-**Type.** Four families: **Libre Caslon Display** (museum-catalog headlines, figure names), **Newsreader** (reading serif — figure voices, excerpts, body), **Archivo** (grotesque sans — eyebrows, labels, buttons, meta), **IBM Plex Mono** (timestamps, source locators, counts). Scale runs 11 → 82px. Reading measure capped ~66ch. Eyebrows are the one uppercase, letter-spaced role.
-
-**Spacing & layout.** 4px base grid; generous whitespace — the catalog breathes. Page max `--width-page` 1240px, chat column `--width-chat` 760px, sidebar 288px. Roster is an `auto-fill minmax(300px)` grid.
-
-**Backgrounds & texture.** Flat warm paper — no photographic hero washes. A very subtle SVG **paper grain** (`--texture-grain`, ~3.5% noise) overlays page and thread backgrounds for archival warmth. No gradients as decoration (the only gradient is a portrait-plate fallback behind a missing video thumbnail).
-
-**Borders, corners, cards.** Confident, mostly-sharp corners: radii are small (2–10px); pills reserved for chips, badges, and citation toggles. Cards = warm paper surface + 1px `--border-line` + soft low shadow; FigureCard adds a 3px personal-accent edge on the left. Editorial hairlines (`--border-hair`) separate meta; a full-strength `--rule-ink` is available for mastheads/section rules.
-
-**Shadows.** Warm-tinted, soft, low — never blue/black glow, never glossy. `--shadow-xs → lg` all use rgba(40,30,16,…). An inset highlight (`--shadow-inset`) gives portrait plates a printed feel.
-
-**Motion.** Measured and editorial — fades and gentle ease (`--ease-out`, `--ease-in-out`), 120/220/420ms. **No bounce, no spring.** Streaming caret blinks (`sym-blink`); the thinking state uses three softly rising dots (`sym-thinking`); content can rise-fade in (`sym-rise`).
-
-**Hover / press.** Hover = subtle surface darkening or accent-edge reveal (never scale-up on cards). Buttons darken toward `--accent-hover/press` on press. Focus uses a 3px soft cinnabar ring (`--ring`). Interactive rows fill to `--surface-card`.
-
-**Transparency & blur.** Used sparingly and only where physical: the video-thumbnail play scrim and timestamp chip use `rgba(20,17,12,…)`. No frosted-glass panels anywhere.
-
-**Imagery vibe.** Portraits render slightly desaturated, warm, with a printed grain (`saturate .92, contrast 1.02` + grain overlay) so a photo and a monogram plate sit together. When no likeness exists, a dignified typographic **monogram plate** stands in, tinted by the figure's era/channel accent.
-
-**Dark mode.** A warm dark scope (`[data-theme="dark"]`) — near-black warm surfaces, cream ink, a slightly brighter cinnabar. Same structure, same rules.
-
----
+- **Color**: warm marble neutrals (#f7f5f0 page → #fdfcf9 cards) with cool deep sea-ink text (#1c2b3a) — the stone-and-ink contrast is the brand. One primary accent (lapis #24589e) for interaction; bronze (#a3742c) reserved for source/corpus material and the on-camera register; verdigris (#3e7d6c) for live/affirmative and the written register; madder (#a43b2e) for caution. Tints of each for surfaces. Max one accent per component.
+- **Type**: Marcellus (display, single 400 weight, slight tracking) for names/titles; Spectral (300–600 + italic) for everything readable; IBM Plex Mono for metadata. Scale 11/13/15/17/21/28/40/60. Body 15px/1.6. Meta labels 11px uppercase, 0.14em tracking.
+- **Backgrounds**: flat marble fills only. No gradients, no textures, no full-bleed photography in the UI. Portraits are the only imagery — duotone/greyscale, in circular or 3:4 plaque masks.
+- **Borders & cards**: cards are plaques — #fdfcf9 face, 1px hairline stone border (#dcd6c8), radius 2–4px, near-flat shadow (0 1px 2px rgba(28,43,58,.06)). The signature divider is a 3px `double` rule in #c3bba7. No colored left-border cards.
+- **Shadows**: two levels only — hairline shadow for cards, one soft overlay shadow for panels/dialogs. No inner shadows, no glows.
+- **Radii**: 2px controls, 4px cards/panels, round only for dots and portrait masks. Nothing pill-shaped except the register indicator chip.
+- **Spacing**: 4px base scale (4→96). Generous padding; density comes from hairline rules, not tight packing.
+- **Motion**: fades and 4–8px vertical slides, 120–280ms, ease-out. No bounces, no springs. Typing indicator is three dots stepping opacity, not bouncing.
+- **Hover**: border darkens to #c3bba7 + background warms one marble step; text links darken. **Press**: translateY(1px), no color change. **Selected**: lapis border + lapis tint fill.
+- **Transparency/blur**: only the sources-panel scrim (ink at 32% opacity, no blur).
+- **Imagery**: portraits treated as archival — greyscale or subtle warm duotone, never full-saturation photos beside marble. Commissioned style: 19th-century stipple-etching sketches, single sepia ink on cream — see `assets/portrait-brief.md`. Drop finished files at `assets/portraits/<figure-id>.png`.
+- **Layout**: app max-width 1120px; chat column max 720px; fixed chat header + composer, messages scroll between.
 
 ## ICONOGRAPHY
+- The source repo contains **no logo and no icon set** (only the default Vite favicon and emoji in prototype copy). **No logo exists** — wherever a mark would go, set the wordmark "SYMPOSIUM" in Marcellus. Do not draw a mark.
+- Icons: hairline-stroke glyphs from **Lucide** (CDN, `lucide` UMD or copied SVGs), stroke-width 1.5, 16–18px, in current text color. This is a substitution (no icon set exists in source) — flagged for the owner. Used sparingly: book, video, file-text, clock, chevron, x, arrow-up (send).
+- Unicode used deliberately as type, not icon: · separators, § in citations, — em-dash openers.
+- No emoji, ever.
 
-Symposium is **type-first and glyph-light** by design — the editorial voice carries the UI, so iconography is deliberately minimal.
+## Index
+- `styles.css` — global entry; imports `tokens/` (colors, typography, spacing, effects, base).
+- `guidelines/` — foundation specimen cards (Design System tab).
+- `components/roster/` — FigureCard, CategoryTabs, SuggestedQuestion.
+- `components/chat/` — MessageBubble, CitationCard, Composer, TypingIndicator, RegisterIndicator, SessionSidebar.
+- `components/trust/` — DisclosureBanner, SourcesPanel.
+- `ui_kits/app/` — interactive app recreation: Roster → Figure intro → Chat (sources panel, register nudge).
+- `ui_kits/landing/` — marketing landing page.
+- `SKILL.md` — agent skill entry point.
 
-- **No custom icon set / icon font / SVG sprite is shipped.** The few glyphs in use are simple Unicode characters rendered in the UI font: arrows (`←`, `→`, `↑`, `▶`, `▾`), a plus (`+`), an ellipsis (`⋯`), and an info mark (`ⓘ`). This keeps the surface calm and avoids a decorative icon language competing with the serif.
-- **Status is shown with dots, badges, and rules,** not icons — a colored dot for availability/figure identity, `Badge` for Published/Coming soon, hairlines for structure.
-- **No emoji.** Ever. (The brief forbids the generic AI-startup look; emoji cards are part of what we avoid.)
-- **If a project needs a broader icon set,** substitute a restrained, thin-stroke line set (e.g. **Lucide** via CDN, ~1.5px stroke) to match the hairline weight — and flag the substitution. Do not hand-draw brand marks or portraits.
+## Intentional additions
+- **RegisterIndicator, SourcesPanel, FigureIntro screen, Landing** — explicitly commissioned by the product owner (priority list in the brief).
+- **Lucide icons** — no icon system exists in source; nearest hairline match, flagged.
 
-**Logo:** none supplied. The wordmark is simply **"Symposium"** set in Libre Caslon Display, optionally followed by a small cinnabar dot. Do not fabricate a logotype or symbol.
-
----
-
-## VISUAL ASSETS
-
-No logo, portrait, or illustration assets were provided, and none were fabricated (per policy — never draw a company's mark or a real person's likeness from memory). Portraits therefore use the **monogram-plate fallback** built into `FigurePortrait`; pass real `src` URLs in production. There is no `assets/` folder for this reason.
-
----
-
-## COMPONENTS
-
-Built in React, grouped by concern. Consume via `const { X } = window.SymposiumDesignSystem_32eaa4`.
-
-**core/** — `Button`, `IconButton`, `Badge`, `Tag`
-**figures/** — `FigureCard`, `CategoryTabs`, `FigurePortrait`
-**chat/** — `MessageBubble`, `CitationCard`, `Composer`, `SessionSidebar`, `TypingIndicator`, `DisclosureBanner`, `SuggestedQuestion`
-
-The brief's named inventory — FigureCard, CategoryTabs, MessageBubble, CitationCard, Composer, SessionSidebar — is fully covered. **Intentional additions** (needed to build the specified screens): `Button`/`IconButton` (actions), `Badge`/`Tag` (availability, category/era/channel), `FigurePortrait` (likeness + monogram fallback), `TypingIndicator` (the required "figure thinking" state), `DisclosureBanner` (the required persistent AI-recreation disclosure), `SuggestedQuestion` (the required first-visit openers). `CitationCard` ships in both required variants — **book excerpt** and **video timestamp**.
-
-Each component directory has `<Name>.jsx`, `<Name>.d.ts`, `<Name>.prompt.md`, and one `@dsCard` HTML specimen.
-
-## UI KITS
-
-**ui_kits/symposium-app/** — interactive recreation of the whole product: roster (landing) → chat with streaming + citations, plus empty / thinking / error states. See its `README.md`. Open `index.html`.
-
----
-
-## INDEX / MANIFEST
-
-- `styles.css` — root entry; `@import`s all tokens + fonts (link this one file).
-- `tokens/` — `colors.css`, `typography.css`, `spacing.css`, `effects.css`, `animations.css`, `fonts.css`.
-- `components/{core,figures,chat}/` — reusable primitives (`.jsx` + `.d.ts` + `.prompt.md` + card).
-- `guidelines/` — foundation specimen cards (Type, Colors, Spacing).
-- `ui_kits/symposium-app/` — full interactive product recreation.
-- `thumbnail.html` — homepage tile.
-- `SKILL.md` — Agent-Skills wrapper.
-
-**CAVEATS**
-- **Fonts are loaded from the Google Fonts CDN**, not self-hosted binaries — swap for licensed self-hosted files before production.
-- **No logo/portrait/illustration assets** were supplied; the wordmark is type and portraits use the monogram fallback. Provide real assets to complete the brand.
-- All content in the UI kit (figures, replies, citations) is **demo data**.
+## Caveats
+- Fonts load from Google Fonts (`tokens/typography.css` @import) — no font binaries exist in the source repo. Ask the owner for licensed files to vendor.
+- Portraits are placeholder monograms/image-slots; the production app's portrait assets were not in the repo.
+- Stalin/Hitler exist in the repo registry with heavy ethical framing; they are deliberately excluded from sample content here.

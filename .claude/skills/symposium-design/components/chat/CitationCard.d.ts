@@ -1,35 +1,17 @@
-import * as React from "react";
-
-/**
- * A single cited source behind an assistant message. The system's signature component,
- * in two variants: a typeset "book" excerpt for historical figures, or a "video" source
- * with thumbnail + clickable timestamp deep-link for creators.
- * @startingPoint section="Chat" subtitle="Book excerpt & video-timestamp citation, both variants" viewport="700x260"
- */
+/** Source citation under a reply. Book: title + locator + excerpt. Video: thumbnail + timestamp deep-link. */
 export interface CitationCardProps {
-  /** @default "book" */
-  variant?: "book" | "video";
-  /** The quoted passage / transcript line. */
-  excerpt: string;
-  /** BOOK: source work name (e.g. "Meditations"). */
-  source?: string;
-  /** BOOK: locator (e.g. "Book IV, 3"). */
-  detail?: string;
-  /** Ordinal shown as "Source N". */
-  index?: number;
-  /** VIDEO: video title. */
-  videoTitle?: string;
-  /** VIDEO: timestamp string, e.g. "12:34". */
+  type?: 'book' | 'video';
+  /** work title, italicized: "On the Origin of Species", "JRE #1169" */
+  title: string;
+  /** "ch. 4", "p. 212" */
+  locator?: string;
+  /** quoted retrieval excerpt, clamped to 2 lines */
+  excerpt?: string;
+  /** video deep-link timestamp "01:14:32" */
   timestamp?: string;
-  /** VIDEO: thumbnail URL (gradient fallback if omitted). */
+  /** publish date for videos */
+  date?: string;
   thumbnail?: string;
-  /** VIDEO: creator channel color for accents. */
-  channelColor?: string;
-  /** VIDEO: deep-link URL to the moment. */
   href?: string;
-  /** VIDEO: click handler for the thumbnail/link. */
-  onOpen?: (e: React.MouseEvent) => void;
-  style?: React.CSSProperties;
+  onClick?: () => void;
 }
-
-export function CitationCard(props: CitationCardProps): JSX.Element;

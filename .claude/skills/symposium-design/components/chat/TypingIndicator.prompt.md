@@ -1,5 +1,5 @@
-**TypingIndicator** — the "figure is thinking" state, shown before the first streamed token. Matches MessageBubble's name rule. Requires `@keyframes sym-thinking`.
+Three dots stepping opacity (never bouncing), with an optional mono label.
 
 ```jsx
-<TypingIndicator author="Churchill" accentColor="#7A5230" label="is searching his speeches" />
+<TypingIndicator label="Consulting the corpus" />
 ```

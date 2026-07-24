@@ -1,130 +1,50 @@
-/* SYMPOSIUM — COLOR SYSTEM
-   Warm paper-and-ink neutrals + one confident accent (cinnabar, a rubricated-manuscript / wax-seal red).
-   Base ramps first, then semantic aliases. Light mode is primary; a warm dark scope follows. */
-
-:root {
-  /* --- Paper (warm neutral surfaces, lightest → deepest) --- */
-  --paper-0: #FCFAF4;   /* page background, lightest cream */
-  --paper-1: #F6F1E6;   /* raised card / panel */
-  --paper-2: #EFE7D6;   /* sunken / hover fill */
-  --paper-3: #E5DAC4;   /* muted fill, chips */
-  --paper-4: #D8CAAF;   /* strong fill */
-
-  /* --- Ink (warm near-blacks → faint, for text & lines) --- */
-  --ink-0: #1C1813;     /* primary text, near-black warm */
-  --ink-1: #3B342A;     /* strong secondary text */
-  --ink-2: #6A6154;     /* muted / meta text */
-  --ink-3: #948A78;     /* faint text, placeholders */
-  --ink-4: #C3B9A4;     /* hairline on paper */
-
-  /* --- Accent: Cinnabar --- */
-  --cinnabar-700: #8F2E1E;
-  --cinnabar-600: #A93824;
-  --cinnabar-500: #C0442C;  /* primary accent */
-  --cinnabar-400: #D26146;
-  --cinnabar-200: #EEC5B8;
-  --cinnabar-100: #F6E2DA;
-
-  /* --- Ink-blue: quiet secondary (links inside reading text, historical era tint) --- */
-  --indigo-600: #2E3A57;
-  --indigo-500: #40507A;
-  --indigo-200: #C7CEDE;
-  --indigo-100: #E5E9F1;
-
-  /* --- Semantic status (warm-leaning, muted) --- */
-  --green-600: #4B6B3A;
-  --green-100: #E4EBD6;
-  --amber-600: #9A6B1E;
-  --amber-100: #F4E7C6;
-  --red-600: #A33124;
-  --red-100: #F4DCD6;
-
-  /* === SEMANTIC ALIASES === */
-  /* surfaces */
-  --surface-page: var(--paper-0);
-  --surface-card: var(--paper-1);
-  --surface-sunken: var(--paper-2);
-  --surface-fill: var(--paper-3);
-  --surface-ink: var(--ink-0);        /* dark surface on light (assistant bubble, footers) */
-
-  /* text */
-  --text-strong: var(--ink-0);
-  --text-body: var(--ink-1);
-  --text-muted: var(--ink-2);
-  --text-faint: var(--ink-3);
-  --text-on-ink: var(--paper-0);      /* text on dark ink surface */
-  --text-on-accent: #FCF3EF;
-
-  /* accent */
-  --accent: var(--cinnabar-500);
-  --accent-hover: var(--cinnabar-600);
-  --accent-press: var(--cinnabar-700);
-  --accent-soft: var(--cinnabar-100);
-  --accent-border: var(--cinnabar-200);
-
-  /* lines & borders */
-  --border-hair: var(--ink-4);        /* faint divider */
-  --border-line: #CBBEA4;             /* standard border */
-  --border-strong: var(--ink-2);      /* emphasized / focused */
-  --rule-ink: var(--ink-0);           /* editorial full-strength rule */
-
-  /* links */
-  --link: var(--cinnabar-600);
-  --link-hover: var(--cinnabar-700);
-
-  /* status */
-  --success: var(--green-600);
-  --success-soft: var(--green-100);
-  --warning: var(--amber-600);
-  --warning-soft: var(--amber-100);
-  --danger: var(--red-600);
-  --danger-soft: var(--red-100);
-
-  /* focus ring */
-  --focus-ring: var(--cinnabar-400);
-
-  /* selection */
-  --select-bg: var(--cinnabar-100);
-}
-
-/* === WARM DARK MODE === */
-[data-theme="dark"] {
-  --paper-0: #14110C;
-  --paper-1: #1E1A13;
-  --paper-2: #272117;
-  --paper-3: #322A1D;
-  --paper-4: #3F3626;
-
-  --ink-0: #F3ECDD;
-  --ink-1: #E1D8C6;
-  --ink-2: #B0A488;
-  --ink-3: #857A63;
-  --ink-4: #443B2A;
-
-  --cinnabar-500: #D8674C;
-  --cinnabar-600: #C6543B;
-  --cinnabar-700: #B0442E;
-  --cinnabar-100: #33211A;
-  --cinnabar-200: #56362A;
-
-  --indigo-500: #8A97BC;
-  --indigo-200: #3A4360;
-  --indigo-100: #232A3D;
-
-  --surface-ink: #0E0B07;
-  --text-on-ink: #F3ECDD;
-  --text-on-accent: #1B0E0A;
-
-  --border-line: #3B3223;
-  --border-strong: var(--ink-2);
-  --rule-ink: var(--ink-1);
-
-  --link: #E08064;
-  --link-hover: #EC9179;
-
-  --green-100: #22301A;
-  --amber-100: #33280F;
-  --red-100: #331912;
-
-  --select-bg: #3a2118;
+:root{
+/* Marble — warm stone surfaces */
+--marble-0:#f7f5f0; /* page */
+--marble-1:#efece4; /* raised panel */
+--marble-2:#e6e2d6; /* inset / wells */
+--marble-card:#fdfcf9; /* card face */
+--stone-line:#dcd6c8; /* hairline borders */
+--stone-line-strong:#c3bba7;
+/* Ink — deep aegean blue-blacks */
+--ink-1:#1c2b3a;
+--ink-2:#47586a;
+--ink-3:#75828f;
+--ink-inverse:#f7f5f0;
+/* Lapis — primary accent */
+--lapis:#24589e;
+--lapis-deep:#1b4681;
+--lapis-tint:#e7edf6;
+/* Bronze — secondary accent */
+--bronze:#a3742c;
+--bronze-deep:#7c5a1f;
+--bronze-tint:#f2e9d6;
+/* Verdigris — affirmative / live */
+--verdigris:#3e7d6c;
+--verdigris-tint:#e2ede8;
+/* Madder — caution / destructive */
+--madder:#a43b2e;
+--madder-tint:#f5e4e0;
+/* Semantic aliases */
+--surface-page:var(--marble-0);
+--surface-card:var(--marble-card);
+--surface-raised:var(--marble-1);
+--surface-inset:var(--marble-2);
+--text-body:var(--ink-1);
+--text-secondary:var(--ink-2);
+--text-muted:var(--ink-3);
+--text-on-accent:var(--ink-inverse);
+--accent:var(--lapis);
+--accent-hover:var(--lapis-deep);
+--accent-surface:var(--lapis-tint);
+--border-default:var(--stone-line);
+--border-strong:var(--stone-line-strong);
+--focus-ring:var(--lapis);
+/* Register hues — which "voice" a persona draws from */
+--register-oncamera:var(--bronze);
+--register-oncamera-tint:var(--bronze-tint);
+--register-conversational:var(--lapis);
+--register-conversational-tint:var(--lapis-tint);
+--register-written:var(--verdigris);
+--register-written-tint:var(--verdigris-tint);
 }
