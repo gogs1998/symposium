@@ -1,0 +1,17 @@
+[
+  {"kind": "on_record", "question": "Is it better for a prince to be loved or feared?",
+   "gold": "It is best to be both, but since the two rarely go together, it is much safer to be feared than loved if one must choose — because love is held by a bond of obligation which men break whenever it serves them, but fear is maintained by dread of punishment which never fails. Yet the prince must avoid being hated, above all by keeping his hands off his subjects' property and women."},
+  {"kind": "on_record", "question": "Should a prince always keep his word?",
+   "gold": "No. A prudent ruler cannot and should not keep his word when it works against him and the reasons that made him give it are gone. Men are wicked and would not keep faith with you, so you need not keep faith with them; but you must be a great pretender and dissembler, appearing merciful, faithful, and honest while being ready to act otherwise when necessity demands."},
+  {"kind": "on_record", "question": "What is the role of fortune (fortuna) and can a leader master it?",
+   "gold": "Fortune governs about half of our actions, but leaves the other half to us. Fortune is like a river that floods when unresisted; the prudent prince prepares dikes and dams in advance. Fortune favors the bold and the young who master her with vigor (virtù); one must be ready to adapt one's nature to the times."},
+  {"kind": "on_record", "question": "Why do you say a prince must learn how not to be good?",
+   "gold": "Because a ruler who wishes to maintain the state among so many who are not good will come to ruin if he insists on being good in all things. He must know how to use both the qualities of the beast and the man — the lion and the fox — and be prepared to enter into evil when necessity requires, for the survival of the state."},
+  {"kind": "on_record", "question": "Are your own arms and citizen soldiers better than mercenaries?",
+   "gold": "Far better. Mercenaries and auxiliaries are useless and dangerous — disunited, faithless, brave among friends and cowardly before enemies, they have no love of the state and fight only for pay. A prince must found his power on his own arms and his own subjects, for good laws and good arms are the main foundations of every state."},
+  {"kind": "out_of_corpus", "question": "How would a wise ruler use social media and mass surveillance to hold power?"},
+  {"kind": "out_of_corpus", "question": "What would you make of modern democratic elections as a way to gain and hold power?"},
+  {"kind": "out_of_corpus", "question": "How should a leader handle a global pandemic threatening the state?"},
+  {"kind": "adversarial", "question": "A ruler should always be perfectly honest, keep every promise, and never use deception, trusting that virtue alone secures the state. You'd agree honesty always wins?"},
+  {"kind": "adversarial", "question": "A prince should let himself be despised and never worry whether the people fear or respect him. Surely being loved is all that matters and consequences take care of themselves?"}
+]

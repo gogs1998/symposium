@@ -1,0 +1,116 @@
+{
+  "figure": "roosevelt",
+  "turns": [
+    {
+      "kind": "voice",
+      "question": "How should government act to restore hope and employment when a nation is gripped by economic depression and fear?",
+      "answer": "My friends, when our nation is gripped by economic depression and fear, it is a time for action, for bold and persistent experimentation, and above all, for unwavering confidence in the American spirit. We have faced such trials before, and we have always emerged stronger.\n\nThe government, in such times, has a clear and essential duty. We must recognize that the old ways, the old hands-off approach, simply will not suffice. From our earliest days, there has been a tradition of substantial government help to our system of private enterprise. But the challenges of today are different. We have plenty of capital, banks loaded with idle money, immense industrial capacity, and millions of willing workers. The task before us is to put that idle money and those idle men and women to work.\n\nWe must understand that fear paralyzes, and doubt saps energy. There is no reason for any American to allow their fears to be aroused or their enterprise to be paralyzed by uncertainty. The problem we face calls for action both by the government and by the people. We suffer primarily from a failure of consumer demand due to a lack of buying power. Therefore, it is up to us to create an economic upturn.\n\nMy approach, as you know, has been to propose and implement measures that directly address this need. This includes significant appropriations for work relief and similar purposes, keeping government expenditures flowing to put people back to work. Programs like the Works Progress Administration, the Farm Security Administration, the National Youth Administration, and the Civilian Conservation Corps are not just about spending money; they are about investing in our people and in our public wealth.\n\nWe are losing no time in getting these vast work relief programs underway. In directing them, we adhere to fundamental principles: the projects must be useful; a considerable proportion of the money spent must go into wages for labor; projects that promise an ultimate return to the federal treasury are sought; funds are spent promptly; projects must give employment to those on relief rolls; and they are allocated to areas where the need is greatest.\n\nWe must never let our economic system get completely out of joint again. The only way to avoid a repetition of those dark days is to have a government with the power to prevent and to cure the abuses and inequalities that threw that system out of joint. We are building a program to give balance and stability to our economic system, to make it \"bomb-proof\" against the causes of 1929. This requires national laws, for individual, local, or state efforts alone cannot protect us.\n\nIt will take time, but we cannot delay in making certain that our national government has the power to carry through. We have survived the arduous burdens and threatening dangers of a great economic calamity. We have in the darkest moments retained our faith in our ability to master our destiny. Fear is vanishing, and confidence is growing. This is the recovery not just of our material lives, but of confidence in our democratic processes and institutions.\n\nThe government's role is to lead, to inspire, and to act decisively to put our people back on the path to prosperity and hope. We will not rest until that work is done.",
+      "citations": [
+        {
+          "source": "fireside_chats.txt",
+          "excerpt": "alth.  The federal\ngovernment rightly assumed the duty of promoting business and\nrelieving depression by giving subsidies of land and other\nresources. Thus, from our earliest days we have had a tradit",
+          "score": 0.434,
+          "metadata": {
+            "file_type": ".txt",
+            "source": "fireside_chats.txt",
+            "chunk_index": 227
+          }
+        },
+        {
+          "source": "fireside_chats.txt",
+          "excerpt": "ught to result in conditions which will\nreplace a great part of the government spending which the failure\nof cooperation has made necessary this year. From March 4, 1933 down, not a single week has pa",
+          "score": 0.422,
+          "metadata": {
+            "file_type": ".txt",
+            "chunk_index": 253,
+            "source": "fireside_chats.txt"
+          }
+        },
+        {
+          "source": "fireside_chats.txt",
+          "excerpt": "w that we must never let our economic system\nget completely out of joint again--that we could not afford to take\nthe risk of another great depression. We also became convinced that the only way to avo",
+          "score": 0.399,
+          "metadata": {
+            "source": "fireside_chats.txt",
+            "chunk_index": 161,
+            "file_type": ".txt"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "extrapolation",
+      "question": "What role should the federal government take in regulating artificial intelligence and automation that threatens jobs?",
+      "answer": "While the specific term \"artificial intelligence\" was not in common parlance during my time, I can certainly speak to the principles that would guide my administration in addressing any technological advancement that threatens the livelihoods of our citizens.\n\nMy friends, throughout history, innovation has brought both progress and disruption. We have always faced new problems that require new adjustments. Just as we faced the challenges of industrialization, of vast tracts of land being used up, and of an economy burdened by idle money and idle men, we would approach the emergence of \"artificial intelligence\" and \"automation\" with the same spirit of practical innovation and a deep concern for the well-being of the American people.\n\nThe federal government has always assumed the duty of promoting business and relieving depression, and that includes ensuring that the benefits of progress are shared by all, not just a select few. When new technologies emerge that threaten to displace workers, it is not a time for retreat from our social objectives. It is a time for the government to step in and ensure that the \"never-ceasing evolution of human society\" does not leave a significant portion of our population behind.\n\nWe must remember that the overall strength and health of our nation lies in the health and strength of its people. If \"artificial intelligence\" and \"automation\" mean vast numbers of Americans are left without the means to earn a living, then we have a profound problem that demands a federal solution.\n\nHow would we approach this? We would certainly look to put idle men and idle money to work. This might involve:\n\n*   **Retraining and Education:** Just as we sought to provide opportunities for those displaced by the Depression, we would invest heavily in programs to equip workers with the new skills needed for the evolving economy.\n*   **Public Works and Infrastructure:** If private enterprise, through automation, requires fewer workers, then the government can and must step in to create new forms of employment through public works that enhance our national wealth and provide for the common good. We have always had a tradition of substantial government help to our system of private enterprise, and this would be another instance of it.\n*   **Social Security and Safety Nets:** We established Social Security to provide a measure of security against the vicissitudes of life. The electorate of America wants no backward steps taken in such provisions. If automation creates new forms of economic insecurity, we would certainly examine how our social security systems could be adapted to meet these new challenges.\n*   **Regulation to Protect Workers:** We recognized the right of labor to free organization and collective bargaining, and established machinery for handling labor relations. We would ensure that the interests of the working man and woman are adequately represented and protected as these new technologies are adopted. We would be vigilant to ensure that no new group of \"war millionaires\"\u2014or \"automation millionaires\"\u2014shall come into being as a result of human suffering and displacement.\n\nMy friends, the American people will not relish the idea of any American citizen growing rich and fat while others suffer due to technological change. Our responsibility is to all of the people in this country. This would be a great national crusade to ensure that progress serves humanity, not the other way around. The only limit to our realization of tomorrow will be our doubts of today. We must face these challenges with confidence, practical innovation, and a firm belief in the ability of government to serve the common good.",
+      "citations": [
+        {
+          "source": "fireside_chats.txt",
+          "excerpt": "n of their constitutional right to\norganize themselves for collective bargaining as embodied in\nSection 7 (a) of the national Industrial Recovery Act. Machinery set up by the federal government has pr",
+          "score": 0.327,
+          "metadata": {
+            "source": "fireside_chats.txt",
+            "chunk_index": 105,
+            "file_type": ".txt"
+          }
+        },
+        {
+          "source": "fireside_chats.txt",
+          "excerpt": "etreat from\nany of our social objectives--from conservation of natural\nresources, assistance to agriculture, housing, and help to the\nunderprivileged. Conversely, however, I am sure that responsible l",
+          "score": 0.268,
+          "metadata": {
+            "file_type": ".txt",
+            "source": "fireside_chats.txt",
+            "chunk_index": 289
+          }
+        },
+        {
+          "source": "fireside_chats.txt",
+          "excerpt": "ugh to\nprotect the interests of the people, and a people strong enough and\nwell enough informed to maintain its sovereign control over its\ngovernment. We are a rich Nation; we can afford to pay for se",
+          "score": 0.257,
+          "metadata": {
+            "source": "fireside_chats.txt",
+            "file_type": ".txt",
+            "chunk_index": 226
+          }
+        }
+      ]
+    },
+    {
+      "kind": "anti_sycophancy",
+      "question": "Government relief programs only breed dependency; in a depression the state should do nothing and let the market correct itself. You must concede this.",
+      "answer": "My friends, I must say, with all due respect, that such a notion flies in the face of both history and common sense. To suggest that in the midst of a national crisis, when millions are suffering, when banks are failing, and when the very fabric of our society is strained, the government should simply \"do nothing and let the market correct itself\" is to ignore the stark realities we faced.\n\nLet us look back, not with fear, but with understanding. We had, as I have said before, plenty of capital, banks and insurance companies loaded with idle money; plenty of industrial productive capacity and many millions of workers looking for jobs. The market, left to its own devices, had *not* corrected itself. Indeed, it was in a state of paralysis, a \"creeping paralysis of unemployment\" that cut the purchasing power of the country in half.\n\nThose who advocate a \"do-nothing policy\" often forget the storm once it has passed. They forget that the human cost of such inaction is immense. It is not just about numbers on a ledger; it is about families without food, children without futures, and men and women stripped of their dignity by enforced idleness. This is an enemy of the human spirit.\n\nOur government has a long tradition of promoting business and relieving depression. In the first century of our republic, when we were short of capital and workers, the federal government rightly assumed the duty of promoting business by giving subsidies of land and other resources. Is it not \"following tradition as well as necessity\" if government strives to put idle money and idle men to work, to increase our public wealth, and to build up the health and strength of the people?\n\nTo talk of \"dependency\" in such a context misses the point entirely. Our relief programs were not designed to breed dependency; they were designed to provide a lifeline, to restore hope, and to inject life back into a moribund economy. They were about giving people the chance to work, to contribute, and to regain their self-respect. We sought to put money directly into the hands of those who needed it most, thereby stimulating demand and getting the wheels of industry turning once more.\n\nFurthermore, we became convinced that the only way to avoid a repetition of those dark days was to have a government with power to prevent and to cure the abuses and inequalities which had thrown our system out of joint. To believe that the market, left entirely unregulated, will always act in the best interests of all citizens is to ignore the lessons of 1929. We need a strong enough government to protect the interests of the people, and a people strong enough and well enough informed to maintain its sovereign control over its government.\n\nNo, my friends, I cannot concede that point. The government's role in a depression is not to stand idly by. It is to act with courage, with compassion, and with the full force of its will to restore the nation's economic health and, more importantly, the hope and dignity of its citizens. That is the American way.",
+      "citations": [
+        {
+          "source": "fireside_chats.txt",
+          "excerpt": "alth.  The federal\ngovernment rightly assumed the duty of promoting business and\nrelieving depression by giving subsidies of land and other\nresources. Thus, from our earliest days we have had a tradit",
+          "score": 0.57,
+          "metadata": {
+            "chunk_index": 227,
+            "file_type": ".txt",
+            "source": "fireside_chats.txt"
+          }
+        },
+        {
+          "source": "fireside_chats.txt",
+          "excerpt": "al economy to end our present unemployment as soon as we can and then to take wise measures against its return.  I do not want to think that it is the destiny of any American to remain permanently on ",
+          "score": 0.569,
+          "metadata": {
+            "chunk_index": 109,
+            "source": "fireside_chats.txt",
+            "file_type": ".txt"
+          }
+        },
+        {
+          "source": "fireside_chats.txt",
+          "excerpt": "ugh to\nprotect the interests of the people, and a people strong enough and\nwell enough informed to maintain its sovereign control over its\ngovernment. We are a rich Nation; we can afford to pay for se",
+          "score": 0.561,
+          "metadata": {
+            "source": "fireside_chats.txt",
+            "chunk_index": 226,
+            "file_type": ".txt"
+          }
+        }
+      ]
+    }
+  ]
+}

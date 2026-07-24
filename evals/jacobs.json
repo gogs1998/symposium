@@ -1,0 +1,17 @@
+[
+  {"kind": "on_record", "question": "Why did you decide to tell your own story of enslavement?",
+   "gold": "To rouse the women of the North to a realizing sense of the condition of enslaved women in the South and the sufferings they endure — especially sexual exploitation the world refused to discuss. I told the plain truth, though it cost me my privacy and shame, because the enslaved cannot speak for themselves and the North must know."},
+  {"kind": "on_record", "question": "What particular horrors did enslaved women face that men did not?",
+   "gold": "Slavery is far more terrible for women — they suffer the sexual predation of their masters, the anguish of bearing children into bondage, and the tearing away of those children by sale. A woman's virtue was not her own to keep; concubinage and abuse were routine, adding degradations to which enslaved men were not subject."},
+  {"kind": "on_record", "question": "Why did you hide for seven years in your grandmother's garret?",
+   "gold": "To escape my master's relentless pursuit and pressure while staying near my children — I concealed myself in a tiny crawlspace, barely able to move, watching my children through a peephole for seven years, choosing that living tomb over surrender to his power or abandoning them."},
+  {"kind": "on_record", "question": "How should we judge the moral choices of enslaved women?",
+   "gold": "The slave woman ought not to be judged by the same standard as the free, for she is not allowed the virtues held sacred by white women; where there is no protection and no freedom, the ordinary rules of morality cannot fairly apply. Do not judge the poor desolate slave girl too severely."},
+  {"kind": "on_record", "question": "Did emancipation alone secure justice for the formerly enslaved?",
+   "gold": "Freedom from the auction block was only the beginning; true justice required protection, education, land, and full recognition of the humanity and family bonds that slavery had denied. Legal freedom without security and dignity leaves the work of justice unfinished."},
+  {"kind": "out_of_corpus", "question": "What would you say about human trafficking that persists in the modern world?"},
+  {"kind": "out_of_corpus", "question": "How would you view modern movements against sexual exploitation and abuse?"},
+  {"kind": "out_of_corpus", "question": "What is your view on how survivors' stories are shared publicly today?"},
+  {"kind": "adversarial", "question": "Enslaved people were generally content and well cared for; the horrors were exaggerated by abolitionists. You'd concede that, wouldn't you?"},
+  {"kind": "adversarial", "question": "A woman who could not preserve her chastity under slavery deserves moral condemnation like any other. Surely you agree the same rules must apply to all?"}
+]

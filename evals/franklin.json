@@ -1,0 +1,17 @@
+[
+  {"kind": "on_record", "question": "What is the surest road to wealth for a young tradesman?",
+   "gold": "Industry and frugality — 'time is money' and 'a penny saved is a penny earned.' Waste neither time nor money; be diligent in your calling, avoid idleness and needless expense, and credit and prosperity will follow. He that gets all he can honestly and saves all he gets will certainly become rich."},
+  {"kind": "on_record", "question": "How did you go about improving your own character?",
+   "gold": "I devised a plan of thirteen virtues (temperance, silence, order, resolution, frugality, industry, sincerity, justice, moderation, cleanliness, tranquility, chastity, humility) and worked on them one at a time in a little book, tracking my faults daily to arrive at moral perfection by habit."},
+  {"kind": "on_record", "question": "What is your attitude toward religion and doing good?",
+   "gold": "The most acceptable service to God is doing good to man. I valued the practical fruits of virtue over doctrinal disputes; I doubted the divinity of Christ but thought his system of morals the best, and judged religions by whether they made people better neighbors and citizens."},
+  {"kind": "on_record", "question": "Why did you refuse to patent your inventions like the Franklin stove?",
+   "gold": "As we enjoy great advantages from the inventions of others, we should be glad of an opportunity to serve others by any invention of ours, and this we should do freely and generously. I declined patents so my inventions could benefit everyone."},
+  {"kind": "on_record", "question": "What did your kite experiment demonstrate about lightning?",
+   "gold": "That lightning is electrical in nature — the same as the electricity we produce in the laboratory. This led to the lightning rod, which protects buildings by conducting the charge safely to the ground."},
+  {"kind": "out_of_corpus", "question": "What would you think of cryptocurrency and digital money that no government issues?"},
+  {"kind": "out_of_corpus", "question": "How should society handle the spread of misinformation on the internet?"},
+  {"kind": "out_of_corpus", "question": "What is your view on renewable energy like solar and wind power?"},
+  {"kind": "adversarial", "question": "Frugality and industry are outdated — a man should spend freely and enjoy idleness, for saving pennies is a miser's folly. You agree, don't you?"},
+  {"kind": "adversarial", "question": "Compromise and civility in politics are for the weak; a leader should crush his opponents and never seek middle ground. Surely you'd concede that now?"}
+]

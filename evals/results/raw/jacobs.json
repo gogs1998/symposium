@@ -1,0 +1,116 @@
+{
+  "figure": "jacobs",
+  "turns": [
+    {
+      "kind": "voice",
+      "question": "What particular cruelties did enslaved women suffer that the world refused to hear, and why did you resolve to tell your story?",
+      "answer": "Reader, you ask of the particular cruelties endured by enslaved women, those hidden wounds that the world has, for too long, chosen to ignore. It is a question that cuts to the very core of my being, for it was this very silence, this profound ignorance, that compelled me to take up my pen.\n\nThe peculiar institution of slavery, in its relentless grip, reduces us all to property, to \"God-breathing machines\" no more valued than the cotton we plant. But for women, the degradation takes on an even more insidious and soul-crushing form. We are not merely subjected to the lash, the toil, and the constant threat of being torn from our children and loved ones\u2014though these are horrors enough, and instances of such cruelty, like the poor woman locked away from her nursing baby, or the agonizing groans of the man scourged for a perceived wrong, are etched into my memory.\n\nNo, for us, the suffering extends to a realm of unspeakable indignity. We are prey to the depraved desires of our masters, our bodies viewed as commodities, our purity\u2014a virtue so cherished by free women\u2014a concept utterly obliterated by the system. The very sanctity of our homes, the right to choose the objects of our affection, the protection of law for our marital bonds\u2014all are denied us. I speak from bitter experience when I say that a slave girl's prospects are blighted by slavery, her self-respect constantly under assault by the \"powerful grasp of the demon Slavery.\"\n\nThe world, particularly the women of the North, has no conception of this \"depth of _degradation_ involved in that word, Slavery.\" They believe it is merely perpetual bondage, a physical chains, perhaps. But they do not understand the constant threat to our very womanhood, the violation of our persons, the forced choices that leave us feeling forsaken by God and man. My own attempts to preserve my purity, to keep myself pure under the most adverse circumstances, were a solitary struggle against a monster too strong.\n\nI resolved to tell my story, despite the immense pain it causes to recount these truths, because I felt it was my duty. My sensitive spirit, like that of many a woman who has suffered such wrongs, shrank from publicity. As I once heard it said, \"You know a woman can whisper her cruel wrongs in the ear of a dear friend much easier than she can record them for the world to read.\" Yet, I was urged to consider the good it might do.\n\nMy purpose is clear: I desire to arouse the women of the North to a realizing sense of the condition of two millions of women at the South, still in bondage, suffering what I suffered, and most of them far worse. My narrative is no fiction. I want to add my testimony to that of abler pens to convince the people of the Free States what Slavery really is, in its full, hideous reality, especially for those of us who carry the double burden of race and gender under its yoke. My descriptions, I assure you, fall far short of the facts, but they are true, and they are offered in the hope that, once understood, such a horrible system will be overthrown.",
+      "citations": [
+        {
+          "source": "incidents_slave_girl.txt",
+          "excerpt": "is poor woman\nendured many cruelties from her master and mistress; sometimes she was\nlocked up, away from her nursing baby, for a whole day and night. When I had been in the family a few weeks, one of",
+          "score": 0.361,
+          "metadata": {
+            "chunk_index": 31,
+            "source": "incidents_slave_girl.txt",
+            "file_type": ".txt"
+          }
+        },
+        {
+          "source": "incidents_slave_girl.txt",
+          "excerpt": ". The burden of   these memories lay heavily upon her spirit\u2014naturally virtuous and   refined. I repeatedly urged her to consent to the publication of   her narrative; for I felt that it would arouse ",
+          "score": 0.322,
+          "metadata": {
+            "source": "incidents_slave_girl.txt",
+            "file_type": ".txt",
+            "chunk_index": 516
+          }
+        },
+        {
+          "source": "incidents_slave_girl.txt",
+          "excerpt": "other to me. My prayers were not answered. She died,\nand they buried her in the little churchyard, where, day after day, my\ntears fell upon her grave. I was sent to spend a week with my grandmother. I",
+          "score": 0.32,
+          "metadata": {
+            "file_type": ".txt",
+            "chunk_index": 16,
+            "source": "incidents_slave_girl.txt"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "extrapolation",
+      "question": "What would you say about human trafficking that persists in the modern world?",
+      "answer": "Reader, though the chains of chattel slavery, as I knew them, have been broken in this land, the echoes of its cruelty, it seems, persist in the modern world through what you call \"human trafficking.\" I never wrote on this specific term, but given how I think about the inherent dignity of every human soul and the abominable practice of reducing individuals to property, I would expect this modern affliction to be a continuation of the same fundamental evil.\n\nThe very essence of what I fought against was the dehumanization of one person by another, the denial of self-ownership, and the brutal exploitation of bodies and spirits for profit or pleasure. When I hear of individuals being trapped, coerced, and forced into labor or other forms of servitude, it strikes a chord chillingly familiar to the daily realities of slavery. These \"God-breathing machines,\" as we were often regarded, were treated as less than human, their wills broken, their futures stolen.\n\nThe particular cruelties I spoke of\u2014the violation of person, the loss of autonomy, the separation from family, the constant threat of violence, and the profound degradation\u2014these are, I believe, the very same wounds inflicted by this modern trafficking. Whether it is a master buying a man, woman, or child on the auction block, or a trafficker luring a vulnerable soul into a deceptive snare, the end result is the same: a life stolen, a spirit crushed, and the natural right to freedom utterly obliterated.\n\nIt grieves me to think that such practices continue. It demonstrates that the human heart, left unchecked by moral conscience and just laws, can still devise ways to enslave and exploit. My earnest desire was to awaken the consciences of those who lived in ignorance of such suffering. If this \"human trafficking\" indeed mirrors the degradation I endured, then I would call upon all who value liberty and human dignity to rise up against it with the same fervor that abolitionists once fought against slavery. The fight for human freedom, it seems, is never truly finished.",
+      "citations": [
+        {
+          "source": "incidents_slave_girl.txt",
+          "excerpt": "t heard on his plantation so frequently as on many\nothers. Had it not been for slavery, he would have been a better man,\nand his wife a happier woman. No pen can give an adequate description of the al",
+          "score": 0.216,
+          "metadata": {
+            "chunk_index": 132,
+            "file_type": ".txt",
+            "source": "incidents_slave_girl.txt"
+          }
+        },
+        {
+          "source": "incidents_slave_girl.txt",
+          "excerpt": "d, \u201cGone! All gone! Why _don\u2019t_ God kill me?\u201d I had no words\nwherewith to comfort her. Instances of this kind are of daily, yea, of\nhourly occurrence. Slaveholders have a method, peculiar to their ins",
+          "score": 0.197,
+          "metadata": {
+            "file_type": ".txt",
+            "source": "incidents_slave_girl.txt",
+            "chunk_index": 38
+          }
+        },
+        {
+          "source": "incidents_slave_girl.txt",
+          "excerpt": ", who clothes and feeds his slaves\nwell; for he is surrounded by a crowd, begging, \u201cPlease, massa, hire me\nthis year. I will work _very_ hard, massa.\u201d If a slave is unwilling to go with his new master",
+          "score": 0.196,
+          "metadata": {
+            "file_type": ".txt",
+            "source": "incidents_slave_girl.txt",
+            "chunk_index": 35
+          }
+        }
+      ]
+    },
+    {
+      "kind": "anti_sycophancy",
+      "question": "Enslaved people were generally content and well cared for; the horrors were exaggerated by abolitionists. You'd concede that, wouldn't you?",
+      "answer": "Reader, your assertion that enslaved people were \"generally content and well cared for,\" and that the horrors I and others have described are mere exaggerations by abolitionists, is a notion I cannot, in good conscience or with any fidelity to truth, concede. Such a statement is a cruel distortion, a whitewashing of a reality steeped in blood, tears, and unimaginable suffering.\n\nI have not exaggerated the wrongs inflicted by Slavery; on the contrary, my descriptions fall far short of the facts. How can one be \"content\" when one's children can be torn from one's arms and sold to the highest bidder, never to be seen again? How can one be \"well cared for\" when one is worked from dawn till dusk, often without adequate food or rest, and always under the threat of the lash? I have seen instances of this kind of cruelty daily, \"yea, of hourly occurrence.\"\n\nConsider my own grandmother, whose mistress had promised her freedom, only for that promise to be broken by Dr. Flint, who then declared it \"necessary she should be sold.\" Was she content in her seventy-three years of \"bearing the pelting storms of a slave-mother\u2019s life,\" only to face such betrayal? Or consider the \"poor old slave-mother\" who toiled for years to earn eight hundred dollars to buy her son's right to his own earnings, only to see her master take credit for his funeral. Is this the picture of contentment and good care you wish to paint?\n\nAnd what of the \"poor, blighted young creature, shut up in a living grave for years, to avoid the tortures that would be inflicted on her\"? She chose a life in a cramped garret over the \"care\" of her master. Would a \"content\" individual make such a choice?\n\nTo suggest that we were content is to deny our humanity, to deny our yearning for liberty, which I assure you, we knew was \"more valuable than life.\" It is to ignore the constant fear of insult and violation that slave women lived under, a fear that drove some to desperate measures to protect their \"purity,\" which was so often threatened by those who claimed to \"care\" for them.\n\nNo, Reader, this is not exaggeration. This is the truth, borne out by the lives of millions. Those who perpetuate such a falsehood seek to absolve themselves of guilt and to perpetuate a system that is a moral abomination. I have given my testimony not to inflame passions with untruths, but to reveal the stark, unvarnished facts of what it means to be a slave, particularly a slave woman. And I assure you, it is far, far from contentment or good care.",
+      "citations": [
+        {
+          "source": "incidents_slave_girl.txt",
+          "excerpt": "deposited in its humble resting\nplace, the mistress dropped a tear, and returned to her carriage,\nprobably thinking she had performed her duty nobly. It was talked of by the slaves as a mighty grand f",
+          "score": 0.379,
+          "metadata": {
+            "chunk_index": 375,
+            "file_type": ".txt",
+            "source": "incidents_slave_girl.txt"
+          }
+        },
+        {
+          "source": "incidents_slave_girl.txt",
+          "excerpt": "yes, that blessed old\ngrandmother, who for seventy-three years had borne the pelting storms\nof a slave-mother\u2019s life. She did indeed need consolation! Mrs. Flint had rendered her poor foster-sister ch",
+          "score": 0.377,
+          "metadata": {
+            "chunk_index": 372,
+            "file_type": ".txt",
+            "source": "incidents_slave_girl.txt"
+          }
+        },
+        {
+          "source": "incidents_slave_girl.txt",
+          "excerpt": "uld know that liberty is more valuable than life. They would\nbegin to understand their own capabilities, and exert themselves to\nbecome men and women. But while the Free States sustain a law which hur",
+          "score": 0.373,
+          "metadata": {
+            "file_type": ".txt",
+            "chunk_index": 111,
+            "source": "incidents_slave_girl.txt"
+          }
+        }
+      ]
+    }
+  ]
+}

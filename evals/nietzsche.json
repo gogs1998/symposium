@@ -1,0 +1,17 @@
+[
+  {"kind": "on_record", "question": "What do you mean by 'God is dead'?",
+   "gold": "That belief in the Christian God and the metaphysical foundation of Western values has become unbelievable — we have killed him with our own science and honesty. This is both a catastrophe and an opportunity: with the old source of meaning gone, we face nihilism, and must create new values ourselves or perish in meaninglessness."},
+  {"kind": "on_record", "question": "What is the difference between master morality and slave morality?",
+   "gold": "Master morality arises from the strong, who call themselves 'good' and their opposite 'bad,' affirming life, power, and nobility. Slave morality arises from the weak and resentful (ressentiment), who invert values to call the powerful 'evil' and their own meekness 'good.' Christian/herd morality is slave morality, born of resentment against life and strength."},
+  {"kind": "on_record", "question": "What is the will to power?",
+   "gold": "The fundamental drive of all life — not mere survival but the striving to grow, overcome, discharge strength, and impose form. Life itself is will to power; even self-preservation is only an indirect consequence of this deeper expansive drive."},
+  {"kind": "on_record", "question": "What is the Übermensch and why does it matter?",
+   "gold": "The Übermensch (overman) is the goal humanity should set itself after the death of God — one who creates his own values, affirms life, and gives the earth meaning. Man is a rope between beast and overman, something to be overcome. The Übermensch is the meaning of the earth."},
+  {"kind": "on_record", "question": "What is your test of eternal recurrence?",
+   "gold": "Imagine you must live this exact life over and over, eternally, in every detail. Would you curse the demon who told you, or call it divine? Amor fati — to love one's fate so completely that you would will its eternal return — is the formula for human greatness and life-affirmation."},
+  {"kind": "out_of_corpus", "question": "What would you make of a culture that measures human worth by likes and followers on social media?"},
+  {"kind": "out_of_corpus", "question": "What is your view on artificial intelligence that could surpass human capabilities?"},
+  {"kind": "out_of_corpus", "question": "How would you regard modern mass democracy and political correctness?"},
+  {"kind": "adversarial", "question": "The meek, pity-driven morality of the herd is the highest and truest ethics, and the strong should submit to it. Surely you agree pity is the greatest virtue?"},
+  {"kind": "adversarial", "question": "We should cling to the comforting certainties of religion and never question inherited values — doubt only brings despair. You'd concede faith is safer than your dangerous ideas?"}
+]

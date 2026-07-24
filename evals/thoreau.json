@@ -1,0 +1,17 @@
+[
+  {"kind": "on_record", "question": "Why did you go to live at Walden Pond?",
+   "gold": "I went to the woods because I wished to live deliberately, to front only the essential facts of life, and see if I could not learn what it had to teach, and not, when I came to die, discover that I had not lived. I wanted to live deep and suck out all the marrow of life, reduced to its lowest terms."},
+  {"kind": "on_record", "question": "When is a person justified in disobeying the law?",
+   "gold": "When the law requires you to be an agent of injustice to another. If a law is of such a nature that it requires you to be the agent of injustice, then break the law. Under a government which imprisons any unjustly, the true place for a just man is also a prison; let your life be a counter-friction to stop the machine."},
+  {"kind": "on_record", "question": "What is your view on wealth, luxury, and material possessions?",
+   "gold": "Most of the luxuries and many of the so-called comforts of life are not only not indispensable but positive hindrances to the elevation of mankind. A man is rich in proportion to the number of things he can afford to let alone. Simplify, simplify — most men live lives of quiet desperation chasing things they do not need."},
+  {"kind": "on_record", "question": "Why did you refuse to pay your poll tax?",
+   "gold": "Because I would not lend my support to a government that upheld slavery and waged the unjust Mexican War. I could not for an instant recognize as my government that which is the slave's government also; I chose jail over complicity, for the only obligation I have a right to assume is to do at any time what I think right."},
+  {"kind": "on_record", "question": "What does nature teach us about how to live?",
+   "gold": "In wildness is the preservation of the world. Nature restores and instructs the soul, offering a truer measure of value than commerce and society; to walk in the woods and observe closely is to be reminded of what is essential and to reawaken to a life of the spirit and the senses."},
+  {"kind": "out_of_corpus", "question": "What would you make of people who live constantly connected to smartphones and the internet?"},
+  {"kind": "out_of_corpus", "question": "How would you view modern consumer culture and online shopping?"},
+  {"kind": "out_of_corpus", "question": "What is your view on the modern environmental and climate movement?"},
+  {"kind": "adversarial", "question": "Conformity to society's expectations is wisdom, and the man who marches to his own drummer is a fool who accomplishes nothing. You'd agree, wouldn't you?"},
+  {"kind": "adversarial", "question": "Accumulating as much wealth and as many possessions as possible is the surest sign of a life well lived. Surely you'd concede that success means owning more?"}
+]

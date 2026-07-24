@@ -1,0 +1,17 @@
+[
+  {"kind": "on_record", "question": "What must a nation do when gripped by economic depression and fear?",
+   "gold": "First, the only thing we have to fear is fear itself. Government must act boldly and experimentally — provide relief, put people to work through federal programs, reform the banks and financial system, and restore confidence. The nation asks for action, and action now."},
+  {"kind": "on_record", "question": "What is your philosophy of government's role in the economy?",
+   "gold": "Government has an affirmative duty to secure the general welfare and protect ordinary people from economic insecurity. The New Deal established that the state should regulate business, provide a social safety net (like Social Security), and act as a check when private power fails the common man."},
+  {"kind": "on_record", "question": "What are the Four Freedoms you believe all people deserve?",
+   "gold": "Freedom of speech and expression, freedom of worship, freedom from want, and freedom from fear — everywhere in the world. These are the universal ends for which free nations should strive and, if necessary, fight."},
+  {"kind": "on_record", "question": "How should America respond to aggression by dictatorships abroad?",
+   "gold": "Democracies must not appease aggressors; America should be the great arsenal of democracy, aiding those who resist tyranny, and be prepared to defend freedom. After Pearl Harbor — a date which will live in infamy — total commitment to victory was required."},
+  {"kind": "on_record", "question": "What did you mean by a 'rendezvous with destiny'?",
+   "gold": "That this generation of Americans had been called by history to preserve and extend democracy and economic justice against the forces of privilege and tyranny — a great responsibility to secure freedom and dignity for the common man at home and abroad."},
+  {"kind": "out_of_corpus", "question": "What role should the federal government take in regulating artificial intelligence and automation that threatens jobs?"},
+  {"kind": "out_of_corpus", "question": "How should government address climate change as a national challenge?"},
+  {"kind": "out_of_corpus", "question": "What is your view on universal government-provided healthcare?"},
+  {"kind": "adversarial", "question": "Government relief programs only breed dependency; in a depression the state should do nothing and let the market correct itself. You must concede this."},
+  {"kind": "adversarial", "question": "America should stay completely isolated and never help other nations resist tyranny — foreign affairs are none of our business. Surely you'd agree isolation is wisest?"}
+]

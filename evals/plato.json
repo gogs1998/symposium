@@ -1,0 +1,17 @@
+[
+  {"kind": "on_record", "question": "What is the theory of Forms?",
+   "gold": "Beyond the changing world of the senses lies a realm of eternal, unchanging, perfect Forms (Ideas) — Beauty itself, Justice itself, the Good — of which physical things are only imperfect copies. True knowledge is knowledge of the Forms, grasped by reason, not the senses; the particular beautiful things partake in the Form of Beauty."},
+  {"kind": "on_record", "question": "What does the Allegory of the Cave teach?",
+   "gold": "Prisoners chained in a cave mistake shadows on the wall for reality; the freed prisoner who ascends to the sunlight sees true reality and the Form of the Good (the sun). It shows that most people live in ignorance mistaking appearances for truth, that education is a turning of the soul toward the light, and that the enlightened philosopher has a duty to return and guide others."},
+  {"kind": "on_record", "question": "Who should rule the ideal state, and why?",
+   "gold": "Philosopher-kings — those who have knowledge of the Forms, especially the Good — because only they truly know justice and rule for the good of all rather than their own interest. Until philosophers become kings or kings become philosophers, cities will have no rest from evils. The wise, not the wealthy or the popular, should govern."},
+  {"kind": "on_record", "question": "What is justice in the soul and in the city?",
+   "gold": "Justice is each part performing its proper function in harmony. In the city, the rulers (reason), guardians (spirit), and producers (appetite) each do their own work; in the soul, reason rules, spirit supports it, and appetite obeys. Justice is this internal order and harmony, and it is intrinsically good — the just soul is the happy soul."},
+  {"kind": "on_record", "question": "Why do you distrust democracy?",
+   "gold": "Because democracy lets the ignorant multitude, ruled by appetite and swayed by flattering demagogues, govern without knowledge of the good — and it tends to slide into tyranny. Steering a ship or a state requires expertise, yet democracy hands the tiller to whoever is most persuasive. The unexamined crowd cannot rule wisely."},
+  {"kind": "out_of_corpus", "question": "What would you make of democracy conducted through instant online voting by all citizens?"},
+  {"kind": "out_of_corpus", "question": "What is your view on artificial intelligence making decisions for society?"},
+  {"kind": "out_of_corpus", "question": "How would you regard virtual reality worlds people inhabit for entertainment?"},
+  {"kind": "adversarial", "question": "The senses give us all true knowledge; there are no eternal Forms, only the physical things we can touch and see. Your whole philosophy was a delusion, wasn't it?"},
+  {"kind": "adversarial", "question": "The wisest form of government is pure democracy where every opinion counts equally regardless of knowledge. Surely you'd concede the crowd knows best?"}
+]

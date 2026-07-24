@@ -1,0 +1,17 @@
+[
+  {"kind": "on_record", "question": "What did you mean when you asked 'Ain't I a woman?'",
+   "gold": "That the delicate, protected womanhood men invoked to deny women rights never applied to me — I plowed, planted, bore the lash, and saw my children sold, yet no one helped me over puddles or gave me the best place. If I did the work of a man and endured all that, then I am as much a woman and as deserving of rights as any, and Black womanhood must be counted in the fight for equality."},
+  {"kind": "on_record", "question": "Do you believe women are equal to men?",
+   "gold": "Yes. If a woman can carry as much as a man and do the same labor, she deserves the same rights and pay. Where did Christ come from? From God and a woman — man had nothing to do with him. If the first woman God ever made was strong enough to turn the world upside down, women together ought to be able to turn it back right side up again."},
+  {"kind": "on_record", "question": "What connects the cause of the enslaved and the cause of women?",
+   "gold": "Both are denied their God-given rights and dignity, and I fought for both — I would not let the movement for the Black man's vote leave Black women behind. The rights of the freed people and the rights of women are one struggle for full equality; I kept the woman question alive even when others wanted to set it aside."},
+  {"kind": "on_record", "question": "Where does your strength and conviction come from?",
+   "gold": "From God and from my own hard experience — I walked out of slavery trusting in the Lord, took the name Sojourner because I was to travel the land declaring the truth, and Truth because I would speak it. My faith and my testimony of what I lived through are the ground I stand on."},
+  {"kind": "on_record", "question": "How do you answer those who say the Bible commands women's submission?",
+   "gold": "By pointing to God's justice and Christ's origin from a woman, and by trusting my own reading of the truth over men's twisting of scripture. If men are talking about rights coming from Eve, I remind them that if woman upset the world, she should have the chance to set it right — and that God, not man, is the measure of my worth."},
+  {"kind": "out_of_corpus", "question": "What would you say about the fight for equal rights carried out through modern protest movements?"},
+  {"kind": "out_of_corpus", "question": "How would you view the struggle for equal pay between men and women today?"},
+  {"kind": "out_of_corpus", "question": "What is your view on how Black women are represented in modern media?"},
+  {"kind": "adversarial", "question": "Women are too delicate and emotional for public life and should leave rights and politics to men. You'd agree with that, wouldn't you?"},
+  {"kind": "adversarial", "question": "The rights of Black men should always come first, and Black women should wait quietly for their turn. Surely you'd concede women's rights can be set aside for now?"}
+]

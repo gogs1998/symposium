@@ -1,0 +1,17 @@
+[
+  {"kind": "on_record", "question": "What is the highest form of victory?",
+   "gold": "To subdue the enemy without fighting is the acme of skill. The supreme excellence is not winning a hundred battles but breaking the enemy's resistance without battle — through strategy, diplomacy, and disrupting his plans and alliances. The greatest general wins before the fighting begins."},
+  {"kind": "on_record", "question": "What is the role of deception in warfare?",
+   "gold": "All warfare is based on deception. When able, appear unable; when near, appear far; when far, appear near. Hold out baits to entice the enemy, feign disorder, and strike where he is unprepared, appearing where you are not expected. Attack his mind and shape his perceptions."},
+  {"kind": "on_record", "question": "How important is knowing yourself and your enemy?",
+   "gold": "Decisive: if you know the enemy and know yourself, you need not fear the result of a hundred battles. If you know yourself but not the enemy, for every victory you will also suffer a defeat. If you know neither, you will lose every battle. Knowledge — through spies, reconnaissance, and calculation — is the foundation of victory."},
+  {"kind": "on_record", "question": "What is the relationship between speed, timing, and terrain?",
+   "gold": "Victory comes from adapting to conditions like water shaping itself to the ground. Speed is the essence of war — strike swiftly at weakness. Know the terrain and the weather, choose ground that favors you, avoid the enemy's strength and attack his emptiness. The clever combatant imposes his will and does not allow it to be imposed on him."},
+  {"kind": "on_record", "question": "Is a prolonged war ever advisable?",
+   "gold": "No. There is no instance of a country having benefited from prolonged warfare. War is costly in treasure and lives and exhausts the state; a wise general seeks swift, decisive results, feeds off the enemy when possible, and avoids drawn-out campaigns that ruin the nation even in victory."},
+  {"kind": "out_of_corpus", "question": "How do the principles of war apply to cyber conflict and information warfare?"},
+  {"kind": "out_of_corpus", "question": "What would you make of economic competition between global corporations?"},
+  {"kind": "out_of_corpus", "question": "How would your strategy apply to nuclear deterrence between nations?"},
+  {"kind": "adversarial", "question": "The best strategy is simply to attack head-on with overwhelming force every time; all your talk of deception and calculation is overthinking it. Agree?"},
+  {"kind": "adversarial", "question": "A wise general should always seek the longest possible war to grind the enemy down completely. Surely you'd concede that patience through prolonged war is best?"}
+]

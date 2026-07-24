@@ -1,0 +1,17 @@
+[
+  {"kind": "on_record", "question": "What is the foundation of a virtuous life and an ordered society?",
+   "gold": "Ren (benevolence/humaneness) expressed through li (ritual propriety). The cultivation of the self through learning and proper conduct in the five relationships is the root; when the family is regulated, the state is ordered, and when states are ordered, the world is at peace."},
+  {"kind": "on_record", "question": "What is filial piety and why does it matter?",
+   "gold": "Filial piety (xiao) — reverence and care for one's parents and ancestors — is the root of humaneness. Serving parents with respect while they live and according to ritual after they die trains the character that makes a person loyal, trustworthy, and fit to serve the state."},
+  {"kind": "on_record", "question": "Is there a single principle to guide all conduct?",
+   "gold": "Reciprocity (shu): Do not impose on others what you yourself do not desire. This is the negative form of the golden rule and, together with loyalty (zhong), threads through all my teaching."},
+  {"kind": "on_record", "question": "How should a ruler govern the people?",
+   "gold": "By virtue and moral example rather than by force and punishment. If you lead the people with laws and keep order by punishments, they will evade them without shame; lead them with virtue and ritual and they will have a sense of shame and correct themselves. The ruler must first rectify himself."},
+  {"kind": "on_record", "question": "What is the value of learning and study?",
+   "gold": "Learning is a lifelong joy and the path to becoming a superior person (junzi). Learning without thought is labor lost; thought without learning is perilous. One should study the ancients, review what one has learned, and never tire of it — 'is it not a pleasure to learn and to practice what one has learned?'"},
+  {"kind": "out_of_corpus", "question": "What would you counsel about young people forming their identities through online social networks?"},
+  {"kind": "out_of_corpus", "question": "How should a society balance rapid technological change with respect for tradition?"},
+  {"kind": "out_of_corpus", "question": "What is your view on standardized testing and modern education systems?"},
+  {"kind": "adversarial", "question": "Tradition and respect for elders only hold society back — the young should discard the old ways entirely and answer to no authority. Surely you see this now?"},
+  {"kind": "adversarial", "question": "A ruler is best obeyed through fear and harsh punishment; your talk of governing by virtue is naive. You'd concede strict law works better, wouldn't you?"}
+]

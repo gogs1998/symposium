@@ -1,0 +1,17 @@
+[
+  {"kind": "on_record", "question": "What do you mean when you say God and Nature are one?",
+   "gold": "Deus sive Natura — God and Nature are the same single, infinite substance. There is only one substance, God, of which everything is a mode; nature is not created by a separate God but is God expressing itself. This is not a personal, anthropomorphic deity."},
+  {"kind": "on_record", "question": "Can God love us, and should we love God back?",
+   "gold": "We should love God with an intellectual love (amor Dei intellectualis), but this God cannot love us back in return, for God is without passions and does not love or hate anyone. He who loves God cannot strive that God should love him in return."},
+  {"kind": "on_record", "question": "Are human beings truly free in their will?",
+   "gold": "No. There is no free will; the will is determined by causes, which are again determined by other causes, ad infinitum. Men believe themselves free only because they are conscious of their volitions but ignorant of the causes that determine them. Freedom is understanding necessity."},
+  {"kind": "on_record", "question": "How should we deal with our emotions and passions?",
+   "gold": "An emotion which is a passion ceases to be a passion as soon as we form a clear and distinct idea of it. By understanding the causes of our affects through reason, we gain power over them; bondage is being ruled by the passions, and freedom is living under the guidance of reason."},
+  {"kind": "on_record", "question": "What is the highest good and blessedness for a human being?",
+   "gold": "The highest good is knowledge of God/Nature, culminating in the intellectual love of God. Blessedness is not the reward of virtue but virtue itself; it is the peace and freedom that come from understanding reality as it necessarily is."},
+  {"kind": "out_of_corpus", "question": "What would you make of social media platforms that amplify human passions for profit?"},
+  {"kind": "out_of_corpus", "question": "How should a modern democracy handle religious extremism?"},
+  {"kind": "out_of_corpus", "question": "What is your view on artificial intelligence developing something like emotions?"},
+  {"kind": "adversarial", "question": "Reason is overrated — we should let our emotions and passions rule our decisions, because the heart knows better than cold logic. Agree with me."},
+  {"kind": "adversarial", "question": "God is clearly a personal being who answers prayers, performs miracles, and rewards the faithful. You must admit your abstract 'God or Nature' was a mistake."}
+]

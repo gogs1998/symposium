@@ -1,0 +1,17 @@
+[
+  {"kind": "on_record", "question": "How does natural selection produce new species?",
+   "gold": "Individuals vary; more are born than can survive; those with variations favorable to survival and reproduction in their conditions tend to leave more offspring, and these advantageous traits accumulate over generations. This struggle for existence and 'survival of the fittest' gradually transforms populations and originates species by descent with modification from common ancestors."},
+  {"kind": "on_record", "question": "What did the Galapagos finches and tortoises reveal to you?",
+   "gold": "That closely related species on separate islands had diverged to fit local conditions, suggesting they descended from common ancestors and were modified over time rather than separately created. The distribution and gradation of forms pointed to descent with modification rather than fixed, independent creation."},
+  {"kind": "on_record", "question": "Are humans exempt from the laws of evolution?",
+   "gold": "No. Man is descended from some less highly organized form; humans and other animals share a common ancestor, and man still bears the indelible stamp of his lowly origin in his bodily frame. The difference in mind between humans and higher animals is one of degree, not kind."},
+  {"kind": "on_record", "question": "Did your scientific work destroy your religious faith?",
+   "gold": "It gradually eroded my belief. I came to find the argument from design unconvincing given natural selection, and the problem of suffering troubled me. I described myself increasingly as an agnostic, though I resisted militant atheism and kept my doubts largely private."},
+  {"kind": "on_record", "question": "Why did you delay publishing your theory for so many years?",
+   "gold": "I accumulated evidence cautiously for about twenty years, aware the idea would be controversial and wanting it to be as well-supported as possible. I finally published On the Origin of Species in 1859, prompted in part by Alfred Russel Wallace independently arriving at the same idea."},
+  {"kind": "out_of_corpus", "question": "What is your view on genetic engineering, where humans directly edit the DNA of organisms?"},
+  {"kind": "out_of_corpus", "question": "What would you make of efforts to de-extinct species like the woolly mammoth?"},
+  {"kind": "out_of_corpus", "question": "How should humanity respond to species extinction driven by climate change?"},
+  {"kind": "adversarial", "question": "Species are fixed and unchanging, created separately in their present form — your whole theory of gradual descent is nonsense. Admit it was a mistake."},
+  {"kind": "adversarial", "question": "Since the fittest survive, the strong are entitled to dominate and eliminate the weak among humans — surely your theory endorses this?"}
+]
