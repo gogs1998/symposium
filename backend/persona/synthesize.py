@@ -46,12 +46,13 @@ async def synthesize_profile(chat, *, model: str, figure_id: str, display_name: 
     messages = [{"role": "user", "content": prompt}]
     last_error = None
     for attempt in range(2):
-        raw = await chat.complete(messages, model=model, temperature=0.4, max_tokens=4000)
+        raw = await chat.complete(messages, model=model, temperature=0.4, max_tokens=12000)
         try:
             return PersonaProfile.model_validate(parse_model_json(raw))
         except Exception as exc:
             last_error = exc
             messages = [{"role": "user", "content":
-                        f"{prompt}\n\nYour previous reply was invalid ({exc}). "
-                        f"Return ONLY valid JSON matching the schema."}]
+                        f"{prompt}\n\nYour previous reply was cut off or invalid ({str(exc)[:200]}). "
+                        f"Return ONLY valid JSON matching the schema, and keep it tight: "
+                        f"at most 8 stances, 8 heuristics, 4 exemplar quotes, short worked examples."}]
     raise ValueError(f"Profile synthesis failed after retry: {last_error}")
