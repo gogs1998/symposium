@@ -31,11 +31,11 @@ export function FigureIntroScreen({ figure, onBegin, onBack, onOpenWith }) {
 
   return (
     <div style={{ minHeight: '100%', background: 'var(--surface-page)', backgroundImage: 'var(--texture-grain)' }}>
-      <div style={{ maxWidth: 760, margin: '0 auto', padding: 'var(--space-8) var(--space-6)' }}>
+      <div className="sym-intro-wrap" style={{ maxWidth: 760, margin: '0 auto', padding: 'var(--space-8) var(--space-6)' }}>
         <button onClick={onBack} style={{ background: 'none', border: 'none', cursor: 'pointer', fontFamily: 'var(--font-mono)', fontSize: 'var(--text-xs)', letterSpacing: 'var(--tracking-caps)', textTransform: 'uppercase', color: 'var(--text-muted)', padding: 0 }}>← The roster</button>
 
         <div style={{ background: 'var(--surface-card)', border: '1px solid var(--stone-line)', borderRadius: 'var(--radius-2)', boxShadow: 'var(--shadow-1)', marginTop: 'var(--space-4)', overflow: 'hidden' }}>
-          <div style={{ display: 'flex', gap: 'var(--space-5)', padding: 'var(--space-6)', alignItems: 'center' }}>
+          <div className="sym-intro-head" style={{ display: 'flex', gap: 'var(--space-5)', padding: 'var(--space-6)', alignItems: 'center' }}>
             <FigurePortrait name={figure.name} src={figure.imageUrl} category={figure.category} accentColor={figure.accentColor} size={96} />
             <div style={{ minWidth: 0 }}>
               <div style={{ fontFamily: 'var(--font-mono)', fontSize: 'var(--text-xs)', letterSpacing: 'var(--tracking-caps)', textTransform: 'uppercase', color: figure.category === 'creator' ? 'var(--bronze-deep)' : 'var(--text-muted)' }}>

@@ -12,18 +12,20 @@ function ChatHeader({ figure, onBack, onOpenSources }) {
   // Display-only register chip for creators, derived from metadata.format.
   const reg = registersFor(figure)
   return (
-    <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-4)', padding: 'var(--space-4) var(--space-6)', borderBottom: '1px solid var(--border-line)', background: 'var(--surface-page)' }}>
+    <div className="sym-chat-header" style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-4)', padding: 'var(--space-4) var(--space-6)', borderBottom: '1px solid var(--border-line)', background: 'var(--surface-page)' }}>
       <IconButton label="Back to roster" variant="ghost" onClick={onBack}>←</IconButton>
       <FigurePortrait name={figure.name} src={figure.imageUrl} category={figure.category} accentColor={figure.accentColor} shape="round" size={38} grain={false} />
-      <div style={{ flex: 1, minWidth: 0 }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-          <span style={{ font: 'var(--fw-regular) var(--text-xl)/1 var(--font-display)', color: 'var(--text-strong)' }}>{figure.name}</span>
+      <div className="sym-chat-headtext" style={{ flex: 1, minWidth: 0 }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '10px', minWidth: 0 }}>
+          <span className="sym-chat-name" style={{ font: 'var(--fw-regular) var(--text-xl)/1 var(--font-display)', color: 'var(--text-strong)', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{figure.name}</span>
           <DisclosureBanner figureName={figure.name} inline />
         </div>
         <span style={{ font: 'var(--fw-regular) var(--text-xs)/1.4 var(--font-sans)', color: 'var(--text-faint)' }}>{figure.meta}</span>
       </div>
-      {reg && <RegisterIndicator registers={reg.registers} active={reg.active} />}
-      <Button variant="ghost" size="sm" onClick={onOpenSources}>Sources</Button>
+      {reg && <span className="sym-chat-register">{<RegisterIndicator registers={reg.registers} active={reg.active} />}</span>}
+      <span className="sym-chat-sources">
+        <Button variant="ghost" size="sm" onClick={onOpenSources}>Sources</Button>
+      </span>
     </div>
   )
 }
@@ -57,9 +59,9 @@ function EmptyState({ figure, onAsk }) {
     `What do people most often get wrong about you?`,
   ]
   return (
-    <div style={{ maxWidth: 'var(--width-chat)', margin: '0 auto', padding: 'var(--space-10) var(--space-6)', textAlign: 'center' }}>
+    <div className="sym-chat-empty" style={{ maxWidth: 'var(--width-chat)', margin: '0 auto', padding: 'var(--space-10) var(--space-6)', textAlign: 'center' }}>
       <FigurePortrait name={figure.name} src={figure.imageUrl} category={figure.category} accentColor={figure.accentColor} size={92} style={{ margin: '0 auto' }} />
-      <h2 style={{ margin: 'var(--space-5) 0 0', font: 'var(--fw-regular) var(--text-3xl)/1.1 var(--font-display)', color: 'var(--text-strong)' }}>{figure.name}</h2>
+      <h2 className="sym-chat-empty-name" style={{ margin: 'var(--space-5) 0 0', font: 'var(--fw-regular) var(--text-3xl)/1.1 var(--font-display)', color: 'var(--text-strong)' }}>{figure.name}</h2>
       <p style={{ margin: '12px auto 0', maxWidth: '46ch', font: 'var(--fw-regular) var(--text-md)/1.6 var(--font-serif)', color: 'var(--text-muted)', textWrap: 'pretty' }}>{figure.description}</p>
       <div style={{ display: 'flex', alignItems: 'center', gap: '12px', margin: 'var(--space-8) 0 var(--space-4)' }}>
         <span style={{ flex: 1, height: 1, background: 'var(--border-hair)' }} />
@@ -126,12 +128,12 @@ export function ChatScreen({ figure, sessions, activeSession, initialMessages = 
   const busy = phase === 'thinking' || phase === 'streaming'
 
   return (
-    <div style={{ display: 'flex', height: '100%', background: 'var(--surface-page)' }}>
+    <div className="sym-chat-shell" style={{ display: 'flex', height: '100%', background: 'var(--surface-page)' }}>
       <SessionSidebar sessions={sessions} activeId={activeSession} onSelect={onSelectSession} onNew={onNewConversation} />
       <div style={{ flex: 1, display: 'flex', flexDirection: 'column', minWidth: 0 }}>
         <ChatHeader figure={figure} onBack={onBack} onOpenSources={() => setShowSources(true)} />
         <DisclosureBanner figureName={figure.name} />
-        <div ref={threadRef} style={{ flex: 1, overflowY: 'auto', backgroundImage: 'var(--texture-grain)' }}>
+        <div ref={threadRef} className="sym-chat-thread" style={{ flex: 1, overflowY: 'auto', backgroundImage: 'var(--texture-grain)' }}>
           {empty ? (
             <EmptyState figure={figure} onAsk={(q) => submit(q)} />
           ) : phase === 'error' ? (
@@ -140,7 +142,7 @@ export function ChatScreen({ figure, sessions, activeSession, initialMessages = 
               <ErrorState onRetry={retry} />
             </div>
           ) : (
-            <div style={{ maxWidth: 'var(--width-chat)', margin: '0 auto', padding: 'var(--space-7) var(--space-6)', display: 'flex', flexDirection: 'column', gap: 'var(--space-7)' }}>
+            <div className="sym-chat-turns" style={{ maxWidth: 'var(--width-chat)', margin: '0 auto', padding: 'var(--space-7) var(--space-6)', display: 'flex', flexDirection: 'column', gap: 'var(--space-7)' }}>
               {messages.map((m, i) => <Msg key={i} m={m} figure={figure} />)}
               {phase === 'thinking' && (
                 <TypingIndicator author={figure.name} accentColor={figure.accentColor}
@@ -154,7 +156,7 @@ export function ChatScreen({ figure, sessions, activeSession, initialMessages = 
             </div>
           )}
         </div>
-        <div style={{ borderTop: '1px solid var(--border-line)', background: 'var(--surface-page)', padding: 'var(--space-4) var(--space-6) var(--space-5)' }}>
+        <div className="sym-chat-composerbar" style={{ borderTop: '1px solid var(--border-line)', background: 'var(--surface-page)', padding: 'var(--space-4) var(--space-6) var(--space-5)' }}>
           <div style={{ maxWidth: 'var(--width-chat)', margin: '0 auto' }}>
             <Composer value={draft} onChange={setDraft} onSend={(t) => submit(t)} figureName={figure.name} busy={busy} />
           </div>

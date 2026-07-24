@@ -21,26 +21,26 @@ export function LandingScreen({ figures = [], onEnter }) {
 
   return (
     <div style={{ fontFamily: 'var(--font-body)', color: 'var(--text-body)', background: 'var(--surface-page)', minHeight: '100%' }}>
-      <nav style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', maxWidth: 'var(--content-max)', margin: '0 auto', padding: '20px var(--space-6)' }}>
+      <nav className="sym-landing-nav" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', maxWidth: 'var(--content-max)', margin: '0 auto', padding: '20px var(--space-6)' }}>
         <span style={{ fontFamily: 'var(--font-display)', fontSize: 'var(--text-md)', letterSpacing: '0.08em' }}>SYMPOSIUM</span>
         <div style={{ display: 'flex', gap: 'var(--space-5)', alignItems: 'center' }}>
-          <a href="#roster" style={{ fontSize: 'var(--text-sm)', color: 'var(--text-secondary)', border: 'none' }}>The roster</a>
-          <a href="#ethics" style={{ fontSize: 'var(--text-sm)', color: 'var(--text-secondary)', border: 'none' }}>Ethics</a>
+          <a className="sym-landing-navlink" href="#roster" style={{ fontSize: 'var(--text-sm)', color: 'var(--text-secondary)', border: 'none' }}>The roster</a>
+          <a className="sym-landing-navlink" href="#ethics" style={{ fontSize: 'var(--text-sm)', color: 'var(--text-secondary)', border: 'none' }}>Ethics</a>
           <button onClick={onEnter} style={{ fontFamily: 'var(--font-display)', fontSize: 'var(--text-sm)', letterSpacing: '0.06em', background: 'var(--ink-1)', color: 'var(--ink-inverse)', borderRadius: 'var(--radius-1)', padding: '9px 18px', border: 'none', cursor: 'pointer' }}>ENTER</button>
         </div>
       </nav>
 
-      <header style={{ textAlign: 'center', padding: 'var(--space-9) var(--space-6) var(--space-8)', borderBottom: '1px solid var(--stone-line)' }}>
+      <header className="sym-landing-hero" style={{ textAlign: 'center', padding: 'var(--space-9) var(--space-6) var(--space-8)', borderBottom: '1px solid var(--stone-line)' }}>
         <Label>An archive that answers back</Label>
-        <h1 style={{ fontFamily: 'var(--font-display)', fontWeight: 400, fontSize: 'var(--text-3xl)', lineHeight: 'var(--leading-tight)', letterSpacing: 'var(--tracking-display)', maxWidth: 820, margin: '16px auto 0' }}>Converse with the people behind the books, the speeches, the episodes.</h1>
+        <h1 className="sym-landing-h1" style={{ fontFamily: 'var(--font-display)', fontWeight: 400, fontSize: 'var(--text-3xl)', lineHeight: 'var(--leading-tight)', letterSpacing: 'var(--tracking-display)', maxWidth: 820, margin: '16px auto 0' }}>Converse with the people behind the books, the speeches, the episodes.</h1>
         <p style={{ fontSize: 'var(--text-md)', color: 'var(--text-secondary)', maxWidth: 560, margin: '20px auto 0', lineHeight: 1.6 }}>Each recreation is built only from its subject's own corpus — and every reply cites the passage it drew on.</p>
-        <div style={{ display: 'flex', gap: 12, justifyContent: 'center', marginTop: 'var(--space-6)' }}>
+        <div className="sym-landing-cta" style={{ display: 'flex', gap: 12, justifyContent: 'center', marginTop: 'var(--space-6)' }}>
           <button onClick={onEnter} style={{ fontFamily: 'var(--font-display)', letterSpacing: '0.06em', fontSize: 'var(--text-md)', background: 'var(--ink-1)', color: 'var(--ink-inverse)', borderRadius: 'var(--radius-1)', padding: '13px 26px', border: 'none', cursor: 'pointer' }}>Enter the reading room</button>
           <a href="#promise" style={{ fontFamily: 'var(--font-display)', letterSpacing: '0.06em', fontSize: 'var(--text-md)', color: 'var(--text-body)', border: '1px solid var(--stone-line-strong)', borderRadius: 'var(--radius-1)', padding: '13px 26px', background: 'var(--surface-card)' }}>How it works</a>
         </div>
       </header>
 
-      <section id="promise" style={{ maxWidth: 'var(--content-max)', margin: '0 auto', padding: 'var(--space-8) var(--space-6)', display: 'grid', gridTemplateColumns: '5fr 6fr', gap: 'var(--space-7)', alignItems: 'center' }}>
+      <section id="promise" className="sym-landing-promise" style={{ maxWidth: 'var(--content-max)', margin: '0 auto', padding: 'var(--space-8) var(--space-6)', display: 'grid', gridTemplateColumns: '5fr 6fr', gap: 'var(--space-7)', alignItems: 'center' }}>
         <div>
           <Label style={{ color: 'var(--bronze-deep)' }}>The promise</Label>
           <h2 style={{ fontFamily: 'var(--font-display)', fontWeight: 400, fontSize: 'var(--text-2xl)', lineHeight: 1.2, margin: '10px 0 0' }}>Every reply cites its source.</h2>
