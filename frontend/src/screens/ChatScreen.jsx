@@ -97,11 +97,14 @@ function Msg({ m, figure }) {
   )
 }
 
-export function ChatScreen({ figure, sessions, activeSession, initialMessages = [], onBack, onSelectSession, onNewConversation }) {
+export function ChatScreen({ figure, sessions, activeSession, initialMessages = [], initialDraft = null, onBack, onSelectSession, onNewConversation }) {
   const { messages, phase, streamText, send, retry, reset } = useChatStream(activeSession)
-  const [draft, setDraft] = React.useState('')
+  const [draft, setDraft] = React.useState(initialDraft || '')
   const [showSources, setShowSources] = React.useState(false)
   const threadRef = React.useRef(null)
+
+  // An opener chosen on the intro pre-fills the composer for a fresh conversation.
+  React.useEffect(() => { if (initialDraft) setDraft(initialDraft) }, [initialDraft])
 
   // Restore prior turns when resuming a session (App loads them via /sessions/{id}/history)
   React.useEffect(() => { reset(initialMessages, activeSession) }, [figure.id, activeSession, reset])  // eslint-disable-line react-hooks/exhaustive-deps
