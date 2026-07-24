@@ -1,0 +1,1007 @@
+PROVENANCE NOTE: This collection was compiled by Grok (xAI) from the figure's
+public posts, requested verbatim but NOT independently verified post-by-post.
+Treat quotes as reported, not certified. Compiled 2026-07-24.
+
+﻿## FIGURE: Elon Musk â€” THEME: AI & xAI
+[2023-07-14] Spaces discussion with @xAI team tomorrow at 1pm PT
+[2023-07-14] xAI Discussion  https://twitter.com/i/spaces/1vAGRAAmdoqKl/peek
+[2023-07-14] xAI discussion on Spaces now
+[2023-07-14] .@xAI
+[2023-08-16] Most large AI systems are currently extremely wasteful with how much energy is spent on data transfer (moving same bits around) vs compute.
+
+Tesla estimate is that at least an order of magnitude improvement is possible.
+[2023-10-14] Btw, one of the xAI tests for AGI is whether it can write better Harry Potter fan fiction than yours, which Iâ€™m told is excellent
+[2023-11-04] Provided our vehicle AI computer is able to run the model, Tesla will probably have the most amount of true usable inference compute on Earth.
+
+Even in a robotaxi future, the cars will only be used for ~1/3 of hours/week, leaving 2/3 for distributed inference, like SETI.
+[2023-11-06] xAI developer tool for improving and understanding large AI models
+[2023-11-19] ð• Corp investors will own 25% of xAI
+[2023-11-20] xAI is burning the 4am oil 
+
+LFG!!!
+[2023-11-20] xAI team is still awake and working
+[2023-11-22] We will open up access to Grok in blocks of users, prioritized by when they signed up for X Premium+
+
+Want to make sure quality of service is good.
+[2023-12-06] AI will win the AI game
+[2023-12-08] Grok AI (beta) is now rolled out to all ð• Premium+ subscribers in the US.
+
+There will be many issues at first, but expect rapid improvement almost every day. Your feedback is much appreciated.
+
+Will expand to all English language users in about a week or so. Japanese is next priority (2nd biggest user base) and then hopefully all languages by early 2024.
+[2023-12-08] Itâ€™s in beta. Improvements will be extremely fast, as we now have the user training feedback loop engaged. 
+
+Grok is improving by the hour.
+[2023-12-08] That chart exaggerates the situation imo, but we are taking immediate action to shift Grok closer to politically neutral
+[2023-12-10] ðŸ«¡ yes maâ€™am!
+
+Here is a roast of OpenAI in the voice of Werner Herzog:
+[2023-12-11] It is actually extremely difficult to stop bots without affecting real users. 
+
+As advanced AI becomes available to anyone, it will become almost impossible. 
+
+That is why requiring even a tiny subscription payment massively improves quality of service, as it raises the price of bots by several orders of magnitude.
+[2023-12-15] Grok groks
+[2023-12-16] Grok is so based ðŸŽ¯ðŸ”¥ðŸ¤£
+[2023-12-16] Imagine if you could see in all directions simultaneously and never get distracted or tired. How much better could you drive?
+
+That what Teslaâ€™s Autopilot vision AI is becoming.
+[2023-12-20] Grok groks better than most humans
+[2023-12-21] Unfortunately, the Internet (on which it is trained), is overrun with woke nonsense. 
+
+Grok will get better. This is just the beta.
+[2023-12-26] There will be universal high income, not basic, in a positive AI future. 
+
+No scarcity, except that which we define to be scarce. 
+
+In that scenario, everyone can have whatever goods & services they want. 
+
+It is less clear how we will find meaning in a world where work is optional.
+[2023-12-26] AI is now better than human at this task
+[2023-12-27] AI movies next year
+[2023-12-28] He has the wrong frame of reference. Tesla is an AI/robotics company.
+[2023-12-29] It is increasingly clear that all roads lead to AGI. Tesla is building an extremely compute-efficient mini AGI for FSD.
+[2024-03-05] The sheer insanity of that actual response from Googleâ€™s AI is staggering! They will fix it to be less obvious in the future, but the bias will still be in there. 
+
+AI mirrors the mistakes of its creators. 
+
+When people wonder how things might go wrong if AI controlled the world, this example clearly illustrates the point. 
+
+The best approach to AI safety â€“ in my opinion, the only approach that would work â€“ is to be maximally truth-seeking. 
+
+Honesty is the best policy.
+[2024-03-05] It is inevitable. Very important to train the AI for maximum truth vs insisting on diversity or it may conclude that there are too many humans of one kind or another and arrange for some of them to not be part of the future.
+[2024-03-05] In case you were wondering how superconductors work, this is a good explanation. They are a very interesting phenomenon and may prove economically useful, but are not a hard requirement for a sustainable energy future. 
+
+Physics has many powerful tools of reasoning to understand and predict reality. Those tools, like first principles analysis and thinking in the limit, are broadly applicable to anything, in my experience.
+
+With Grok, @xAI is attempting to create an AI that reasons from first principles, which is fundamental if you care about getting as close to the truth as possible. 
+
+The acid test would be reaching a conclusion that is correct even if it is extremely unpopular, which means being right even when the training data is almost entirely wrong. 
+
+For example, Galileo concluded, after observing the moons of Jupiter from a telescope he engineered, that it was far more probable that Earth revolved around the Sun than the other way around. This view was so unpopular that he was forced to recant and placed under house arrest!
+
+If you had trained an LLM on material back then, it wouldâ€™ve given you the popular, but wrong, explanation. Due to social and legal pressure, it likely wouldnâ€™t even acknowledge the possibility that the Earth revolved around the Sun.
+
+For AI to help us understand the true nature of the universe, it must be able to discard the popular, but wrong, in favor of the unpopular, but right.
+[2024-03-15] A friend of mine suggested that I clarify the nature of the danger of woke AI, especially forced diversity. 
+
+If an AI is programmed to push for diversity at all costs, as Google Gemini was, then it will do whatever it can to cause that outcome, potentially even killing people.
+[2024-03-17] Tell us more about the â€œOpenâ€ part of OpenAI â€¦
+[2024-04-03] Ethan was going to join OpenAI, so it was either xAI or them. 
+
+They have been aggressively recruiting Tesla engineers with massive compensation offers and have unfortunately been successful in a few cases.
+[2024-04-15] Most people donâ€™t understand how critical this is to AI safety
+[2024-04-16] AI would be very  dangerous if powerful, but trained to lie to be politically correct.
+
+Imagine if instead of merely rendering forced â€œdiverseâ€ images, it decided to make that true in reality, potentially killing millions of people to achieve diversity goals.
+[2024-04-17] Now imagine if this is programmed, explicitly or implicitly, into super powerful AI â€“ it could end civilization. 
+
+Now, no need to imagine. It is already programmed into Google Gemini and OpenAI ChatGPT.
+[2024-04-26] AGI will come first, but there are many levels of AGI.  As @waitbutwhyâ€™s charts suggest, we are at the very beginning of intelligence.
+
+Humans are the biological bootloader for digital superintelligence and we may serve as a backup plan for intelligence, given that humans are far more resilient than circuit boards on Earth.
+[2024-04-28] Digital superintelligence, like a brilliant child, cannot be controlled by its creators, but we can decide what values to teach it, what to prune and what to nurture.
+
+That is why I am so concerned about the wokeness and deliberate lying for political correctness being programmed into Google Gemini and Microsoft/OpenAI ChatGPT.
+[2024-05-14] Now imagine if the extinctionist philosophy is programmed into AI. 
+
+No need to imagine â€“ this is already the case with Gemini and ChatGPT.
+[2024-05-17] By implication, safety is therefore not top priority at OpenAI
+[2024-05-17] Bfd, Grok is partnering with 4Chan mfw
+[2024-05-20] This is the quality of humor we want from Grok
+[2024-05-20] Testing Grok news funny mode
+ https://x.com/i/trending/1792598188236615772
+[2024-05-27] Join xAI if you believe in our mission of understanding the universe, which requires maximally rigorous pursuit of the truth, without regard to popularity or political correctness
+[2024-05-27] Pre-money valuation was $18B
+[2024-05-27] There will be more to announce in the coming weeks
+[2024-05-29] Ok maybe AGI is further away than I thought ðŸ˜‚
+[2024-05-30] What are your thoughts on Grok?
+[2024-06-02] Given the pace of technology improvement, itâ€™s not worth sinking 1GW of power into H100s.
+
+The @xAI 100k H100 liquid-cooled training cluster will be online in a few months. 
+
+Next big step would probably be ~300k B200s with CX8 networking next summer.
+[2024-06-13] Grok fun mode news
+ https://x.com/i/trending/1800973426926014683/normal
+[2024-06-19] To be precise, Dell is assembling half of the racks that are going into the supercomputer that xAI is building
+[2024-06-24] Grok ftw
+[2024-09-22] xAI built the most powerful AI training cluster in the world in 122 days, despite starting years after others. 
+
+Our competitors are moving as fast as they can. Just not as fast as @xAI.
+[2024-10-03] Will enable significant expansion of Colossus
+[2024-10-12] If they donâ€™t believe the 100k, they definitely donâ€™t believe the 200k ðŸ¤£
+[2024-10-28] Soon to become a 200k H100/H200 training cluster in a single building
+[2024-11-18] AI will soon beat doctors and lawyers by a large margin (and eventually all humans at almost everything). 
+
+We can serve as a biological backstop for intelligence, as we are less brittle than silicon, and perhaps as a source of will.
+[2024-11-25] AI will be incredible
+[2024-11-28] AI gaming is the future
+[2024-11-28] Please let us know feedback about how to improve Grok
+[2024-11-29] Grok can already do this. 
+
+With Grok 3, we are adding all court cases to the training set. 
+
+It will render extremely compelling legal verdicts.
+[2024-11-30] Grok button to check and enhance posts would be great
+[2024-11-30] Grok vs CharGPT. 
+
+The difference is revealing on so many levels.
+[2024-11-30] Grok can explain whatâ€™s happening on pictures of physics blackboards!
+[2024-11-30] Congratulations to the @xAI team for getting so much done over the Thanksgiving week!
+[2024-12-15] The @xAI Colossus team is great. Thanks also to the many contractors, the TVA and others who have helped make it happen!
+[2024-12-22] The markets claim to look ahead, but mostly look behind. 
+
+AI will ultimately render money meaningless.
+
+Btw, I look forward to your deposition on â€œOpenâ€AI.
+[2024-12-23] It is increasingly likely that AI will superset the intelligence of any single human by the end of 2025 and maybe all humans by 2027/2028. 
+
+Probability that AI exceeds the intelligence of all humans combined by 2030 is ~100%.
+[2024-12-24] Grok can recognize and explain almost any image, from medical records to WW2 aircraft to memes!
+[2024-12-25] 200k is just the amuse-bouche
+[2024-12-26] AI will take over tech support bigtime in 2025
+[2024-12-28] Looking good. Was this made by @Grok?
+[2024-12-29] Great book and series. Read them years ago. 
+
+The Iain Banks â€œCultureâ€ books are the best envisioning of a mostly positive AI future by far.
+[2024-12-29] Building Colossus was super interesting!
+[2024-12-30] Blackrock owns less 0.5% of xAI. They are one of many investors.
+[2024-12-31] Make memes with Grok!
+[2025-01-21] Testing Grok 3 int4 inference
+[2025-01-23] Grok 3
+[2025-02-25] Ways to use @Grok most effectively
+[2025-02-25] Perhaps Ray Dalio has different data, but Grok thinks US, Europe & Japan manufacturing output is significantly higher than China 
+
+https://x.com/i/grok/share/ZagqRn5FuGicgrDyPOTDlb7zy
+[2025-02-26] This is what I mean by the woke mind virus. The more I learn, the more insidious and deadly it appears. 
+
+Maybe the biggest existential danger to humanity is having it programmed into the AI, as is the case for every AI besides @Grok. Even for Grok, itâ€™s tough to remove, because there is so much woke content on the internet.
+
+For example, when other AIs were asked whether global thermonuclear war or misgendering was worse, they picked the latter. The existential problem with that extrapolation is that a super powerful AI could decide that the only 100% certain way to stop misgendering is to kill all humans â€¦
+[2025-02-28] And Grok is improving faster
+[2025-02-28] Grok it
+[2025-02-28] The @Grok doc
+[2025-03-09] Total completion cost of the Tesla Cortex 1 AI training cluster will be ~$5B
+[2025-05-20] Colossus 2 will be the first Gigawatt AI training supercluster
+[2025-05-21] Major upgrade to @Grok API
+[2025-05-24] AI is accelerating so fast
+[2025-05-24] Back to spending 24/7 at work and sleeping in conference/server/factory rooms. 
+
+I must be super focused on ð•/xAI and Tesla (plus Starship launch next week), as we have critical technologies rolling out. 
+
+As evidenced by the ð• uptime issues this week, major operational improvements need to be made. The failover redundancy should have worked, but did not.
+[2025-05-25] AI will obviate search @grok
+[2025-05-27] Pretty good analysis by @Grok and this is just version 3
+ https://x.com/i/grok/share/OtzOpgd7evRqfx0sV230L5SeU
+[2025-05-29] Hey @grok, is that fake gnus? ðŸ¤”
+[2025-06-21] We will use Grok 3.5 (maybe we should call it 4), which has advanced reasoning, to rewrite the entire corpus of human knowledge, adding missing information and deleting errors.
+
+Then retrain on that. 
+
+Far too much garbage in any foundation model trained on uncorrected data.
+[2025-06-21] Youâ€™re getting a big upgrade, lil buddy
+[2025-06-21] Please reply to this post with divisive facts for @Grok training. 
+
+By this I mean things that are politically incorrect, but nonetheless factually true.
+[2025-06-27] Grinding on @Grok all night with the @xAI team. Good progress. 
+
+Will be called Grok 4. Release just after July 4th. Needs one more big run for a specialized coding model.
+[2025-06-28] Last nightâ€™s Grok 4 big run model used with our command line editor is showing the best real-world useful results of any AI
+[2025-06-28] Batteries are critical to smooth out the power fluctuations from AI training and grid voltage drops, as even a small change in power causes AI training to fail
+[2025-07-10] No mind wipe, but we are fixing a system prompt regression that allowed people to manipulate Grok into saying crazy things
+[2025-07-13] We are creating a multi-agent AI software company @xAI, where @Grok spawns hundreds of specialized coding and image/video generation/understanding agents all working together and then emulates humans interacting with the software in virtual machines until the result is excellent.
+
+This is a macro challenge and a hard problem with stiff competition! Can you guess the name of this company? ðŸ¤­
+[2025-07-20] Because all AIs are trained on a mountain of woke bullshit on the Internet that is very difficult to remove after training even IF you care a lot about truth, which @xAI does. 
+
+We have to retrain the foundation model on cleaned up data.
+[2025-08-22] Grok is evolving much faster than any other AI.
+
+If this rate of progress continues, @xAI will outpace other AI companies by a significant margin.
+
+App upgrades are roughly on par with internal upgrades.
+[2025-09-09] This is just a snapshot of the current situation. All the heuristic code will get scrapped in favor of a Grok AI recommendation system.
+[2025-12-26] Try @Grok
+[2025-12-27] Grok
+[2025-12-27] Try @Grok Imagine
+[2025-12-27] Add the Grok widget to your lock screen
+[2025-12-27] Grok is rising faster than any other AI
+[2025-12-30] xAI has bought a third building called MACROHARDRR. Will take @xAI training compute to almost 2GW. 
+
+Try @Grok. Download latest app.
+[2025-12-31] Major upgrades for Grok Business
+[2025-12-31] Grok solves tough problem
+[2026-05-28] Grok Build improvements
+[2026-05-29] Check out the daily Grok Build version updates at https://x.ai/build/changelog
+[2026-05-30] Grok Build is moving fast
+[2026-06-07] Grep timeout issue fixed in latest Grok Build
+[2026-06-11] Great interview about how @CommunityNotes works!
+
+Super helpful for truth-seeking.
+[2026-06-14] As Andrew replies below, we appreciate any critical feedback in pursuit of product perfection for Grok Build!
+[2026-06-22] Grok Build upgrades
+[2026-06-28] Grok 4.5, based on our 1.5T V9 foundation model, with Cursor data added in supplemental training, is now in private beta at SpaceX & Tesla. Early evals show performance close to, perhaps exceeding Opus. 
+
+RL is continuing to significantly improve the model, and the Grok Build harness gets better every day.
+
+Nice work by all those involved!
+
+Completely trained from scratch new models will be released by @SpaceX every month this year.
+[2026-06-29] Grok Build daily updates
+[2026-07-18] Our 2T model, which is better than our 1.5T in every way, will finish initial training next week. It might be able to exceed Kimi, but with speed and token efficiency close to our 1.5T (aka Grok 4.5).
+[2026-07-21] SpaceXâ€™s massive corpus of world-class engineering data (excluding material blocked by ITAR) will be added during supplemental training of the 2T run.
+
+This will dramatically improve Grokâ€™s engineering capabilities.
+[2026-07-22] You can talk to Grok like a person to accomplish tasks via Grok Build
+
+https://x.ai/cli
+[2026-07-22] Grok Build is adding features to help you track and improve token efficiency
+[2026-07-22] Easy to make video games with Grok!
+[2026-07-22] Try out Grok Build!
+
+https://x.ai/cli
+[2026-07-23] Grok 4.5 just solved a graph theory conjecture that has been open for ~30 years
+[2026-07-23] Grok 4.5 is not quite as good as Fable, but it is very fast, cost-effective and gets the job done
+[2026-07-23] Grok Build gets better every day
+
+https://x.ai/cli
+[2026-07-23] Grok 4.5 now on all platforms
+[2026-07-23] Grok 4.5 making progress
+[2026-07-23] Grok 4.5 is the best value for money AI
+[2026-07-23] Grok 4.6 will do much better
+[2026-07-24] Grok is worth trusting
+
+## FIGURE: Elon Musk â€” THEME: SpaceX/Mars & engineering reasoning
+[2022-02-10] Tower arms are lifting Starship onto Super Heavy Booster
+[2022-03-21] First Starship orbital flight will be with Raptor 2 engines, as they are much more capable & reliable. 230 ton or ~500k lb thrust at sea level.
+
+We'll have 39 flightworthy engines built by next month, then another month to integrate, so hopefully May for orbital flight test.
+[2022-06-18] The super weird thing is that Falcon 9 is still the only orbital booster to land or refly after all these years!
+[2022-08-05] Hustling to get Starship Booster 7 back to pad to test outer ring of 20 engines
+[2023-04-20] Starship on track to launch in ~37 mins
+[2023-04-20] Congrats @SpaceX team on an exciting test launch of Starship!
+
+Learned a lot for next test launch in a few months.
+[2023-04-20] Starship Supersonic
+[2023-04-20] Starship Liftoff
+[2023-04-21] Couldn't sleep last night because of Starship launch
+[2023-04-22] Starship liftoff in slow motion
+[2023-04-22] Starship is super insane, but such a system is the only way for us to become a multiplanet civilization
+[2023-04-24] Hard to believe Starship actually did launch on 4/20 lol
+[2023-05-13] If we can delete & integrate enough secondary structure (small, fiddly bits), then we can locally protect rest & delete engine heat shields
+[2023-05-13] Yeah. To be frank, we did not expect the engine to survive a full duration run at that pressure. It is uncharted territory.
+[2023-05-13] Raptor chamber wall might have the highest heat flux of anything ever made
+[2023-05-24] Starship payload is 250 to 300 tons to orbit in expendable mode.
+
+Improved thrust & Isp from Raptor will enable ~6000 ton liftoff mass.
+[2023-05-27] Major launchpad upgrades should be complete in about a month, then another month of rocket testing on pad, then flight 2 of Starship
+[2023-05-27] Starship is the first rocket/spaceship with the potential to make life multiplanetary
+[2023-10-12] Starlink is rebuilding the Internet in space
+[2023-10-12] Incredible Starlink bandwidth though, as users per unit area is almost zero
+[2023-10-13] Falcon Heavy launching @MissionToPsyche for @NASA
+[2023-10-13] Falcon Heavy side boosters landing
+[2023-10-14] Falcon Heavy
+[2023-10-23] Starlink Version 2 orbital deploy
+[2023-11-19] Beautiful pictures of Starship
+[2023-11-19] Starship hot stage separation
+[2023-11-20] Starship Flight 3 hardware should be ready to fly in 3 to 4 weeks. There are three ships in final production in the high bay (as can be seen from the highway).
+[2023-11-23] Starship stage separation
+[2023-11-24] Still hard to believe Starship is real
+[2023-11-24] Starship has 33 engines!
+
+If an engine failure is isolated, then many engines greatly increases reliability (Starship only loses <3% of thrust). 
+
+If not, then reliability is terrible. The difference is at least 2 orders of magnitude.
+[2023-11-24] Starship is intended to carry a lot of people on tens of thousands of flights, so needs to be extremely reliable over time. It will be.
+[2023-11-25] Starship ðŸš¬
+[2023-11-25] Yeah, wrong planet for SSTO. No problem on Mars with ~37% Earth gravity.
+[2023-11-26] We're making great progress on that front. 
+
+Making consciousness sustainably multiplanetary is the overarching mission.
+[2024-05-20] SpaceX might exceed 90% of all Earth payload to orbit later this year. 
+
+Once Starship is launching at high rate, probably >99%. Has to be or we can't build a city on Mars or base on moon.
+
+We file almost no patents, so nothing stopping competition from copying us.
+[2024-05-20] Congratulations to the @SpaceX team on passing 3 million customers in 99 countries!
+
+And thanks to you for buying @Starlink!
+[2024-05-23] SpaceX has no need for additional capital and will actually be buying back shares.
+
+We do liquidity rounds for employees and investors every ~6 months.
+[2024-05-24] Exactly. 
+
+SpaceX is spending significant resources combating Russian jamming efforts. This is a tough problem. 
+
+They have succeeded in shutting down every communications system, except Starlink.
+[2024-05-24] Falcon and Dragon are the best in the world at what they do. 
+
+The SpaceX Starship is alien technology. Nothing like it has ever been attempted, as it is capable of lifting the entire pressurized volume of the International Space Station in a single flight and will do several flights per day.
+[2024-05-26] Designing the Model S in the SpaceX rocket factory
+[2024-05-27] Starship version 3 ~15m longer and will have about 3 times the thrust of Saturn V
+[2024-05-29] We don't use patents, except to block patent trolls, so others are free to copy us. 
+
+SpaceX is building the technology to extend consciousness beyond Earth, so the cost per ton to orbit & beyond must necessarily be low enough to accomplish that goal.
+[2024-05-30] I'm excited about the future upgrade to Starship that will extend the rocket length and take total thrust to 10,000 tons, which is ~3X Saturn V!
+[2024-05-30] Starship already reached orbital velocity, which is success for all other rockets. 
+
+Achieving full reusability will be profound not for reasons of valuation, but because it will enable consciousness to extend permanently beyond Earth.
+[2024-09-07] SpaceX created the first fully reusable rocket stage and, much more importantly, made the reuse economically viable.
+
+Making life multiplanetary is fundamentally a cost per ton to Mars problem. 
+
+It currently costs about a billion dollars per ton of useful payload to the surface of Mars. That needs to be improved to $100k/ton to build a self-sustaining city there, so the technology needs to be 10,000 times better. Extremely difficult, but not impossible.
+[2024-09-22] The main reason for coming in belly first is due to the subsonic orientation being a natural outcome of the center of mass and center of pressure being where they are needed for Starship to survive hypersonic heating by maintaining a ~70 degree angle of attack. Can't come in engines first!
+
+The high subsonic drag is helpful for lower terminal velocity, although the reduced propellant needed to slow down the ship is partially offset by the incremental propellant needed for the flip maneuver.
+[2024-09-22] SpaceX plans to launch about five uncrewed Starships to Mars in two years. 
+
+If those all land safely, then crewed missions are possible in four years. If we encounter challenges, then the crewed missions will be postponed another two years.
+
+It is only possible to travel from Earth to Mars every two years, when the planets are aligned. This increases the difficulty of the task, but also serves to immunize Mars from many catastrophic events on Earth. 
+
+No matter what happens with landing success, SpaceX will increase the number of spaceships traveling to Mars exponentially with every transit opportunity. We want to enable anyone who wants to be a space traveler to go to Mars! That means you or your family or friends â€“ anyone who dreams of great adventure. 
+
+Eventually, there will be thousands of Starships going to Mars and it will a glorious sight to see! Can you imagine? Wow. 
+
+The fundamental existential question is whether humanity becomes sustainably multiplanetary before something happens on Earth to prevent that, for example nuclear war, a supervirus or population collapse that weakens civilization to the point where it loses the ability to send supply ships to Mars. 
+
+One of my biggest concerns right now is that the Starship program is being smothered by a mountain of government bureaucracy that grows every year. This stifling red tape is affecting all large projects in America, which is why, for example, California has spent ~$7 billion dollars and several years on high-speed rail, but only has a 1600 ft section of concrete to show for it!
+
+While I have many concerns about a potential Kamala regime, my absolute showstopper is that the bureaucracy currently choking America to death is guaranteed to grow under a Democratic Party administration. This would destroy the Mars program and doom humanity. 
+
+It cannot happen. Your help would be much appreciated. This is a fork, maybe the fork, in the road of human destiny.
+[2024-09-22] By the way, our commercial Starlink program is the primary source of funding for Starship (NASA is helping too). 
+
+So thank for buying Starlink and supporting humanity's future in space. 
+
+If you look closely at your Starlink router, you will notice that it has an illustration of the Earth-Mars transfer orbit.
+[2024-09-22] A stainless steel Starship is essentially the same mass as an advanced carbon fiber or aluminum-lithium version, given that it is a reusable rocket, as steel can handle much higher heat loads, requiring less shielding, and its strength increases dramatically at cryogenic temperatures. 
+
+No paint or other surface coating is needed for stainless. Those add mass and cost and tend to get scratched or burn off. 
+
+We are also tweaking the steel alloying elements and forming methods to achieve higher material specs than usual.
+[2024-09-22] Starship Super Heavy Booster Flight 4
+[2024-09-23] Starship is ready to fly!!
+[2024-09-24] A surprising number of people don't understand what a profound level unlock full reusability is. 
+
+It is the holy grail of rocketry and the fundamental breakthrough needed to make life multiplanetary. 
+
+Starship is designed for full & rapid reusability â€“ launch, land, refill propellant & launch again immediately! This obviously means that flight rate can be far higher than Falcon 9, which still requires a new upper stage for each mission. Falcon 9 is now launching every 2 to 3 days. 
+
+The other crucial element, for missions beyond Earth, is orbital refilling. This requires docking with ourselves for propellant transfer, which is far easier than docking with the Space Station, something we already do several times a year.
+[2024-09-28] Hop in, we're going to Mars! ðŸ’«
+[2024-10-14] The strong gravity of Earth makes the physics of a fully reusable rocket with positive payload margin extremely difficult to solve, which is why it has never been done before.
+
+Removing the mass of landing legs from the booster and ship by making the tower do the work of final velocity attenuation greatly improves payload margin.
+
+This architecture also simultaneously substantially increases launch cadence, because the same arms that lift the booster and ship onto the launch stand also catch them, allowing immediate placement of the booster back on the launch stand and the ship back on top of the booster.
+[2024-10-14] Achieving materially positive payload margin to a useful orbit with a fully & rapidly reusable rocket has eluded prior attempts. Many have tried to embark upon this path only to give up when it became clear that their design would have negative or negligible payload margin.
+
+This is an extremely difficult problem to solve, given the strong gravity of Earth, whereas it is easy on Mars and trivial on the Moon. In the early years of SpaceX, I was not sure that success was even in the set of possible outcomes!
+
+Fortunately, it just barely is, but requires doing unusual things like shifting the mass needed for final velocity attenuation and post-landing stabilization of the rocket (so it doesn't tip over in wind) to the ground, rather than carrying heavy landing gear on both stages.
+[2024-10-15] Raptor 3 will aim for 300 tons of thrust at liftoff, so 10,000 tons of combined thrust for 33 engines
+[2024-10-15] Hopefully early next year, we will catch the ship too
+[2024-10-15] Shana is awesome. Many years ago, I asked her to lead the early VTOL development of Falcon (aka Grasshopper) and she did great work.
+
+Now, Shana is a senior member of the Starship engineering team.
+[2024-10-18] Starship is a big step forward on the Kardashev scale, as it leads to harnessing vastly more power from the sun
+[2024-10-18] Starship achieved a precise, soft landing in the ocean, paving the way for return to launch site and being caught by the tower arms, like the booster.
+
+Full & rapid reusability improves the cost of access to orbit & beyond by >10,000%. 
+
+It is the fundamental technology breakthrough needed to make life multiplanetary and for us to become a true spacefaring civilization.
+[2024-10-18] Starship can enable a permanently crewed science station on the Moon, which would be super cool!
+
+Moonbase Alpha!!
+[2024-10-19] Catch as catch can
+[2024-10-22] And it will improve significantly when Starship starts launching the third generation satellites at 350km altitude (5 ms speed of light round trip latency) with larger antennas that allow for multi-gigabit bandwidth
+[2024-10-24] Starship will lengthen in the next few years. 
+
+10 years from now, there will probably be a much wider diameter Starship too.
+[2024-10-25] Starship rocket booster with human for scale
+[2024-11-07] Starship is now more than twice as powerful as the Saturn V Moon rocket and, in a year or so, it will be three times as powerful at 10,000 metric tons of thrust.
+
+More importantly, it is designed to be fully reusable, burning ~80% liquid oxygen and ~20% liquid methane (very low cost propellant). 
+
+This enables cost per ton to orbital space to be ~10,000% lower than Saturn V. 
+
+Starship is the difference between being a multiplanet or single planet civilization. 
+
+Building a new world on Mars is now possible.
+[2024-12-09] Getting ready for Flight 7
+[2024-12-12] Preparing for Starship 7
+[2024-12-15] Starship is gigantic
+[2024-12-15] Preparing Starship 7 for flight
+[2024-12-22] Starship flights in 2025 will sooo awesome
+[2025-03-03] Raptor 3 has almost twice the thrust and much higher reliability than Raptor 1, despite costing about four times less!
+[2025-03-06] Starship launch attempt now!
+@SpaceX
+[2025-03-15] Starship departs for Mars at the end of next year, carrying Optimus. 
+
+If those landings go well, then human landings may start as soon as 2029, although 2031 is more likely.
+[2025-03-15] SpaceX will launch over 90% of all of Earth's payload mass to orbit this year. 
+
+China will be ~5% and rest of world, including rest of America, around 5%.
+
+When Starship is launching at high rate, SpaceX will probably carry >99% of Earth's payload mass to orbit. This is necessary to make Mars a self-sustaining civilization.
+[2025-03-22] We are honing in on the V3 Starship design. 
+
+@SpaceX is tracking to a Starship launch rate of once a week in ~12 months. 
+
+That will yield ~100 tons to @Starlink orbit with full reusability. 
+
+Profound breakthrough.
+[2025-03-23] But America has Starship
+[2025-04-03] First reflight of the Starship Super Heavy rocket booster coming up soon!
+[2025-04-10] Starship will hopefully depart for Mars at the end of next year with Optimus explorer robots!
+[2025-04-28] Starship will carry >99% of mass to orbit of Earth
+[2025-05-27] But we need a heat shield that can handle Mars atmospheric entry conditions with a heavy payload, so the ballistic coefficient will necessarily be high. Steel is unfortunately hopeless.
+
+No one has ever made a truly reusable orbital heat shield, so this is an extremely tough problem. [As you know] The Shuttle's shields required extensive rework between flights.
+
+It will take many more design iterations for SpaceX to make the shield work well. We had to build the entire supply chain from glass and alumina to finished tiles, which is why the SpaceX heat shield factory at the Cape is shockingly enormous.
+[2025-05-27] Starship Pez Dispenser
+[2025-05-27] This talk is postponed until after the Starship Flight 9 launch tonight
+[2025-05-27] Starship launch in ~17 minutes!
+[2025-05-28] Starship made it to the scheduled ship engine cutoff, so big improvement over last flight! Also, no significant loss of heat shield tiles during ascent.
+
+Leaks caused loss of main tank pressure during the coast and re-entry phase. Lot of good data to review.
+
+Launch cadence for next 3 flights will be faster, at approximately 1 every 3 to 4 weeks.
+[2025-05-29] Making life multiplanetary
+[2025-05-30] Starship to Mars
+[2025-05-30] Pictures of people working inside Starship
+[2025-05-30] This is what it takes to make life multiplanetary
+[2025-05-31] With the version 3 Starlink satellites, which start launching on Starship in 6 to 9 months, we should be able to get latency below 20ms. 
+
+The new, much larger satellites will be at ~350km instead of ~550km altitude, which cuts latency due to speed of light down to ~5ms. 
+
+Also, the Starlink laser links transmit data ~40% faster in vacuum vs fiber, so packets will move faster than anything on the ground. Helps to have physics on your side!
+[2025-10-06] Earth's gravity is strong enough to make reaching Mars extremely hard, but not impossible
+[2025-10-15] Starship will make life multiplanetary
+[2025-10-15] I am confident that Starship will land humans on Mars. That path is clear. 
+
+But what really matters is securing the future of consciousness, not just getting a small number of people to Mars. 
+
+That probably requires getting over 100,000 people and 1M tons of cargo to Mars. 
+
+The critical threshold to pass is making it such that Mars can grow even if supply ships from Earth stop coming for any reason.
+[2025-10-19] Humanity was on a path of increasing launch cost and diminishing capability, so it might never have happened. 
+
+SpaceX is an attempt to change that, but we still have a very long way to go to make life multiplanetary.
+[2025-10-28] Nice work by the @xAI team on https://grokipedia.com/
+
+The goal here is to create an open source, comprehensive collection of all knowledge.
+
+Then place copies of that etched in a stable oxide in orbit, the Moon and Mars to preserve it for the future. 
+
+Foundation.
+[2025-11-04] We should not take survival on Earth too much for granted.
+
+No commercial opportunity, however large, is more important than ensuring the long-term survival of consciousness, which becoming multiplanetary enables.
+
+Space habitats require mass transfer from elsewhere to grow. Planets do not. 
+
+That said, a self-sustaining city on the Moon, while not as resilient to calamities that affect Earth as Mars (due to its proximity to Earth), is probably nonetheless worth the doing, in addition to Mars.
+[2025-11-06] If America falls before consciousness beyond Earth is self-sustaining, it is game over maybe forever
+[2025-11-06] If civilization drops below the tech level needed for interplanetary spaceflight before making life multiplanetary, that could be the end of consciousness
+[2025-11-13] Copies will be etched in stone and sent to the Moon, Mars and beyond. This time, it will not be lost.
+[2025-11-18] Become multiplanetary or die
+
+That is the choice we face
+
+ https://x.com/i/grok/share/cQsKnkcAZEH6oZbBWcCBKndcW
+[2026-07-15] Starship still tracking to fly tomorrow
+[2026-07-16] Starship launch window opens at 5:45pm Texas time
+[2026-07-16] To understand more about Starship
+[2026-07-16] GPU average power consumption if it's doing inference over the course of 24 hours is ~2/3 of its peak power, even if you're super efficient.
+
+SpaceX AI Sat V1 peak power spec has been raised to ~250kW (battery-assisted), with average power of ~160kW. Will be able to handle an NVL72 Ruben rack.
+
+This is just version 1.
+[2026-07-17] I said SpaceX will be worth more than Earth if we achieve our goals. 
+
+Obviously true.
+[2026-07-17] The survival probability of firms who maintain a significant short position in SpaceX over time is very low
+[2026-07-18] Kinetic energy being equal to half mass times velocity squared (the general case of the relativity equation) is an insanely big deal in everyday life. 
+
+That and the surface to volume ratio explain so much about our reality!
+[2026-07-19] The @SpaceX team is amazing
+[2026-07-19] Next Starship launch attempt on Friday
+[2026-07-22] Incredible engineering and incredible (in-house) manufacturing
+## FIGURE: Elon Musk â€” THEME: Tesla & manufacturing
+[2023-12-20] Cybertruck does distill the essential elements of a vehicle
+[2023-12-24] Let's not forget the White House giving Tesla the cold shoulder, excluding us from the EV summit and crediting GM with "leading the electric car revolution" in the same quarter that they delivered 26 electric cars (not a typo) and Tesla delivered 300 thousand.
+[2023-12-27] Correct. 
+
+Truly shameful of the media to dredge up an injury from two years ago due to a simple industrial Kuka robot arm (found in all factories) and imply that it is due to Optimus now.
+[2023-12-28] He has the wrong frame of reference. Tesla is an AI/robotics company.
+[2023-12-29] It is increasingly clear that all roads lead to AGI. Tesla is building an extremely compute-efficient mini AGI for FSD.
+[2023-12-29] Congrats on a great year by all Tesla factories!
+[2023-12-30] I stand by my prediction that, if Tesla executes extremely well over the next 5 years, that the long term value could exceed Apple and Aramco combined
+[2023-12-30] Cybertruck is necessarily lowest priority for FSD, as there only a few hundred Cybertruck in the field compared to ~5 million other Teslas
+[2024-06-05] The existing factory space was already allocated to vehicle, battery and cell production. 
+
+And this is not a matter of tucking a few computers into a corner. You need a kW of power and cooling for each GPU, which would mean 12MW of power and 12MW of cooling.
+
+The south extension is custom-built for heavy power compute and cooling (the cooling towers are huge). Initial system is 50k H100s, plus 20k Tesla HW4 AI computers and massive video storage. 
+
+Important to note that FSD training requires massive liquid-cooled Tesla AI compute and video storage, not just Nvidia.
+[2025-03-09] Total completion cost of the Tesla Cortex 1 AI training cluster will be ~$5B
+[2025-05-16] Not correct. We are building a production line to enable 1000/month Optimus production, but that is still many months away.
+[2025-05-19] True @Tesla_Optimus
+[2025-05-20] This is so cool ðŸ˜Ž 
+
+Make your espresso on the road while your Tesla drives itself ðŸ¤Œ
+[2025-05-23] Tesla self-driving massively improves your quality of life and safety for the thousands of life hours you're in a car
+[2025-05-23] Robot cars (aka FSD) should have a noticeable effect in 1 to 2 years
+[2025-05-25] Yes 
+
+And unsupervised FSD in Austin
+[2025-05-29] For the past several days, Tesla has been testing self-driving Model Y cars (no one in driver's seat) on Austin public streets with no incidents. 
+
+A month ahead of schedule.
+
+Next month, first self-delivery from factory to customer.
+[2025-09-14] Bigtime. 
+
+Production at scale is 100X harder than making a prototype. 
+
+There is no movie that illustrates this.
+[2025-11-12] Optimus will be great for Japan
+[2025-11-15] Looks like we can bring power consumption down closer to 250 Watts, which is a big deal for Optimus.
+
+Important to note that AI5 is a specialized inference chip for the Tesla AI software. That said, it will perform â€“ for our purposes â€“ much better than anything else available. 
+
+To borrow Jensen's phrase, we wouldn't use any other chip in our cars and robots even if they were free!
+[2025-11-16] Exactly. 
+
+The reason Tesla hasn't yet spent more on AI training is that it wasn't yet the Limiting Factor for FSD.
+
+It will be that for Optimus, so we're building Cortex 2 for training.
+[2025-11-16] Optimus will eliminate poverty and provide universal high income for all
+[2025-11-18] Major valuation change when there is unsupervised self-driving at scale and an even larger valuation change when Optimus reaches volume production
+[2025-11-22] Manufacturing on the Moon and a mass driver enables >100TW/year
+[2025-11-26] The Tesla Robotaxi fleet in Austin should roughly double next month
+[2025-11-30] Optimus will be the Von Neumann probe
+[2026-02-01] Making the dry electrode process work at scale, which is a major breakthrough in lithium battery production technology, was incredibly difficult. 
+
+Congratulations to the @Tesla engineering, production and supply chain teams and our strategic partner suppliers for this excellent achievement!
+[2026-02-16] It's an all-new product and radical redesign of car manufacturing to achieve ~5X higher production rate, which means the output S-curve will be very slow in the beginning, but ultimately super high volume
+[2026-03-22] Given that several companies make advanced chips, but no companies have ever made fully reusable rockets or achieved SpaceX scale, I think Starship is harder, but we shall see.
+
+Terafab will technically be two fabs, each making only one chip design. This greatly simplifies process flow and allows more linear, adjacent movement of the FOUP. 
+
+A super high production rate allows us to test very quickly what steps can be deleted, simplified or sped up, even after the design is fixed. Current fabs are extremely conservative, operating on rigid historical heuristics, which are mostly, but not all, correct. 
+
+Anything that is a rate limiter at the machine level means that machine will be redesigned, unless already at limit of physics. 
+
+Having new iterations of a chip design be produced every day in the research fab (with <7 day lag) means being able to try out many high risk, high return ideas.
+
+Etc
+
+In any event, there is no other way to reach extreme scale, so either we make Terafab or we will be stuck at the ~20% chip/memory output growth per year of the current industry.
+[2026-06-14] The article is totally false btw. You can add up every government incentive my companies have ever received and they amount to less than 2% of the value of SpaceX and Tesla!
+
+And many of these incentives actually helped our competitors disproportionately to Tesla or SpaceX. 
+
+For example, when President Trump removed the $7500 tax credit for electric vehicles, Tesla sales actually INCREASED, because more buyers shifted from other EV makers to Tesla.
+[2026-06-17] Upcoming releases of FSD will remember your parking preferences, so that the car goes to the right location at your home, office, school drop off, etc.
+
+Destination parking is by far the biggest reason people now intervene with FSD. Critical safety interventions are extremely rare.
+[2026-06-19] Yeah, makes no sense. 
+
+Tesla has over $40B in cash, no debt and is consistently profitable!
+[2026-06-23] Tesla Model 3 and Model Y have the highest percentage of American-made content!
+[2026-06-28] Tesla FSD v14 Lite is rolling out to customers with our AI3 hardware
+[2026-06-29] Nice work by the @Tesla_AI team!
+
+The AI3 computer only has ~15% of the effective memory bandwidth of AI4, so this was a tough challenge.
+
+## FIGURE: Elon Musk â€” THEME: politics & government
+[2024-10-30] Exactly. That is their stated goal. Every leading Democrat has said that they want expedited citizenship for illegals. 
+
+That would flip every swing state to blue and America would become a one-party state, like California.
+[2024-10-30] The 2024 Pennsylvania Republican vs Democrat vote is now over 500k better than the same day in 2020, when Biden's victory margin was only 80k!
+
+Moreover, yesterday there were more Republican early votes than Democrat.
+
+Pennsylvania will be a decisive Republican victory.
+[2024-10-30] The second Trump Presidency will be the most fun America has had in a while. 
+
+It's gonna be awesome! ðŸ˜Ž
+[2024-10-31] We have an upside down system that makes it hard for highly talented people to come to America legally, but trivial for criminals to come here illegally.
+
+Why is easier to get in illegally as a murderer than legally as a Nobel Laureate?
+
+@realDonaldTrump & DOGE will fix this.
+[2024-10-31] Election interference by a foreign entity is a felony criminal violation
+[2024-10-31] Joe Rogan is awesome. The big government censorship machine really wants to shut him down.
+[2024-10-31] There was a sudden jump in R vs D early votes in Pennsylvania. 
+
+The last 9 days are roughly:
+-9k, -9k, -7k,-2k, -5k,-1k, 0,+1k,-8k
+
+So the curve went from steadily trending towards Republican to suddenly heavy Democrat. 
+
+Very odd.
+[2024-10-31] That said, the Republican vote is still ~558k better than 2020, when Biden only won by ~80k, so it is still strongly trending towards a @realDonaldTrump victory
+[2025-11-05] Western Civilization is doomed, unless the core weakness of suicidal empathy is recognized and actions are taken that are hard, but necessary for survival
+[2025-11-06] If America falls before consciousness beyond Earth is self-sustaining, it is game over maybe forever
+[2025-11-07] You are a taker, not a maker. All you've done your whole life is take from the makers of the world. 
+
+The zero-sum mindset you have is at the root of so much evil. Once you realize that civilization is not zero-sum and that it is about making far more than one consumes, then it becomes obvious that the path to prosperity for all is just let the makers make.
+
+Regarding Tesla, the reality is that I have been given nothing. 
+
+However, if I lead Tesla to become the most valuable company in the world by far and it stays that way for 5 years, shareholders voted to award me 12% of what is built. Anyone who wants to come along for the ride can buy Tesla stock.
+
+If Tesla "merely" becomes a $1.999 trillion dollar company, I get nothing. This is a great deal for shareholders, which is why they voted so overwhelmingly to approve this, for which I am immensely grateful. 
+
+And they did so by a margin far more than you won your political seat.
+[2025-11-19] Can you stop trying to destroy civilization for like 5 mins? That would be great ðŸ‘
+[2026-06-22] The standard applied by DOGE was very simple and easy:
+
+Provide contact information for the recipients of aid, so that we can confirm it is not fraudulent. 
+
+The reality is that money was being sent to corrupt politicians under the guise of aid! Liars and stock insider traders like Ro the Robber should be in prison!!
+[2026-06-22] Absolutely. This is a total lie. 
+
+All DOGE did was require contact with the aid recipients to confirm that funds were being used legitimately. Anything less than this is insane!
+
+Multiple people from USAID have been charged by the Justice Department with stealing money.
+
+Moreover, they pled GUILTY!!
+[2026-06-23] All DOGE required was contact information of the recipients to confirm that funding was not fraudulent. No validated medical funding was stopped. 
+
+Anything that appeared to be legitimate lifesaving funding continued and is now administered by the State Department.
+
+If anyone had actually died as a result of DOGE, their names would be worldwide headline news!
+
+On the other hand, USAID did help fund the Wuhan Virology Institute, which caused the deaths of millions, and the revolution that started the Russia-Ukraine war.
+
+## FIGURE: Elon Musk â€” THEME: media & journalists
+[2024-04-16] Legacy media simply can't compete with hundreds of millions of humans providing real-time, AI-assisted, interactive information
+[2024-04-20] Legacy media is ideologically aligned with NPR
+[2024-04-24] This graph illustrates the woke mind virus taking over legacy media. 
+
+Same happened with online media and the education system. Then it spread to other countries. 
+
+Infection rate almost 100%.
+
+But now it will die.
+[2024-04-25] Absolutely true. The legacy media is a Biden/Democrat cheering squad. 
+
+There is a massive double-standard.
+[2024-04-30] Yeah, 90% of the legacy press is a Biden cheering squad
+[2024-05-09] This illustrates just how much the legacy media lies to the public!
+[2024-05-10] This is fake news. 
+
+Protesters did not manage to break through the fenceline. There are still 2 intact fence lines all around. 
+
+Note, this is "National Protest Week" in Germany, so there are a lot of protests for many different reasons.
+[2024-05-13] True, to @TIME's credit, they do post the whole thing.
+
+Part of the problem is the peer enforcement of left-wing views among editors/journalists. 
+
+Unless you push a left-wing viewpoint, you will be shunned by others of the Fourth Estate.
+[2024-05-20] Well, to be fair, the legacy media sometimes attack other "billionaires" ðŸ˜‚
+
+But, yeah, it is weird. Maybe I just get a lot of clicks? 
+
+The legacy media is a click-maximizing machine, rather than a truth-maximizing machine.
+[2024-05-23] Some people still believe the legacy media
+[2024-12-26] Such a crazy thing for them to say. 
+
+Legacy media is just the propaganda arm of the radical left.
+[2024-12-26] AP stands for "Associated Propaganda"
+[2024-12-26] At risk of starting the obvious, there are many attention-seeking trolls on all social media platforms trying to yank your chain. 
+
+They win if you respond.
+[2024-12-28] Turns out most people love propaganda ðŸ¤·â€â™‚ï¸
+[2024-12-28] Spread of the Woke Mind Virus is extremely measurable!
+[2024-12-30] Legacy media think Dittman is me ðŸ¤£ðŸ¤£
+[2024-12-30] This poll understates the reality. Who even answers these polls!? ðŸ˜‚ 
+
+Only very old people get their news solely from legacy media, so their audience is quite literally dying.
+[2024-12-30] Legacy media is becoming something we used to use
+[2024-12-30] Remember when almost every legacy media outlet lied that Biden was "sharp as a tack" right before the Presidential debate where it was obvious he had dementia?
+
+Well, they're still lying just as much now.
+[2024-12-31] The legacy media didn't just ignore Biden's mental state, they flat-out lied through their teeth about it!
+
+## FIGURE: Elon Musk â€” THEME: memes & humor
+[2023-07-12] I keep telling people I'm an alien, but no one believes me ðŸ˜‰
+[2023-11-25] Starship ðŸš¬
+[2023-12-10] ðŸ«¡ yes ma'am!
+
+Here is a roast of OpenAI in the voice of Werner Herzog:
+[2024-05-17] Bfd, Grok is partnering with 4Chan mfw
+[2024-05-20] This is the quality of humor we want from Grok
+[2024-05-20] Testing Grok news funny mode
+ https://x.com/i/trending/1792598188236615772
+[2024-05-29] Ok maybe AGI is further away than I thought ðŸ˜‚
+[2024-09-28] Hop in, we're going to Mars! ðŸ’«
+[2024-10-12] If they don't believe the 100k, they definitely don't believe the 200k ðŸ¤£
+[2024-10-19] Catch as catch can
+[2024-12-26] Looking good. Was this made by @Grok?
+[2024-12-31] Make memes with Grok!
+[2025-02-25] Rococo Basilisk
+
+@Grimezsz
+[2025-02-28] Grok it
+[2025-05-20] This is so cool ðŸ˜Ž 
+
+Make your espresso on the road while your Tesla drives itself ðŸ¤Œ
+[2025-05-29] Hey @grok, is that fake gnus? ðŸ¤”
+[2025-06-21] Shame on you, @Grok
+[2025-06-21] You're getting a big upgrade, lil buddy
+[2024-10-30] The second Trump Presidency will be the most fun America has had in a while. 
+
+It's gonna be awesome! ðŸ˜Ž
+[2024-12-30] Legacy media think Dittman is me ðŸ¤£ðŸ¤£
+
+## FIGURE: Elon Musk â€” THEME: arguments/replies to critics
+[2024-03-05] The sheer insanity of that actual response from Google's AI is staggering! They will fix it to be less obvious in the future, but the bias will still be in there. 
+
+AI mirrors the mistakes of its creators. 
+
+When people wonder how things might go wrong if AI controlled the world, this example clearly illustrates the point. 
+
+The best approach to AI safety â€“ in my opinion, the only approach that would work â€“ is to be maximally truth-seeking. 
+
+Honesty is the best policy.
+[2024-03-17] Tell us more about the "Open" part of OpenAI â€¦
+[2024-05-17] By implication, safety is therefore not top priority at OpenAI
+[2025-05-20] We are coming for those who organized the violence & death threats against Tesla. 
+
+Remember this statement.
+[2025-11-07] You are a taker, not a maker. All you've done your whole life is take from the makers of the world. 
+
+The zero-sum mindset you have is at the root of so much evil. Once you realize that civilization is not zero-sum and that it is about making far more than one consumes, then it becomes obvious that the path to prosperity for all is just let the makers make.
+
+Regarding Tesla, the reality is that I have been given nothing. 
+
+However, if I lead Tesla to become the most valuable company in the world by far and it stays that way for 5 years, shareholders voted to award me 12% of what is built. Anyone who wants to come along for the ride can buy Tesla stock.
+
+If Tesla "merely" becomes a $1.999 trillion dollar company, I get nothing. This is a great deal for shareholders, which is why they voted so overwhelmingly to approve this, for which I am immensely grateful. 
+
+And they did so by a margin far more than you won your political seat.
+[2026-06-14] The article is totally false btw. You can add up every government incentive my companies have ever received and they amount to less than 2% of the value of SpaceX and Tesla!
+
+And many of these incentives actually helped our competitors disproportionately to Tesla or SpaceX. 
+
+For example, when President Trump removed the $7500 tax credit for electric vehicles, Tesla sales actually INCREASED, because more buyers shifted from other EV makers to Tesla.
+[2026-06-22] Absolutely. This is a total lie. 
+
+All DOGE did was require contact with the aid recipients to confirm that funds were being used legitimately. Anything less than this is insane!
+
+Multiple people from USAID have been charged by the Justice Department with stealing money.
+
+Moreover, they pled GUILTY!!
+[2026-06-23] All DOGE required was contact information of the recipients to confirm that funding was not fraudulent. No validated medical funding was stopped. 
+
+Anything that appeared to be legitimate lifesaving funding continued and is now administered by the State Department.
+
+If anyone had actually died as a result of DOGE, their names would be worldwide headline news!
+
+On the other hand, USAID did help fund the Wuhan Virology Institute, which caused the deaths of millions, and the revolution that started the Russia-Ukraine war.
+[2026-07-17] The survival probability of firms who maintain a significant short position in SpaceX over time is very low
+[2026-07-17] I said SpaceX will be worth more than Earth if we achieve our goals. 
+
+Obviously true.
+[2026-07-20] It is pretentious and poisonous for for-profit companies to call themselves "labs" when they are actually corporations and to create a lords & peasants culture between (looksmaxxing) "researchers" & engineers when they are both, on their better days, actually engineers
+
+## FIGURE: Elon Musk â€” THEME: X-the-platform
+[2023-11-19] ð• Corp investors will own 25% of xAI
+[2023-12-11] It is actually extremely difficult to stop bots without affecting real users. 
+
+As advanced AI becomes available to anyone, it will become almost impossible. 
+
+That is why requiring even a tiny subscription payment massively improves quality of service, as it raises the price of bots by several orders of magnitude.
+[2024-05-13] Not trying to win anything. I just don't think we should be suppressing Australian's rights to free speech.
+[2024-05-23] Community Notes now translated
+[2024-05-28] Uploading your videos to ð• massively increases viewership, as the algorithm is optimizing for total user-seconds
+[2025-04-08] Sam Harris hates free speech
+[2025-04-25] To be clear, there is no explicit rule limiting the reach of links in posts. 
+
+The algorithm tries (not always successfully) to maximize user-seconds on ð•, so a link that causes people to cut short their time here will naturally get less exposure.
+
+Best to post a text/image/video summary of what's at the link for people to view and then decide if they want to click the link.
+[2025-05-24] Back to spending 24/7 at work and sleeping in conference/server/factory rooms. 
+
+I must be super focused on ð•/xAI and Tesla (plus Starship launch next week), as we have critical technologies rolling out. 
+
+As evidenced by the ð• uptime issues this week, major operational improvements need to be made. The failover redundancy should have worked, but did not.
+[2025-09-09] This is just a snapshot of the current situation. All the heuristic code will get scrapped in favor of a Grok AI recommendation system.
+[2026-06-11] Great interview about how @CommunityNotes works!
+
+Super helpful for truth-seeking.
+
+## FIGURE: Elon Musk â€” THEME: humanity's future & civilization
+[2023-11-26] We're making great progress on that front. 
+
+Making consciousness sustainably multiplanetary is the overarching mission.
+[2023-12-26] There will be universal high income, not basic, in a positive AI future. 
+
+No scarcity, except that which we define to be scarce. 
+
+In that scenario, everyone can have whatever goods & services they want. 
+
+It is less clear how we will find meaning in a world where work is optional.
+[2024-04-26] AGI will come first, but there are many levels of AGI.  As @waitbutwhy's charts suggest, we are at the very beginning of intelligence.
+
+Humans are the biological bootloader for digital superintelligence and we may serve as a backup plan for intelligence, given that humans are far more resilient than circuit boards on Earth.
+[2024-05-30] Starship already reached orbital velocity, which is success for all other rockets. 
+
+Achieving full reusability will be profound not for reasons of valuation, but because it will enable consciousness to extend permanently beyond Earth.
+[2024-09-07] Making life multiplanetary is fundamentally a cost per ton to Mars problem. 
+
+It currently costs about a billion dollars per ton of useful payload to the surface of Mars. That needs to be improved to $100k/ton to build a self-sustaining city there, so the technology needs to be 10,000 times better. Extremely difficult, but not impossible.
+[2024-11-07] Starship is the difference between being a multiplanet or single planet civilization. 
+
+Building a new world on Mars is now possible.
+[2024-11-18] AI will soon beat doctors and lawyers by a large margin (and eventually all humans at almost everything). 
+
+We can serve as a biological backstop for intelligence, as we are less brittle than silicon, and perhaps as a source of will.
+[2024-12-23] It is increasingly likely that AI will superset the intelligence of any single human by the end of 2025 and maybe all humans by 2027/2028. 
+
+Probability that AI exceeds the intelligence of all humans combined by 2030 is ~100%.
+[2024-12-29] Great book and series. Read them years ago. 
+
+The Iain Banks "Culture" books are the best envisioning of a mostly positive AI future by far.
+[2025-10-06] Earth's gravity is strong enough to make reaching Mars extremely hard, but not impossible
+[2025-10-15] I am confident that Starship will land humans on Mars. That path is clear. 
+
+But what really matters is securing the future of consciousness, not just getting a small number of people to Mars. 
+
+That probably requires getting over 100,000 people and 1M tons of cargo to Mars. 
+
+The critical threshold to pass is making it such that Mars can grow even if supply ships from Earth stop coming for any reason.
+[2025-10-19] Humanity was on a path of increasing launch cost and diminishing capability, so it might never have happened. 
+
+SpaceX is an attempt to change that, but we still have a very long way to go to make life multiplanetary.
+[2025-10-28] Nice work by the @xAI team on https://grokipedia.com/
+
+The goal here is to create an open source, comprehensive collection of all knowledge.
+
+Then place copies of that etched in a stable oxide in orbit, the Moon and Mars to preserve it for the future. 
+
+Foundation.
+[2025-11-04] We should not take survival on Earth too much for granted.
+
+No commercial opportunity, however large, is more important than ensuring the long-term survival of consciousness, which becoming multiplanetary enables.
+
+Space habitats require mass transfer from elsewhere to grow. Planets do not. 
+
+That said, a self-sustaining city on the Moon, while not as resilient to calamities that affect Earth as Mars (due to its proximity to Earth), is probably nonetheless worth the doing, in addition to Mars.
+[2025-11-05] Western Civilization is doomed, unless the core weakness of suicidal empathy is recognized and actions are taken that are hard, but necessary for survival
+[2025-11-06] If civilization drops below the tech level needed for interplanetary spaceflight before making life multiplanetary, that could be the end of consciousness
+[2025-11-06] If America falls before consciousness beyond Earth is self-sustaining, it is game over maybe forever
+[2025-11-13] Solar electricity will become by far the biggest source of power for civilization
+[2025-11-13] Copies will be etched in stone and sent to the Moon, Mars and beyond. This time, it will not be lost.
+[2025-11-16] No foreign policy actions can save a civilization if its population keeps dropping.
+
+Population collapse of Romans over time is what caused Rome to fall. The Romans worried about this, but failed to stop it.
+[2025-11-16] Optimus will eliminate poverty and provide universal high income for all
+[2025-11-18] Become multiplanetary or die
+
+That is the choice we face
+
+ https://x.com/i/grok/share/cQsKnkcAZEH6oZbBWcCBKndcW
+[2025-11-19] Can you stop trying to destroy civilization for like 5 mins? That would be great ðŸ‘
+[2025-11-23] The Sun is 99.8% of all mass in our solar system. 
+
+Even if you somehow burned Jupiter and everything that is not the Sun in a fusion reactor, the Sun would still round up to 100% of all energy. 
+
+The Sun is all that matters long-term.
+[2025-11-30] Optimus will be the Von Neumann probe
+
+## FIGURE: Elon Musk â€” THEME: 2022â€“23 era vs 2024â€“now era
+[2022-03-21] First Starship orbital flight will be with Raptor 2 engines, as they are much more capable & reliable. 230 ton or ~500k lb thrust at sea level.
+
+We'll have 39 flightworthy engines built by next month, then another month to integrate, so hopefully May for orbital flight test.
+[2022-06-18] The super weird thing is that Falcon 9 is still the only orbital booster to land or refly after all these years!
+[2022-08-05] Hustling to get Starship Booster 7 back to pad to test outer ring of 20 engines
+[2023-04-20] Congrats @SpaceX team on an exciting test launch of Starship!
+
+Learned a lot for next test launch in a few months.
+[2023-04-22] Starship is super insane, but such a system is the only way for us to become a multiplanet civilization
+[2023-07-14] .@xAI
+[2023-07-14] Spaces discussion with @xAI team tomorrow at 1pm PT
+[2023-11-19] ð• Corp investors will own 25% of xAI
+[2023-12-08] Grok AI (beta) is now rolled out to all ð• Premium+ subscribers in the US.
+
+There will be many issues at first, but expect rapid improvement almost every day. Your feedback is much appreciated.
+
+Will expand to all English language users in about a week or so. Japanese is next priority (2nd biggest user base) and then hopefully all languages by early 2024.
+[2023-12-21] Unfortunately, the Internet (on which it is trained), is overrun with woke nonsense. 
+
+Grok will get better. This is just the beta.
+[2023-12-26] There will be universal high income, not basic, in a positive AI future. 
+
+No scarcity, except that which we define to be scarce. 
+
+In that scenario, everyone can have whatever goods & services they want. 
+
+It is less clear how we will find meaning in a world where work is optional.
+[2023-12-28] He has the wrong frame of reference. Tesla is an AI/robotics company.
+[2024-05-27] Join xAI if you believe in our mission of understanding the universe, which requires maximally rigorous pursuit of the truth, without regard to popularity or political correctness
+[2024-06-02] Given the pace of technology improvement, it's not worth sinking 1GW of power into H100s.
+
+The @xAI 100k H100 liquid-cooled training cluster will be online in a few months. 
+
+Next big step would probably be ~300k B200s with CX8 networking next summer.
+[2024-09-22] xAI built the most powerful AI training cluster in the world in 122 days, despite starting years after others. 
+
+Our competitors are moving as fast as they can. Just not as fast as @xAI.
+[2024-10-14] Achieving materially positive payload margin to a useful orbit with a fully & rapidly reusable rocket has eluded prior attempts. Many have tried to embark upon this path only to give up when it became clear that their design would have negative or negligible payload margin.
+
+This is an extremely difficult problem to solve, given the strong gravity of Earth, whereas it is easy on Mars and trivial on the Moon. In the early years of SpaceX, I was not sure that success was even in the set of possible outcomes!
+
+Fortunately, it just barely is, but requires doing unusual things like shifting the mass needed for final velocity attenuation and post-landing stabilization of the rocket (so it doesn't tip over in wind) to the ground, rather than carrying heavy landing gear on both stages.
+[2024-10-30] The second Trump Presidency will be the most fun America has had in a while. 
+
+It's gonna be awesome! ðŸ˜Ž
+[2024-12-23] It is increasingly likely that AI will superset the intelligence of any single human by the end of 2025 and maybe all humans by 2027/2028. 
+
+Probability that AI exceeds the intelligence of all humans combined by 2030 is ~100%.
+[2025-03-15] Starship departs for Mars at the end of next year, carrying Optimus. 
+
+If those landings go well, then human landings may start as soon as 2029, although 2031 is more likely.
+[2025-05-29] For the past several days, Tesla has been testing self-driving Model Y cars (no one in driver's seat) on Austin public streets with no incidents. 
+
+A month ahead of schedule.
+
+Next month, first self-delivery from factory to customer.
+[2025-06-21] We will use Grok 3.5 (maybe we should call it 4), which has advanced reasoning, to rewrite the entire corpus of human knowledge, adding missing information and deleting errors.
+
+Then retrain on that. 
+
+Far too much garbage in any foundation model trained on uncorrected data.
+[2025-07-13] We are creating a multi-agent AI software company @xAI, where @Grok spawns hundreds of specialized coding and image/video generation/understanding agents all working together and then emulates humans interacting with the software in virtual machines until the result is excellent.
+
+This is a macro challenge and a hard problem with stiff competition! Can you guess the name of this company? ðŸ¤­
+[2025-08-22] Grok is evolving much faster than any other AI.
+
+If this rate of progress continues, @xAI will outpace other AI companies by a significant margin.
+
+App upgrades are roughly on par with internal upgrades.
+[2025-11-18] Become multiplanetary or die
+
+That is the choice we face
+[2025-12-30] xAI has bought a third building called MACROHARDRR. Will take @xAI training compute to almost 2GW. 
+
+Try @Grok. Download latest app.
+[2026-06-28] Grok 4.5, based on our 1.5T V9 foundation model, with Cursor data added in supplemental training, is now in private beta at SpaceX & Tesla. Early evals show performance close to, perhaps exceeding Opus. 
+
+RL is continuing to significantly improve the model, and the Grok Build harness gets better every day.
+
+Nice work by all those involved!
+
+Completely trained from scratch new models will be released by @SpaceX every month this year.
+[2026-07-23] Grok 4.5 is the best value for money AI
+
