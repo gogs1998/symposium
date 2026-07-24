@@ -1,6 +1,10 @@
-@import "tokens/fonts.css";
+/* SYMPOSIUM design entry — v2 ("Aegean") tokens + v1 compat bridge.
+   Order matters: v2 primitives first, then compat.css aliases v1 names onto them,
+   then base/root styles, then the animation keyframes v1 components still use. */
 @import "tokens/colors.css";
 @import "tokens/typography.css";
 @import "tokens/spacing.css";
 @import "tokens/effects.css";
+@import "tokens/compat.css";
+@import "tokens/base.css";
 @import "tokens/animations.css";

@@ -1,28 +1,17 @@
-/* SYMPOSIUM — SPACING & LAYOUT
-   4px base grid. Generous whitespace — the catalog breathes. */
-:root {
-  --space-0: 0;
-  --space-1: 4px;
-  --space-2: 8px;
-  --space-3: 12px;
-  --space-4: 16px;
-  --space-5: 20px;
-  --space-6: 24px;
-  --space-7: 32px;
-  --space-8: 40px;
-  --space-9: 48px;
-  --space-10: 64px;
-  --space-11: 80px;
-  --space-12: 112px;
-
-  /* layout maxima */
-  --measure-reading: 66ch;    /* comfortable line length for figure voices */
-  --width-page: 1240px;       /* roster / marketing max width */
-  --width-chat: 760px;        /* chat column */
-  --sidebar-w: 288px;         /* sessions sidebar */
-
-  /* control sizing */
-  --control-sm: 30px;
-  --control-md: 38px;
-  --control-lg: 46px;
+/* SYMPOSIUM v2 — SPACING & LAYOUT
+   Vendored from the v2 design export. 4px base; v2 collapses the scale (space-5=24,
+   space-6=32, ...). v1's finer 1–12 scale is bridged in compat.css so v1 screens keep
+   their exact rhythm while new v2 code uses the v2 scale. */
+:root{
+--space-1:4px;
+--space-2:8px;
+--space-3:12px;
+--space-4:16px;
+--space-5:24px;
+--space-6:32px;
+--space-7:48px;
+--space-8:64px;
+--space-9:96px;
+--measure:64ch; /* max text measure */
+--content-max:1120px; /* landing/app max width */
 }
