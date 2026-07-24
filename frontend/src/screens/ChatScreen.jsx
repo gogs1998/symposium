@@ -2,11 +2,13 @@ import React from 'react'
 import {
   SessionSidebar, MessageBubble, TypingIndicator, Composer,
   SuggestedQuestion, DisclosureBanner, FigurePortrait, IconButton, Button,
+  SourcesPanel,
 } from '../components/ds'
 import { useChatStream } from '../hooks/useChatStream'
-import { adaptCitation } from '../lib/adapters'
+import { adaptCitation, adaptSources } from '../lib/adapters'
+import { api } from '../lib/api'
 
-function ChatHeader({ figure, onBack }) {
+function ChatHeader({ figure, onBack, onOpenSources }) {
   return (
     <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-4)', padding: 'var(--space-4) var(--space-6)', borderBottom: '1px solid var(--border-line)', background: 'var(--surface-page)' }}>
       <IconButton label="Back to roster" variant="ghost" onClick={onBack}>←</IconButton>
@@ -18,7 +20,29 @@ function ChatHeader({ figure, onBack }) {
         </div>
         <span style={{ font: 'var(--fw-regular) var(--text-xs)/1.4 var(--font-sans)', color: 'var(--text-faint)' }}>{figure.meta}</span>
       </div>
-      <Button variant="ghost" size="sm">Sources</Button>
+      <Button variant="ghost" size="sm" onClick={onOpenSources}>Sources</Button>
+    </div>
+  )
+}
+
+// Slide-over trust surface. Fetches the figure's corpus from the sources endpoint
+// on open; the scrim (ink at 32%, no blur) dismisses per the v2 pattern.
+function SourcesOverlay({ figure, onClose }) {
+  const [data, setData] = React.useState(null)
+  React.useEffect(() => {
+    let live = true
+    api.figureSources(figure.id)
+      .then((res) => { if (live) setData(adaptSources(res)) })
+      .catch((e) => { console.error('load sources failed:', e); if (live) setData(adaptSources({ sources: [] })) })
+    return () => { live = false }
+  }, [figure.id])
+  const s = data || { books: [], videos: [], collections: [], totals: '' }
+  return (
+    <div onClick={onClose} style={{ position: 'fixed', inset: 0, background: 'rgba(28,43,58,.32)', display: 'flex', justifyContent: 'flex-end', zIndex: 40 }}>
+      <div onClick={(e) => e.stopPropagation()} style={{ height: '100%' }}>
+        <SourcesPanel figureName={figure.name} basis={figure.basis || 'the ingested corpus'}
+          totals={s.totals} books={s.books} videos={s.videos} collections={s.collections} onClose={onClose} />
+      </div>
     </div>
   )
 }
@@ -76,6 +100,7 @@ function Msg({ m, figure }) {
 export function ChatScreen({ figure, sessions, activeSession, initialMessages = [], onBack, onSelectSession, onNewConversation }) {
   const { messages, phase, streamText, send, retry, reset } = useChatStream(activeSession)
   const [draft, setDraft] = React.useState('')
+  const [showSources, setShowSources] = React.useState(false)
   const threadRef = React.useRef(null)
 
   // Restore prior turns when resuming a session (App loads them via /sessions/{id}/history)
@@ -98,7 +123,7 @@ export function ChatScreen({ figure, sessions, activeSession, initialMessages = 
     <div style={{ display: 'flex', height: '100%', background: 'var(--surface-page)' }}>
       <SessionSidebar sessions={sessions} activeId={activeSession} onSelect={onSelectSession} onNew={onNewConversation} />
       <div style={{ flex: 1, display: 'flex', flexDirection: 'column', minWidth: 0 }}>
-        <ChatHeader figure={figure} onBack={onBack} />
+        <ChatHeader figure={figure} onBack={onBack} onOpenSources={() => setShowSources(true)} />
         <DisclosureBanner figureName={figure.name} />
         <div ref={threadRef} style={{ flex: 1, overflowY: 'auto', backgroundImage: 'var(--texture-grain)' }}>
           {empty ? (
@@ -129,6 +154,7 @@ export function ChatScreen({ figure, sessions, activeSession, initialMessages = 
           </div>
         </div>
       </div>
+      {showSources && <SourcesOverlay figure={figure} onClose={() => setShowSources(false)} />}
     </div>
   )
 }

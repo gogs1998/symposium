@@ -94,6 +94,38 @@ async def test_admin_publish_gate_enforced(client):
     assert r.status_code == 409  # no chunks, no persona
 
 
+async def test_figure_sources_lists_done_rows_classified(client, app):
+    conn = deps.get_conn()
+    # A document, a bare YouTube video id, a host-attributed video, and a non-done row.
+    rows = [
+        ("aurelius", "meditations.txt", "done", "143 chunks"),
+        ("aurelius", "dQw4w9WgXcQ", "done", "88 chunks"),
+        ("aurelius", "host:AbCdEfGhIjK", "done", "12 chunks"),
+        ("aurelius", "pending.txt", "pending", "queued"),
+    ]
+    for figure_id, item_id, status, detail in rows:
+        conn.execute(
+            "INSERT INTO ingestion_log (figure_id, source_item_id, status, detail) VALUES (?, ?, ?, ?)",
+            (figure_id, item_id, status, detail),
+        )
+    conn.commit()
+
+    r = await client.get("/figures/aurelius/sources")
+    assert r.status_code == 200
+    sources = r.json()["sources"]
+    # Only status='done' rows are returned (pending is excluded).
+    by_id = {s["item_id"]: s for s in sources}
+    assert set(by_id) == {"meditations.txt", "dQw4w9WgXcQ", "host:AbCdEfGhIjK"}
+    assert by_id["meditations.txt"] == {"item_id": "meditations.txt", "kind": "document", "detail": "143 chunks"}
+    assert by_id["dQw4w9WgXcQ"]["kind"] == "video"
+    assert by_id["host:AbCdEfGhIjK"]["kind"] == "video"
+
+
+async def test_figure_sources_404_for_draft(client):
+    r = await client.get("/figures/draftguy/sources")
+    assert r.status_code == 404
+
+
 async def test_sessions_endpoints(client):
     r = await client.post("/chat", json={"figure": "aurelius", "message": "hi"})
     sid = r.json()["conversation_id"]

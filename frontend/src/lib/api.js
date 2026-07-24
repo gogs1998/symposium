@@ -11,6 +11,7 @@ async function jsonGet(path) {
 export const api = {
   base: API_BASE,
   listFigures: () => jsonGet('/figures'),
+  figureSources: (id) => jsonGet(`/figures/${encodeURIComponent(id)}/sources`),
   listSessions: (userId = 'default') => jsonGet(`/sessions?user_id=${encodeURIComponent(userId)}`),
   sessionHistory: (id) => jsonGet(`/sessions/${encodeURIComponent(id)}/history`),
   deleteSession: (id) =>

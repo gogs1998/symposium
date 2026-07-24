@@ -1,6 +1,7 @@
 """Symposium v2 API."""
 import json
 import logging
+import re
 
 from fastapi import Depends, FastAPI, Header, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
@@ -51,6 +52,32 @@ async def list_figures():
 @app.get("/figures/{figure_id}", response_model=FigureInfo)
 async def get_figure(figure_id: str):
     return _figure_info(_published_figure_or_404(figure_id))
+
+
+_VIDEO_ID_RE = re.compile(r"^[A-Za-z0-9_-]{11}$")
+
+
+def _source_kind(item_id: str) -> str:
+    """A source item is a video when its id is a bare YouTube id (11 url-safe chars)
+    or a host-attributed id (`host:<video_id>`); otherwise it is a document."""
+    return "video" if item_id.startswith("host:") or _VIDEO_ID_RE.match(item_id) else "document"
+
+
+@app.get("/figures/{figure_id}/sources")
+async def figure_sources(figure_id: str):
+    """The corpus behind a published figure: the completed ingestion-log rows,
+    each classified as a video or a document, with the log detail (e.g. "143 chunks")."""
+    _published_figure_or_404(figure_id)
+    rows = deps.get_conn().execute(
+        "SELECT source_item_id, detail FROM ingestion_log "
+        "WHERE figure_id = ? AND status = 'done' ORDER BY updated_at",
+        (figure_id,),
+    ).fetchall()
+    sources = [
+        {"item_id": r["source_item_id"], "kind": _source_kind(r["source_item_id"]), "detail": r["detail"]}
+        for r in rows
+    ]
+    return {"sources": sources}
 
 
 # --- Public: chat ---

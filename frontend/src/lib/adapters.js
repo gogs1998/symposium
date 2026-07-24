@@ -33,6 +33,24 @@ export function adaptFigure(f) {
   }
 }
 
+// Shape the flat GET /figures/{id}/sources payload into the SourcesPanel's
+// books/videos/collections model. The endpoint classifies each corpus item as
+// "video" or "document"; documents become "books", videos become "videos", and
+// the log detail (e.g. "143 chunks") is shown as the size/duration line.
+export function adaptSources(payload) {
+  const sources = Array.isArray(payload?.sources) ? payload.sources : []
+  const books = []
+  const videos = []
+  for (const s of sources) {
+    if (s.kind === 'video') videos.push({ title: s.item_id, duration: s.detail })
+    else books.push({ title: s.item_id, size: s.detail })
+  }
+  const parts = []
+  if (books.length) parts.push(`${books.length} document${books.length === 1 ? '' : 's'}`)
+  if (videos.length) parts.push(`${videos.length} video${videos.length === 1 ? '' : 's'}`)
+  return { books, videos, collections: [], totals: parts.join(' · ') }
+}
+
 export function formatTimestamp(totalSeconds) {
   const s = Math.floor(totalSeconds || 0)
   const h = Math.floor(s / 3600)
