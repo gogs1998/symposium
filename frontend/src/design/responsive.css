@@ -1,9 +1,172 @@
-/* Desktop-first overrides. DS components render inline styles; these class hooks
-   (present on every DS component) let us adjust layout at small viewports. */
+/* ============================================================================
+   SYMPOSIUM — MOBILE RESPONSIVE OVERRIDES
+   ----------------------------------------------------------------------------
+   Desktop-first. DS components render *inline* styles, so stylesheet rules that
+   touch an inline-set property MUST use !important to win the cascade. Every
+   rule below that overrides an inline value is flagged accordingly.
+   Class hooks live on the DS components and screens (.sym-*).
+   Breakpoints: 720 (tablet/phone), 640 (phone layout), 430 (small phone).
+   ============================================================================ */
+
+/* ---- Never allow horizontal scroll on small screens ---------------------- */
 @media (max-width: 720px) {
-  .sym-sidebar { display: none; }               /* hide the session rail on phones */
-  .sym-figurecard { padding: var(--space-4); }
+  html, body { max-width: 100%; overflow-x: hidden; }
+
+  /* Tighten the global spacing scale on phones so 32/64px gutters don't eat
+     the viewport. Affects every var(--space-*) consumer — the highest-leverage
+     fix for edge gutters across all four screens. */
+  :root {
+    --space-6: 20px;   /* was 32 — section/card gutters */
+    --space-7: 28px;   /* was 48 */
+    --space-8: 24px;   /* was 64 — roster main gutters */
+    --space-9: 48px;   /* was 96 — landing hero band */
+    --space-10: 40px;  /* compat: roster main top pad */
+  }
 }
-@media (max-width: 520px) {
-  .sym-tabs { gap: var(--space-5); }
+
+/* ==========================================================================
+   LANDING
+   ========================================================================== */
+@media (max-width: 720px) {
+  /* Hero display type: scale from ~34px up to the desktop 60px. */
+  .sym-landing-h1 { font-size: clamp(30px, 8.5vw, 60px) !important; }
+
+  /* Promise section: two-column grid → single column. */
+  .sym-landing-promise { grid-template-columns: 1fr !important; }
+
+  /* CTA buttons stack full-width with comfortable tap targets. */
+  .sym-landing-cta { flex-direction: column !important; align-items: stretch !important; }
+  .sym-landing-cta > button,
+  .sym-landing-cta > a {
+    width: 100%;
+    text-align: center;
+    box-sizing: border-box;
+    min-height: 48px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Drop the two secondary nav links on the narrowest screens; ENTER remains. */
+  .sym-landing-navlink { display: none !important; }
+  .sym-landing-nav { padding: 16px var(--space-4) !important; }
+}
+
+/* ==========================================================================
+   ROSTER
+   ========================================================================== */
+@media (max-width: 720px) {
+  /* Hero headline: the roster uses --text-5xl (60px). Scale it down fluidly. */
+  .sym-roster-h1 { font-size: clamp(30px, 8vw, 60px) !important; line-height: 1.06 !important; }
+  /* The authored <br/> forces an awkward break on phones; let it flow. */
+  .sym-roster-h1 br { display: none; }
+}
+
+@media (max-width: 640px) {
+  /* Grid → single column with tighter card padding. */
+  .sym-roster-grid { grid-template-columns: 1fr !important; }
+  .sym-figurecard { padding: var(--space-4) !important; padding-left: calc(var(--space-4) + 3px) !important; }
+
+  /* Tabs + availability line wrap cleanly, availability drops below tabs. */
+  .sym-roster-tabrow { align-items: flex-start !important; gap: 10px !important; }
+}
+
+/* ---- Masthead: compact, hide sign-in noise on phones --------------------- */
+@media (max-width: 720px) {
+  .sym-masthead { height: 56px !important; padding: 0 var(--space-4) !important; }
+}
+@media (max-width: 480px) {
+  .sym-masthead-tagline { display: none !important; }
+  /* Keep a single action; the outline "Sign in" was overflowing the viewport. */
+  .sym-masthead-actions .sym-btn--quiet { display: none !important; }
+}
+
+/* ==========================================================================
+   FIGURE INTRO
+   ========================================================================== */
+@media (max-width: 640px) {
+  .sym-intro-wrap { padding: var(--space-6) var(--space-4) !important; }
+
+  /* Portrait + text stack to a single column, portrait scales down. */
+  .sym-intro-head { flex-direction: column !important; align-items: flex-start !important; gap: var(--space-4) !important; }
+  .sym-intro-head .sym-portrait { width: 72px !important; height: 90px !important; }
+
+  /* Begin button is already `full`; ensure a thumb-reachable tap target. */
+  .sym-intro-wrap .sym-btn { min-height: 48px; }
+}
+
+/* ==========================================================================
+   CHAT — the priority surface
+   ========================================================================== */
+@media (max-width: 720px) {
+  /* Hide the conversation rail (inline display:flex → needs !important). */
+  .sym-sidebar { display: none !important; }
+
+  /* Full-height column flex; the composer becomes sticky within the scroll shell. */
+  .sym-chat-shell { height: 100%; }
+
+  /* Compact header: shrink the round portrait to ~32px, keep name truncating. */
+  .sym-chat-header {
+    gap: var(--space-3) !important;
+    padding: 10px var(--space-4) !important;
+  }
+  .sym-chat-header .sym-portrait { width: 32px !important; height: 32px !important; }
+  .sym-chat-name { font-size: var(--text-lg) !important; }
+
+  /* Message column: full width with small gutters. */
+  .sym-chat-turns { padding: var(--space-5) var(--space-4) !important; gap: var(--space-6) !important; }
+
+  /* Empty state: trim the tall top padding and scale the display name. */
+  .sym-chat-empty { padding: var(--space-6) var(--space-4) !important; }
+  .sym-chat-empty-name { font-size: clamp(30px, 9vw, 60px) !important; }
+
+  /* Assistant reading measure is desktop-wide; let it fill the column. */
+  .sym-message > div { max-width: 100% !important; }
+
+  /* Composer sticks to the bottom with safe-area padding for the home indicator. */
+  .sym-chat-composerbar {
+    position: sticky;
+    bottom: 0;
+    padding: var(--space-3) var(--space-4)
+             calc(var(--space-3) + env(safe-area-inset-bottom, 0px)) !important;
+  }
+
+  /* Citation cards must never overflow: video variant stacks, thumbnail scales. */
+  .sym-citation--video { flex-direction: column !important; }
+  .sym-citation--video > button { width: 100% !important; }
+  .sym-citation { max-width: 100%; box-sizing: border-box; }
+  .sym-citation img { max-width: 100%; }
+
+  /* Suggested questions already stack (column); ensure comfortable targets. */
+  .sym-suggested { min-height: 44px; }
+}
+
+@media (max-width: 560px) {
+  /* RegisterIndicator + Sources compete for room next to a truncating name.
+     Drop the register chip (display-only in current wiring) so the header stays
+     on one line; Sources button collapses to an icon. */
+  .sym-chat-register { display: none !important; }
+
+  /* Sources button → compact; hide its label, keep an inspectable affordance. */
+  .sym-chat-sources .sym-btn { padding: 0 10px !important; min-width: 40px; }
+}
+
+/* ==========================================================================
+   GLOBAL — iOS input zoom, tap targets, landscape
+   ========================================================================== */
+@media (max-width: 720px) {
+  /* Inputs/textareas must be >=16px to prevent iOS zoom-on-focus.
+     The composer textarea already uses --text-md (17px); belt-and-braces here. */
+  textarea, input, select { font-size: max(16px, 1rem); }
+
+  /* Baseline tap-target comfort for icon controls. */
+  .sym-btn { min-height: 40px; }
+}
+
+/* Landscape phones: keep the chat composer reachable and the header slim. */
+@media (max-height: 480px) and (orientation: landscape) {
+  .sym-chat-header { padding: 6px var(--space-4) !important; }
+  .sym-landing-h1 { font-size: clamp(26px, 6vw, 44px) !important; }
 }
