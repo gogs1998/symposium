@@ -2,13 +2,15 @@ import React from 'react'
 import {
   SessionSidebar, MessageBubble, TypingIndicator, Composer,
   SuggestedQuestion, DisclosureBanner, FigurePortrait, IconButton, Button,
-  SourcesPanel,
+  SourcesPanel, RegisterIndicator,
 } from '../components/ds'
 import { useChatStream } from '../hooks/useChatStream'
-import { adaptCitation, adaptSources } from '../lib/adapters'
+import { adaptCitation, adaptSources, registersFor } from '../lib/adapters'
 import { api } from '../lib/api'
 
 function ChatHeader({ figure, onBack, onOpenSources }) {
+  // Display-only register chip for creators, derived from metadata.format.
+  const reg = registersFor(figure)
   return (
     <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-4)', padding: 'var(--space-4) var(--space-6)', borderBottom: '1px solid var(--border-line)', background: 'var(--surface-page)' }}>
       <IconButton label="Back to roster" variant="ghost" onClick={onBack}>←</IconButton>
@@ -20,6 +22,7 @@ function ChatHeader({ figure, onBack, onOpenSources }) {
         </div>
         <span style={{ font: 'var(--fw-regular) var(--text-xs)/1.4 var(--font-sans)', color: 'var(--text-faint)' }}>{figure.meta}</span>
       </div>
+      {reg && <RegisterIndicator registers={reg.registers} active={reg.active} />}
       <Button variant="ghost" size="sm" onClick={onOpenSources}>Sources</Button>
     </div>
   )

@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest'
-import { adaptFigure, adaptCitation, formatTimestamp } from './adapters'
+import { adaptFigure, adaptCitation, formatTimestamp, registersFor } from './adapters'
 
 describe('adaptFigure', () => {
   it('maps a historical figure to DS props', () => {
@@ -30,6 +30,25 @@ describe('adaptFigure', () => {
   it('derives a portrait imageUrl from the figure id', () => {
     const f = adaptFigure({ id: 'aurelius', name: 'Marcus Aurelius', type: 'historical', description: '', metadata: {}, chunk_count: 5 })
     expect(f.imageUrl).toBe('/portraits/aurelius.png')
+  })
+})
+
+describe('registersFor', () => {
+  const creator = (format) => adaptFigure({ id: 'c', name: 'C', type: 'creator', description: '', metadata: { format }, chunk_count: 5 })
+
+  it('returns null for a historical figure', () => {
+    const f = adaptFigure({ id: 'm', name: 'M', type: 'historical', description: '', metadata: {}, chunk_count: 5 })
+    expect(registersFor(f)).toBeNull()
+  })
+
+  it('maps podcast/interview formats to the conversational voice', () => {
+    expect(registersFor(creator('podcast')).active).toBe('conversational')
+    expect(registersFor(creator('interviews+x')).active).toBe('conversational')
+  })
+
+  it('defaults a creator with no telling format to the on-camera voice', () => {
+    expect(registersFor(creator('speeches+rallies')).active).toBe('on-camera')
+    expect(registersFor(creator('')).active).toBe('on-camera')
   })
 })
 

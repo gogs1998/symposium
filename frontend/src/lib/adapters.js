@@ -30,7 +30,24 @@ export function adaptFigure(f) {
     imageUrl: `/portraits/${f.id}.png`,
     // static opener prompts per figure could come from the API later; empty for now.
     openers: Array.isArray(m.openers) ? m.openers : [],
+    // creator delivery format (e.g. "podcast", "speeches+rallies", "interviews+x"),
+    // used to derive the display register; absent for most figures.
+    format: typeof m.format === 'string' ? m.format : '',
   }
+}
+
+// Which "voice" a creator's replies draw from, derived from metadata.format.
+// Display-only for now (no register switching). Returns { registers, active } or
+// null for figures we can't/shouldn't label (non-creators).
+export function registersFor(figure) {
+  if (!figure || figure.category !== 'creator') return null
+  const fmt = (figure.format || '').toLowerCase()
+  let active = 'on-camera'          // default creator voice: scripted, on-camera
+  if (fmt.includes('podcast') || fmt.includes('interview')) active = 'conversational'
+  else if (fmt.includes('written') || fmt.includes('post') || fmt.includes('book')) active = 'written'
+  // Only surface registers the metadata supports; the active one is always present.
+  const registers = [active]
+  return { registers, active }
 }
 
 // Shape the flat GET /figures/{id}/sources payload into the SourcesPanel's
