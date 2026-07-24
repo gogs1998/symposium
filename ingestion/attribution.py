@@ -21,22 +21,31 @@ logger = logging.getLogger(__name__)
 
 PROMPT = """\
 You are labeling speaker turns in a podcast caption transcript. The captions have
-NO speaker labels. Your job is to identify which lines are spoken by the HOST,
-{host_name}, versus a guest or anyone else.
+NO speaker labels. Your job is to identify which lines are spoken by the TARGET
+speaker, {host_name}, versus anyone else.
 
 Video title: {title}
 
-Strong cues for the HOST:
-- The host asks the questions and steers the conversation.
-- The host addresses the producer/crew and does ad reads, intros, and outros.
-- Guests answer questions and tell their own stories.
+{cues}
 {hints}
 Below are numbered caption segments. Return ONLY a JSON object of the form
 {{"host_indices": [i, j, ...]}} listing the indices (as shown) spoken by
-{host_name}. Include only lines you are confident are the host. Return no prose.
+{host_name}. Include only lines you are confident are the target. Return no prose.
 
 SEGMENTS:
 {listing}"""
+
+HOST_CUES = """\
+Strong cues — the target is the HOST:
+- The host asks the questions and steers the conversation.
+- The host addresses the producer/crew and does ad reads, intros, and outros.
+- Guests answer questions and tell their own stories."""
+
+GUEST_CUES = """\
+Strong cues — the target is the GUEST:
+- The guest answers questions at length about their own life, work, and opinions.
+- The HOST (not the target) asks the questions, does intros, outros, and ad reads.
+- The guest's speech centers on their own projects and experiences."""
 
 
 def windows(segments, size, overlap):
@@ -84,20 +93,24 @@ async def _host_indices(chat, *, model, prompt) -> list[int] | None:
 
 async def attribute_host_segments(chat, *, model: str, host_name: str, title: str,
                                   segments: list[dict], window_size: int = 60,
-                                  overlap: int = 5, hints: str = "") -> list[dict]:
-    """Return the subset of `segments` (original order) spoken by the host.
+                                  overlap: int = 5, hints: str = "",
+                                  role: str = "host") -> list[dict]:
+    """Return the subset of `segments` (original order) spoken by the target.
 
+    `role` selects the cue block: "host" (default) extracts the show's host;
+    "guest" extracts a named guest (e.g. Elon Musk on someone else's podcast).
     Segments the model does not flag are dropped. If a window's JSON is
     unrecoverable after one repair retry, that whole window is dropped.
     Overlap disagreement resolves permissively: a segment is kept if EITHER
-    window covering it labels it host.
+    window covering it labels it the target.
     """
     hint_line = (hints.strip() + "\n") if hints and hints.strip() else ""
+    cues = GUEST_CUES if role == "guest" else HOST_CUES
     host_global: set[int] = set()
 
     for global_start, window_segs in windows(segments, window_size, overlap):
         prompt = PROMPT.format(host_name=host_name, title=title, hints=hint_line,
-                               listing=_listing(window_segs))
+                               cues=cues, listing=_listing(window_segs))
         indices = await _host_indices(chat, model=model, prompt=prompt)
         if indices is None:
             logger.warning("Dropping window at segment %d (%d segments): "

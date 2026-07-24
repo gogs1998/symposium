@@ -57,3 +57,15 @@ async def test_attribute_bad_json_keeps_window_conservatively_empty():
     kept = await attribute_host_segments(chat, model="m", host_name="H", title="t",
                                          segments=segments, window_size=60, overlap=5)
     assert kept == []   # one repair retry, then drop the window (never guess)
+
+
+async def test_guest_role_uses_guest_cues():
+    segments = [seg(i) for i in range(3)]
+    chat = ScriptedChat([json.dumps({"host_indices": [1]})])
+    kept = await attribute_host_segments(chat, model="m", host_name="Elon Musk",
+                                         title="JRE #1169 - Elon Musk", segments=segments,
+                                         window_size=60, overlap=5, role="guest")
+    assert [s["start"] for s in kept] == [1.0]
+    sent = chat.calls[0]["messages"][-1]["content"]
+    assert "target is the GUEST" in sent
+    assert "ad reads" in sent  # host-cue line describing who the target is NOT

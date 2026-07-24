@@ -1,4 +1,4 @@
-"""Operator CLI: ingest a corpus for a figure.
+﻿"""Operator CLI: ingest a corpus for a figure.
 
 Usage:
   venv python ingestion/cli.py files --figure aurelius --source-dir ingestion/sources_data/aurelius
@@ -17,7 +17,7 @@ import registry
 from config import settings
 from db import connect, init_db
 from ingestion.sources.files import Document, FilesSource
-from ingestion.sources.youtube import YouTubeSource
+from ingestion.sources.youtube import ExplicitVideosLister, YouTubeSource
 from ingestion.transcripts import append_jsonl, chunk_video
 from providers.fastembed_local import FastEmbedLocal
 from rag.chunker import chunk_text
@@ -158,7 +158,10 @@ def main():
     p_yt.add_argument("--sleep", type=float, default=4.0,
                       help="Seconds between caption fetches (avoid YouTube rate limits)")
     p_yt.add_argument("--cookies-from-browser", default=None, dest="cookies_browser",
-                      help="Browser to read YouTube cookies from (chrome/edge/firefox) — defeats bot checks")
+                      help="Browser to read YouTube cookies from (chrome/edge/firefox) â€” defeats bot checks")
+    p_yt.add_argument("--video-ids", default="", dest="video_ids",
+                      help="Comma-separated explicit video IDs (bypasses channel listing "
+                           "and multi-speaker skip; for guest appearances / archival clips)")
     p_jsonl = sub.add_parser("jsonl", help="Ingest a transcripts JSONL (e.g. host-attributed)")
     p_jsonl.add_argument("--figure", required=True)
     p_jsonl.add_argument("--path", required=True, help="Path to the transcripts JSONL")
@@ -179,9 +182,12 @@ def main():
     elif args.source_type == "jsonl":
         stats = ingest_jsonl(conn, engine, args.figure, args.path, replace=args.replace)
     else:
+        explicit_ids = [s for s in args.video_ids.split(",") if s]
+        lister = ExplicitVideosLister(explicit_ids, browser=args.cookies_browser) if explicit_ids else None
         source = YouTubeSource(
             args.channel, max_videos=args.max_videos, min_duration=args.min_duration,
-            include_ids={s for s in args.include.split(",") if s},
+            lister=lister,
+            include_ids={s for s in args.include.split(",") if s} | set(explicit_ids),
             exclude_ids={s for s in args.exclude.split(",") if s},
             sleep_between=args.sleep, cookies_browser=args.cookies_browser,
         )

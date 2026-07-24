@@ -47,6 +47,38 @@ class YtDlpLister:
         return videos
 
 
+class ExplicitVideosLister:
+    """Lister for explicit video IDs — guest appearances on other channels,
+    archival clips, or old episodes outside a channel's recent-uploads window.
+    Metadata is fetched per video via yt-dlp."""
+
+    def __init__(self, video_ids: list[str], browser: str | None = None):
+        self.video_ids = video_ids
+        self.browser = browser
+
+    def list_videos(self, channel_url: str, max_videos: int, min_duration: int) -> list[dict]:
+        import yt_dlp
+        opts = {"quiet": True, "skip_download": True, "no_warnings": True}
+        if self.browser:
+            opts["cookiesfrombrowser"] = (self.browser,)
+        videos = []
+        with yt_dlp.YoutubeDL(opts) as ydl:
+            for vid in self.video_ids:
+                try:
+                    info = ydl.extract_info(f"https://www.youtube.com/watch?v={vid}", download=False)
+                except Exception as exc:
+                    print(f"  SKIP {vid}: metadata fetch failed: {str(exc)[:100]}")
+                    continue
+                videos.append({
+                    "id": vid,
+                    "title": info.get("title", ""),
+                    "url": f"https://www.youtube.com/watch?v={vid}",
+                    "duration": info.get("duration") or 0,
+                    "upload_date": info.get("upload_date", ""),
+                })
+        return videos
+
+
 class TranscriptApiFetcher:
     """Caption fetch via youtube-transcript-api; prefers manual over auto."""
 

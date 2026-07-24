@@ -23,7 +23,7 @@ from ingestion.attribution import attribute_host_segments
 
 
 async def run(chat, *, model: str, jsonl_path, host_name: str, hints: str = "",
-              window_size: int = 60, overlap: int = 5) -> Path:
+              window_size: int = 60, overlap: int = 5, role: str = "host") -> Path:
     """Attribute every video in `jsonl_path`; write <name>.host.jsonl beside it.
 
     Returns the output path. Prints per-video kept/total.
@@ -41,6 +41,7 @@ async def run(chat, *, model: str, jsonl_path, host_name: str, hints: str = "",
             kept = await attribute_host_segments(
                 chat, model=model, host_name=host_name, title=record.get("title", ""),
                 segments=segments, window_size=window_size, overlap=overlap, hints=hints,
+                role=role,
             )
             record["segments"] = kept
             record["attribution"] = {"kept": len(kept), "total": len(segments)}
@@ -57,6 +58,8 @@ def main():
     parser.add_argument("--hints", default="")
     parser.add_argument("--window-size", type=int, default=60, dest="window_size")
     parser.add_argument("--overlap", type=int, default=5)
+    parser.add_argument("--role", choices=["host", "guest"], default="host",
+                        help="Extract the show's host (default) or a named guest")
     args = parser.parse_args()
 
     from config import settings
@@ -67,7 +70,7 @@ def main():
                           base_url=settings.openrouter_base_url)
     asyncio.run(run(chat, model=settings.ingest_model, jsonl_path=jsonl_path,
                     host_name=args.host_name, hints=args.hints,
-                    window_size=args.window_size, overlap=args.overlap))
+                    window_size=args.window_size, overlap=args.overlap, role=args.role))
 
 
 if __name__ == "__main__":
