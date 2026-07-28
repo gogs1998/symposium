@@ -23,6 +23,18 @@ class ChatResponse(BaseModel):
     conversation_id: str
 
 
+class RoomTurn(BaseModel):
+    speaker: str
+    content: str
+
+
+class RoomChatRequest(BaseModel):
+    figures: list[str]           # 2-4 figure ids sharing the room
+    message: str
+    transcript: list[RoomTurn] = []
+    include_citations: bool = True
+
+
 class FigureInfo(BaseModel):
     id: str
     name: str

@@ -10,9 +10,10 @@ from fastapi.responses import StreamingResponse
 import conversations as convo
 import deps
 import registry
+import rooms
 from config import settings
 from schemas import (ChatRequest, ChatResponse, Citation, FigureCreate,
-                     FigureInfo, FigureUpdate)
+                     FigureInfo, FigureUpdate, RoomChatRequest)
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
@@ -40,6 +41,13 @@ def _published_figure_or_404(figure_id: str) -> dict:
     if fig["status"] != "published":
         raise HTTPException(status_code=404, detail=f"Unknown figure: {figure_id}")
     return fig
+
+
+def _safe_published(conn, figure_id: str) -> bool:
+    try:
+        return registry.get_figure(conn, figure_id)["status"] == "published"
+    except registry.FigureNotFound:
+        return False
 
 
 # --- Public: figures ---
@@ -150,6 +158,70 @@ async def chat_stream(request: ChatRequest):
                 convo.save_message(conn, conversation_id, "user", request.message)
                 convo.save_message(conn, conversation_id, "assistant", full, citations=citations)
                 yield f"data: {json.dumps({'type': 'end'})}\n\n"
+
+    return StreamingResponse(sse(), media_type="text/event-stream",
+                             headers={"Cache-Control": "no-cache", "X-Accel-Buffering": "no"})
+
+
+# --- Public: rooms (multi-figure symposium) ---
+
+@app.post("/room/chat/stream")
+async def room_chat_stream(request: RoomChatRequest):
+    """One turn of a multi-figure room. A moderator (or the user's @-mention) picks
+    the 1-2 figures who respond; each replies in sequence with its own persona + RAG,
+    seeing the earlier speakers of this same turn. Streams speaker/content/citations
+    events per figure. Stateless: the client owns the transcript and posts it back."""
+    engine = deps.get_engine()
+    conn = deps.get_conn()
+
+    figs = []
+    for fid in request.figures:
+        fig = registry.get_figure(conn, fid) if _safe_published(conn, fid) else None
+        if fig:
+            figs.append(fig)
+    if len(figs) < 2:
+        raise HTTPException(status_code=400, detail="A room needs at least 2 published figures")
+
+    transcript = [{"speaker": t.speaker, "content": t.content} for t in request.transcript]
+
+    async def sse():
+        responder_ids = await rooms.pick_responders(
+            engine.chat, model=settings.ingest_model, figures=figs,
+            transcript=transcript, user_message=request.message,
+        )
+        yield f"data: {json.dumps({'type': 'responders', 'figures': responder_ids})}\n\n"
+
+        by_id = {f["id"]: f for f in figs}
+        running = list(transcript)
+        for rid in responder_ids:
+            fig = by_id[rid]
+            others = [f["name"] for f in figs if f["id"] != rid]
+            yield f"data: {json.dumps({'type': 'speaker', 'figure': {'id': rid, 'name': fig['name']}})}\n\n"
+
+            context = engine.retrieve(rid, request.message, settings.retrieval_k)
+            if request.include_citations:
+                cites = engine.citations_from(context)
+                yield f"data: {json.dumps({'type': 'citations', 'figure': rid, 'citations': cites})}\n\n"
+
+            messages = rooms.build_room_messages(
+                engine, figure=fig, others=others, context=context,
+                transcript=running, user_message=request.message,
+            )
+            full = ""
+            try:
+                async for delta in engine.chat.stream(
+                    messages, model=engine.chat_model,
+                    temperature=engine.temperature, max_tokens=engine.max_tokens,
+                ):
+                    full += delta
+                    yield f"data: {json.dumps({'type': 'content', 'figure': rid, 'content': delta})}\n\n"
+            except Exception as exc:
+                yield f"data: {json.dumps({'type': 'error', 'figure': rid, 'error': str(exc)})}\n\n"
+                continue
+            running.append({"speaker": fig["name"], "content": full})
+            yield f"data: {json.dumps({'type': 'turn_end', 'figure': rid})}\n\n"
+
+        yield f"data: {json.dumps({'type': 'end'})}\n\n"
 
     return StreamingResponse(sse(), media_type="text/event-stream",
                              headers={"Cache-Control": "no-cache", "X-Accel-Buffering": "no"})
