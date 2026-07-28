@@ -1,0 +1,14 @@
+# cloudflared config for the 'symposium' tunnel.
+# Routes the public hostname to the local vite frontend (port 3200), which proxies
+# /api to the hardened backend on 8010. allowedHosts:true in vite.config accepts the
+# tunnel hostname. Run: tools\cloudflared.exe tunnel --config scripts\symposium-tunnel.yml run symposium
+tunnel: c486d1f9-36e4-4853-a01c-91c99580385f
+credentials-file: C:\Users\gordo\.cloudflared\c486d1f9-36e4-4853-a01c-91c99580385f.json
+
+ingress:
+  # Live once thesymposium.app is added to Cloudflare as its own zone (nameservers
+  # pointed at CF) and `cloudflared tunnel route dns symposium thesymposium.app`
+  # is run. Do NOT route it under another project's zone (conflictiq.net).
+  - hostname: thesymposium.app
+    service: http://localhost:3200
+  - service: http_status:404
