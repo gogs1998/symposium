@@ -1,6 +1,10 @@
 import React from 'react'
 import { FigureCard, CategoryTabs } from '../components/ds'
 import { Masthead } from '../components/Masthead'
+import { CATEGORIES } from '../lib/adapters'
+
+// Tab order follows the CATEGORIES declaration; each tab id is the category key.
+const TABS = Object.entries(CATEGORIES).map(([id, c]) => ({ id, label: c.tab }))
 
 function RosterSkeleton() {
   return (
@@ -14,10 +18,11 @@ function RosterSkeleton() {
 
 export function RosterScreen({ figures, loading, onOpenFigure }) {
   const [cat, setCat] = React.useState('historical')
-  const counts = {
-    historical: figures.filter((f) => f.category === 'historical').length,
-    creator: figures.filter((f) => f.category === 'creator').length,
-  }
+  const counts = React.useMemo(() => {
+    const c = {}
+    for (const t of TABS) c[t.id] = figures.filter((f) => f.category === t.id).length
+    return c
+  }, [figures])
   const shown = figures.filter((f) => f.category === cat)
 
   return (
@@ -35,7 +40,7 @@ export function RosterScreen({ figures, loading, onOpenFigure }) {
         </div>
 
         <div className="sym-roster-tabrow" style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', marginBottom: 'var(--space-7)', flexWrap: 'wrap', gap: '16px' }}>
-          <CategoryTabs value={cat} onChange={setCat} counts={counts} />
+          <CategoryTabs value={cat} onChange={setCat} tabs={TABS} counts={counts} />
           <span style={{ font: 'var(--fw-regular) var(--text-sm)/1 var(--font-mono)', color: 'var(--text-faint)' }}>
             {shown.filter((f) => f.status === 'published').length} available · {shown.filter((f) => f.status === 'coming-soon').length} coming soon
           </span>

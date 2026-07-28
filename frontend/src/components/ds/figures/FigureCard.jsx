@@ -2,6 +2,7 @@ import React from "react";
 import { FigurePortrait } from "./FigurePortrait.jsx";
 import { Badge } from "../core/Badge.jsx";
 import { Tag } from "../core/Tag.jsx";
+import { CATEGORIES } from "../../../lib/adapters";
 
 /**
  * FigureCard — a single figure in the roster. Portrait, name (display serif), one-line
@@ -21,7 +22,9 @@ export function FigureCard({
   ...rest
 }) {
   const comingSoon = status === "coming-soon";
-  const edge = accentColor || (category === "creator" ? "var(--ink-3)" : "var(--indigo-500)");
+  const isHist = (CATEGORIES[category] || {}).hist;
+  const catLabel = (CATEGORIES[category] || {}).label || "Figure";
+  const edge = accentColor || (isHist ? "var(--indigo-500)" : "var(--ink-3)");
 
   return (
     <article
@@ -53,7 +56,7 @@ export function FigureCard({
         <FigurePortrait name={name} src={src} category={category} accentColor={accentColor} size={72} />
         <div style={{ flex: 1, minWidth: 0, display: "flex", flexDirection: "column", gap: "6px" }}>
           <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: "8px" }}>
-            <span className="sym-eyebrow">{category === "creator" ? "Creator" : "Historical"}</span>
+            <span className="sym-eyebrow">{catLabel}</span>
             <Badge tone={comingSoon ? "pending" : "live"} dot>
               {comingSoon ? "Coming soon" : "Published"}
             </Badge>
@@ -70,7 +73,7 @@ export function FigureCard({
 
       {meta && (
         <div style={{ marginTop: "auto", paddingTop: "var(--space-2)" }}>
-          <Tag kind={category === "creator" ? "channel" : "era"} accentColor={accentColor}>
+          <Tag kind={isHist ? "era" : "channel"} accentColor={accentColor}>
             {meta}
           </Tag>
         </div>

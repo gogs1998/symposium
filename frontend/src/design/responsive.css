@@ -64,6 +64,19 @@
 
   /* Tabs + availability line wrap cleanly, availability drops below tabs. */
   .sym-roster-tabrow { align-items: flex-start !important; gap: 10px !important; }
+
+  /* Five category tabs don't fit at phone width — let the tab row scroll
+     horizontally instead of wrapping into an uneven grid. */
+  .sym-roster-tabrow .sym-tabs {
+    display: flex !important;
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;           /* Firefox: hide the bar */
+    gap: var(--space-5) !important;
+  }
+  .sym-roster-tabrow .sym-tabs::-webkit-scrollbar { display: none; }
+  .sym-roster-tabrow .sym-tab { flex: 0 0 auto; white-space: nowrap; }
 }
 
 /* ---- Masthead: compact, hide sign-in noise on phones --------------------- */
