@@ -9,27 +9,20 @@
    ============================================================================ */
 
 /* ---- Never allow horizontal scroll on small screens ---------------------- */
+/* NB: the global spacing scale and display type are now fluid at the token level
+   (design/tokens/fluid.css) — clamp() floors for phones, desktop caps preserved —
+   so the old :root phone overrides and the hero font-size patches that used to live
+   here are gone. What remains below is genuinely mobile-specific *layout*: grid
+   collapse, hiding the conversation rail, and the sticky composer. */
 @media (max-width: 720px) {
   html, body { max-width: 100%; overflow-x: hidden; }
-
-  /* Tighten the global spacing scale on phones so 32/64px gutters don't eat
-     the viewport. Affects every var(--space-*) consumer — the highest-leverage
-     fix for edge gutters across all four screens. */
-  :root {
-    --space-6: 20px;   /* was 32 — section/card gutters */
-    --space-7: 28px;   /* was 48 */
-    --space-8: 24px;   /* was 64 — roster main gutters */
-    --space-9: 48px;   /* was 96 — landing hero band */
-    --space-10: 40px;  /* compat: roster main top pad */
-  }
 }
 
 /* ==========================================================================
    LANDING
    ========================================================================== */
 @media (max-width: 720px) {
-  /* Hero display type: scale from ~34px up to the desktop 60px. */
-  .sym-landing-h1 { font-size: clamp(30px, 8.5vw, 60px) !important; }
+  /* Hero display type is fluid at the token level now (--text-3xl/-5xl). */
 
   /* Promise section: two-column grid → single column. */
   .sym-landing-promise { grid-template-columns: 1fr !important; }
@@ -58,9 +51,9 @@
    ROSTER
    ========================================================================== */
 @media (max-width: 720px) {
-  /* Hero headline: the roster uses --text-5xl (60px). Scale it down fluidly. */
-  .sym-roster-h1 { font-size: clamp(30px, 8vw, 60px) !important; line-height: 1.06 !important; }
-  /* The authored <br/> forces an awkward break on phones; let it flow. */
+  /* Hero size is fluid at the token level (--text-5xl); just tighten leading
+     and drop the authored <br/> so the line flows at phone width. */
+  .sym-roster-h1 { line-height: 1.08 !important; }
   .sym-roster-h1 br { display: none; }
 }
 
@@ -118,9 +111,8 @@
   /* Message column: full width with small gutters. */
   .sym-chat-turns { padding: var(--space-5) var(--space-4) !important; gap: var(--space-6) !important; }
 
-  /* Empty state: trim the tall top padding and scale the display name. */
+  /* Empty state: trim the tall top padding (name size is fluid via --text-*). */
   .sym-chat-empty { padding: var(--space-6) var(--space-4) !important; }
-  .sym-chat-empty-name { font-size: clamp(30px, 9vw, 60px) !important; }
 
   /* Assistant reading measure is desktop-wide; let it fill the column. */
   .sym-message > div { max-width: 100% !important; }

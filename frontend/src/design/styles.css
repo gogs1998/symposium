@@ -6,5 +6,6 @@
 @import "tokens/spacing.css";
 @import "tokens/effects.css";
 @import "tokens/compat.css";
+@import "tokens/fluid.css";
 @import "tokens/base.css";
 @import "tokens/animations.css";

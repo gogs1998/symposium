@@ -1,0 +1,35 @@
+/* SYMPOSIUM — FLUID (MOBILE-FIRST) SCALE
+   ============================================================================
+   The v2 + compat type/space scales are fixed desktop pixel values, which forced
+   responsive.css to patch ~15 of them back down with !important on phones. This
+   file makes the DISPLAY-size type steps and the LARGE spacing steps fluid instead:
+   each clamp() floors at a mobile-appropriate size and tops out at the original
+   desktop value, so every screen is mobile-first at the token level and the phone
+   patches become unnecessary.
+
+   Loaded AFTER compat.css (see styles.css) so these win over the fixed definitions.
+   Only display type (xl and up) and large spacing (6 and up) are fluidised — the
+   body type (xs–lg) and fine spacing (1–5) are already mobile-appropriate and stay
+   fixed so reading sizes and micro-rhythm never drift.
+
+   Basis: 390px phone → 1120px page max. `vw` midpoints chosen so the ramp is smooth
+   across that range; caps equal the previous fixed values (no desktop regression).
+   ============================================================================ */
+:root {
+  /* --- Display type: fluid floors for phones, original caps for desktop --- */
+  --text-xl:  clamp(22px, 3.5vw, 28px);   /* screen titles */
+  --text-2xl: clamp(26px, 6.4vw, 40px);   /* section titles, figure-card names */
+  --text-3xl: clamp(31px, 8vw,  60px);    /* landing hero */
+  --text-4xl: clamp(29px, 6.2vw, 44px);
+  --text-5xl: clamp(31px, 8vw,  60px);    /* roster hero */
+  --text-6xl: clamp(38px, 10vw, 82px);
+
+  /* --- Large spacing: gutters/bands shrink on small screens, full on desktop --- */
+  --space-6:  clamp(20px, 5vw,  32px);
+  --space-7:  clamp(28px, 6vw,  48px);
+  --space-8:  clamp(24px, 7vw,  64px);
+  --space-9:  clamp(40px, 9vw,  96px);
+  --space-10: clamp(36px, 8vw,  64px);
+  --space-11: clamp(44px, 9vw,  80px);
+  --space-12: clamp(48px, 11vw, 112px);
+}
