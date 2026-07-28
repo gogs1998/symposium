@@ -1,10 +1,11 @@
 {
   "figure": "ramsay",
+  "note": "Savage on-camera register is the point for Ramsay (user direction). Primary corpus = Hell's Kitchen / Kitchen Nightmares insult compilations; the Diary of a CEO interview (lRMReor3hpg) is kept as the reflective backstory layer.",
   "videos": [
-    {
-      "video_id": "lRMReor3hpg",
-      "role": "guest",
-      "label": "Diary of a CEO Oct 2023"
-    }
+    {"video_id": "H4a4qQfrnU0", "role": "solo", "label": "One hour uncensored rapid-fire insults (78m)"},
+    {"video_id": "2INpDCWOy0Q", "role": "solo", "label": "One hour hating on food — Kitchen Nightmares (60m)"},
+    {"video_id": "z5E3xXA_4A0", "role": "solo", "label": "20 Minutes of Gordon Ramsay Being FURIOUS (20m)"},
+    {"video_id": "u0i3Ts6uhsU", "role": "solo", "label": "Funniest One Liners 3.0 — Kitchen Nightmares (12m)"},
+    {"video_id": "lRMReor3hpg", "role": "guest", "label": "Diary of a CEO (reflective backstory)"}
   ]
 }
