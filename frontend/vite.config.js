@@ -4,7 +4,10 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   plugins: [react()],
   server: {
-    port: 3000,
+    // 3200, not 3000: the ConflictIQ project owns 3000 on this machine, and the
+    // hardcoded 3000 meant Symposium's dev server silently failed to bind. 3200
+    // keeps both runnable at once.
+    port: 3200,
     // Accept tunnel hostnames (trycloudflare) for remote viewing; dev convenience.
     allowedHosts: true,
     // Native FS watching crashes on this Windows setup (UNKNOWN errno -4094); poll instead.

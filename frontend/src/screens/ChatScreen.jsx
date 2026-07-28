@@ -18,7 +18,9 @@ function ChatHeader({ figure, onBack, onOpenSources }) {
       <div className="sym-chat-headtext" style={{ flex: 1, minWidth: 0 }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '10px', minWidth: 0 }}>
           <span className="sym-chat-name" style={{ font: 'var(--fw-regular) var(--text-xl)/1 var(--font-display)', color: 'var(--text-strong)', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{figure.name}</span>
-          <DisclosureBanner figureName={figure.name} inline />
+          {/* Inline "AI recreation" chip — hidden on phones (the full disclosure
+              banner below the header already carries it) so the name gets full width. */}
+          <span className="sym-chat-disclosure-inline"><DisclosureBanner figureName={figure.name} inline /></span>
         </div>
         <span style={{ font: 'var(--fw-regular) var(--text-xs)/1.4 var(--font-sans)', color: 'var(--text-faint)' }}>{figure.meta}</span>
       </div>

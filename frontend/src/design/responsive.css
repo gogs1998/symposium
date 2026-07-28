@@ -108,6 +108,11 @@
   .sym-chat-header .sym-portrait { width: 32px !important; height: 32px !important; }
   .sym-chat-name { font-size: var(--text-lg) !important; }
 
+  /* The inline "AI recreation" chip is redundant with the disclosure banner
+     right below the header on phones; hide it so the figure name isn't crowded
+     into an ellipsis. */
+  .sym-chat-disclosure-inline { display: none !important; }
+
   /* Message column: full width with small gutters. */
   .sym-chat-turns { padding: var(--space-5) var(--space-4) !important; gap: var(--space-6) !important; }
 
