@@ -1,5 +1,5 @@
 import React from 'react'
-import { FigureCard, CategoryTabs } from '../components/ds'
+import { FigureCard, CategoryTabs, Button } from '../components/ds'
 import { Masthead } from '../components/Masthead'
 import { CATEGORIES } from '../lib/adapters'
 
@@ -16,7 +16,7 @@ function RosterSkeleton() {
   )
 }
 
-export function RosterScreen({ figures, loading, onOpenFigure }) {
+export function RosterScreen({ figures, loading, onOpenFigure, onStartRoom }) {
   const [cat, setCat] = React.useState('historical')
   const counts = React.useMemo(() => {
     const c = {}
@@ -37,6 +37,14 @@ export function RosterScreen({ figures, loading, onOpenFigure }) {
           <p style={{ margin: '20px 0 0', maxWidth: '58ch', font: 'var(--fw-regular) var(--text-lg)/1.6 var(--font-serif)', color: 'var(--text-muted)', textWrap: 'pretty' }}>
             Every figure is an AI recreation, grounded in their own words. Ask, and each reply cites its source — a passage from the page, or the exact moment in a video.
           </p>
+          {onStartRoom && (
+            <div style={{ marginTop: 'var(--space-6)' }}>
+              <Button variant="solid" onClick={onStartRoom}>Convene a symposium →</Button>
+              <span style={{ marginLeft: 'var(--space-4)', font: 'var(--fw-regular) var(--text-sm)/1.4 var(--font-mono)', color: 'var(--text-faint)' }}>
+                put 2–4 minds in one room
+              </span>
+            </div>
+          )}
         </div>
 
         <div className="sym-roster-tabrow" style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', marginBottom: 'var(--space-7)', flexWrap: 'wrap', gap: '16px' }}>

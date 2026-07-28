@@ -3,6 +3,7 @@ import { RosterScreen } from './screens/RosterScreen'
 import { ChatScreen } from './screens/ChatScreen'
 import { FigureIntroScreen } from './screens/FigureIntroScreen'
 import { LandingScreen } from './screens/LandingScreen'
+import { RoomScreen } from './screens/RoomScreen'
 import { api } from './lib/api'
 import { adaptFigure } from './lib/adapters'
 
@@ -15,7 +16,7 @@ export default function App() {
   const [entered, setEntered] = React.useState(() => {
     try { return localStorage.getItem(ENTERED_KEY) === '1' } catch { return false }
   })
-  const [view, setView] = React.useState('roster')       // 'roster' | 'intro' | 'chat'
+  const [view, setView] = React.useState('roster')       // 'roster' | 'intro' | 'chat' | 'room'
   const [figure, setFigure] = React.useState(null)
   const [sessions, setSessions] = React.useState([])
   const [activeSession, setActiveSession] = React.useState(null)
@@ -103,8 +104,10 @@ export default function App() {
     <div style={{ position: 'fixed', inset: 0, overflow: 'hidden' }}>
       {view === 'roster' ? (
         <div style={{ height: '100%', overflowY: 'auto' }}>
-          <RosterScreen figures={figures} loading={loadingFigures} onOpenFigure={openFigure} />
+          <RosterScreen figures={figures} loading={loadingFigures} onOpenFigure={openFigure} onStartRoom={() => setView('room')} />
         </div>
+      ) : view === 'room' ? (
+        <RoomScreen figures={figures.filter((f) => f.status === 'published')} onExit={() => setView('roster')} />
       ) : view === 'intro' ? (
         <div style={{ height: '100%', overflowY: 'auto' }}>
           <FigureIntroScreen
