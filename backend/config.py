@@ -52,6 +52,11 @@ class Settings(BaseSettings):
     host: str = "0.0.0.0"
     port: int = 8000
 
+    # Public exposure hardening (set PUBLIC_MODE=1 + a rate limit before tunnelling
+    # the server to a public domain — see scripts/run_public.ps1).
+    public_mode: bool = False        # True: admin routes 404, so they're invisible publicly
+    rate_limit_per_min: int = 0      # 0 = off; per-client-IP sliding-window cap on chat/room
+
     def model_post_init(self, __context) -> None:
         self.db_path = self._anchor(self.db_path)
         self.chroma_dir = self._anchor(self.chroma_dir)

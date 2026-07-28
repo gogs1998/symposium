@@ -2,8 +2,10 @@
 import json
 import logging
 import re
+import time
+from collections import defaultdict, deque
 
-from fastapi import Depends, FastAPI, Header, HTTPException
+from fastapi import Depends, FastAPI, Header, HTTPException, Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import StreamingResponse
 
@@ -48,6 +50,26 @@ def _safe_published(conn, figure_id: str) -> bool:
         return registry.get_figure(conn, figure_id)["status"] == "published"
     except registry.FigureNotFound:
         return False
+
+
+# --- Rate limiting: per-client-IP sliding window over the last 60s, applied to the
+#     generation endpoints so a public URL can't drain the OpenRouter budget.
+#     Behind Cloudflare the real client is in CF-Connecting-IP, not request.client. ---
+_rl_hits: dict[str, deque] = defaultdict(deque)
+
+
+def rate_limit(request: Request):
+    limit = settings.rate_limit_per_min
+    if limit <= 0:
+        return
+    ip = request.headers.get("cf-connecting-ip") or (request.client.host if request.client else "unknown")
+    now = time.monotonic()
+    dq = _rl_hits[ip]
+    while dq and dq[0] < now - 60:
+        dq.popleft()
+    if len(dq) >= limit:
+        raise HTTPException(status_code=429, detail="Too many requests — give it a moment.")
+    dq.append(now)
 
 
 # --- Public: figures ---
@@ -105,7 +127,7 @@ def _prepare_turn(request: ChatRequest):
     return fig, session_id, conversation_id, history
 
 
-@app.post("/chat", response_model=ChatResponse)
+@app.post("/chat", response_model=ChatResponse, dependencies=[Depends(rate_limit)])
 async def chat(request: ChatRequest):
     conn = deps.get_conn()
     engine = deps.get_engine()
@@ -131,7 +153,7 @@ async def chat(request: ChatRequest):
     )
 
 
-@app.post("/chat/stream")
+@app.post("/chat/stream", dependencies=[Depends(rate_limit)])
 async def chat_stream(request: ChatRequest):
     conn = deps.get_conn()
     engine = deps.get_engine()
@@ -165,7 +187,7 @@ async def chat_stream(request: ChatRequest):
 
 # --- Public: rooms (multi-figure symposium) ---
 
-@app.post("/room/chat/stream")
+@app.post("/room/chat/stream", dependencies=[Depends(rate_limit)])
 async def room_chat_stream(request: RoomChatRequest):
     """One turn of a multi-figure room. A moderator (or the user's @-mention) picks
     the 1-2 figures who respond; each replies in sequence with its own persona + RAG,
@@ -258,6 +280,10 @@ async def delete_session(session_id: str):
 # --- Admin (X-Admin-Key header; disabled when no key configured) ---
 
 def require_admin(x_admin_key: str = Header(default="")):
+    # In public_mode the admin surface is hidden entirely — a 404 (not 401) so its
+    # existence isn't even advertised on a publicly-tunnelled server.
+    if settings.public_mode:
+        raise HTTPException(status_code=404, detail="Not found")
     expected = deps.get_admin_key()
     if not expected or x_admin_key != expected:
         raise HTTPException(status_code=401, detail="Admin key required")
