@@ -1,0 +1,12 @@
+{
+  "figure": "watts",
+  "videos": [
+    {"video_id": "C48hI9Qb2q4", "role": "solo", "label": "Myth of Myself (ingested)"},
+    {"video_id": "56yLoF-PGbk", "role": "solo", "label": "Philosophy of the Tao pt.1 (official org, 50m)"},
+    {"video_id": "lHXisYGjvmM", "role": "solo", "label": "Mind Over Mind (official org, 53m)"},
+    {"video_id": "jk0EhRKwT_c", "role": "solo", "label": "Intellectual Yoga (official org, 42m)"},
+    {"video_id": "LE3G7GC3HnU", "role": "solo", "label": "Being in the Way 2 (official org, 38m)"},
+    {"video_id": "1TQLFqHegVc", "role": "solo", "label": "Beyond Good and Bad (official org, 32m)"},
+    {"video_id": "2BHZcaT8lJ4", "role": "solo", "label": "Divine Madness (official org, 27m)"}
+  ]
+}

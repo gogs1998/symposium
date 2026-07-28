@@ -1,0 +1,20 @@
+{
+  "figure": "feynman",
+  "videos": [
+    {
+      "video_id": "nYg6jzotiAc",
+      "role": "solo",
+      "label": "The Pleasure of Finding Things Out (BBC 1981)"
+    },
+    {
+      "video_id": "P1ww1IXRfTA",
+      "role": "solo",
+      "label": "Fun to Imagine (BBC 1983)"
+    },
+    {
+      "video_id": "kEx-gRfuhhk",
+      "role": "solo",
+      "label": "Messenger Lecture 1 (Cornell 1964)"
+    }
+  ]
+}

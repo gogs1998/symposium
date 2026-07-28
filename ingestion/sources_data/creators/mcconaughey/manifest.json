@@ -1,0 +1,15 @@
+{
+  "figure": "mcconaughey",
+  "videos": [
+    {
+      "video_id": "8qgIFD0PaWo",
+      "role": "guest",
+      "label": "Lex Fridman #384"
+    },
+    {
+      "video_id": "VLkjaTjJXLY",
+      "role": "guest",
+      "label": "Tim Ferriss #474"
+    }
+  ]
+}

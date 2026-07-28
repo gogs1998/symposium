@@ -1,0 +1,20 @@
+{
+  "figure": "buffett",
+  "videos": [
+    {
+      "video_id": "Q5UAyHhlFCs",
+      "role": "guest",
+      "label": "CNBC Becky Quick Mar 2026"
+    },
+    {
+      "video_id": "QQOWQcnNmr0",
+      "role": "guest",
+      "label": "CNBC Becky Quick Jul 2026"
+    },
+    {
+      "video_id": "DtSrc1lgVpk",
+      "role": "guest",
+      "label": "Squawk Pod Mar 2026"
+    }
+  ]
+}

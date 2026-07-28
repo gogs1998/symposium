@@ -1,0 +1,15 @@
+{
+  "figure": "rubin",
+  "videos": [
+    {
+      "video_id": "H_szemxPcTI",
+      "role": "guest",
+      "label": "Lex Fridman #275"
+    },
+    {
+      "video_id": "mVN9iptDhcM",
+      "role": "guest",
+      "label": "Huberman Lab 2024"
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "figure": "kaku",
+  "videos": [
+    {
+      "video_id": "0NbBjNiw4tk",
+      "role": "solo",
+      "label": "The Universe in a Nutshell (Big Think)"
+    },
+    {
+      "video_id": "_OjRClPzU6Y",
+      "role": "guest",
+      "label": "Quantum Supremacy \u2014 Talks at Google"
+    }
+  ]
+}

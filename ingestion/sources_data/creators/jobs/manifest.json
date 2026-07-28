@@ -1,0 +1,20 @@
+{
+  "figure": "jobs",
+  "videos": [
+    {
+      "video_id": "i5f8bqYYwps",
+      "role": "guest",
+      "label": "D8 Conference 2010 (Mossberg/Swisher, 96m)"
+    },
+    {
+      "video_id": "0K6afDeCg7k",
+      "role": "guest",
+      "label": "The Lost Interview 1995 (Cringely, 72m)"
+    },
+    {
+      "video_id": "UF8uR6Z6KLc",
+      "role": "solo",
+      "label": "Stanford Commencement 2005 (15m)"
+    }
+  ]
+}
