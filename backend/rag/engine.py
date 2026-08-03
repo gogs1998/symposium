@@ -19,8 +19,15 @@ class Chunk:
 
 class RAGEngine:
     def __init__(self, *, chroma, embedder, chat, chat_model: str,
-                 temperature: float, max_tokens: int):
+                 temperature: float, max_tokens: int, chroma_factory=None):
         self.chroma = chroma
+        # Optional: a callable returning a fresh chroma client. A long-running
+        # server's chroma client caches per-segment readers in the rust layer;
+        # when the store is compacted by another process (vacuum/re-ingest), those
+        # readers go stale and queries raise "Nothing found on disk" even though
+        # the data is fine on disk. If a factory is supplied, retrieve() rebuilds
+        # the client and retries once, so the server self-heals instead of 500ing.
+        self.chroma_factory = chroma_factory
         self.embedder = embedder
         self.chat = chat
         self.chat_model = chat_model
@@ -29,6 +36,11 @@ class RAGEngine:
 
     def _collection(self, figure_id: str):
         return self.chroma.get_or_create_collection(name=f"figure_{figure_id}")
+
+    @staticmethod
+    def _is_stale_segment_error(exc: Exception) -> bool:
+        s = str(exc).lower()
+        return "nothing found on disk" in s or "hnsw segment reader" in s
 
     # --- Ingest ---
 
@@ -51,10 +63,20 @@ class RAGEngine:
 
     def retrieve(self, figure_id: str, query: str, k: int) -> list[dict]:
         query_vec = self.embedder.embed([query])[0]
-        res = self._collection(figure_id).query(
-            query_embeddings=[query_vec], n_results=k,
-            include=["documents", "metadatas", "distances"],
-        )
+        try:
+            res = self._collection(figure_id).query(
+                query_embeddings=[query_vec], n_results=k,
+                include=["documents", "metadatas", "distances"],
+            )
+        except Exception as exc:
+            # Self-heal a stale segment reader by rebuilding the client once.
+            if not (self.chroma_factory and self._is_stale_segment_error(exc)):
+                raise
+            self.chroma = self.chroma_factory()
+            res = self._collection(figure_id).query(
+                query_embeddings=[query_vec], n_results=k,
+                include=["documents", "metadatas", "distances"],
+            )
         out = []
         if res["documents"] and res["documents"][0]:
             for doc, meta, dist in zip(res["documents"][0], res["metadatas"][0], res["distances"][0]):

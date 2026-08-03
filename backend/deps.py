@@ -26,10 +26,15 @@ def get_conn():
     return _state["conn"]
 
 
+def _new_chroma():
+    return chromadb.PersistentClient(path=settings.chroma_dir)
+
+
 def get_engine() -> RAGEngine:
     if "engine" not in _state:
         _state["engine"] = RAGEngine(
-            chroma=chromadb.PersistentClient(path=settings.chroma_dir),
+            chroma=_new_chroma(),
+            chroma_factory=_new_chroma,   # lets the engine self-heal stale segment readers
             embedder=FastEmbedLocal(model_name=settings.embedding_model),
             chat=OpenRouterChat(api_key=settings.openrouter_api_key,
                                 base_url=settings.openrouter_base_url),
