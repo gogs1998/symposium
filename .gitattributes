@@ -1,0 +1,5 @@
+# Shell scripts MUST be LF — CRLF breaks bash in the Linux container
+# (entrypoint.sh runs there). Keep them normalized regardless of the Windows
+# checkout that authors them.
+*.sh text eol=lf
+deploy/entrypoint.sh text eol=lf

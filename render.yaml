@@ -1,0 +1,23 @@
+# Render blueprint — deploy the Symposium backend from this repo.
+# In Render: New → Blueprint → connect gogs1998/symposium → it reads this file.
+# Set OPENROUTER_API_KEY in the dashboard (marked sync:false so it isn't in git).
+services:
+  - type: web
+    name: symposium-api
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    plan: starter                 # always-on; free tier sleeps + has no disk
+    healthCheckPath: /figures
+    disk:
+      name: symposium-data        # holds the seeded vector store + registry DB
+      mountPath: /data
+      sizeGB: 1
+    envVars:
+      - key: OPENROUTER_API_KEY
+        sync: false               # set this in the Render dashboard
+      - key: PUBLIC_MODE
+        value: "1"
+      - key: RATE_LIMIT_PER_MIN
+        value: "30"
+      - key: ALLOWED_ORIGINS
+        value: https://thesymposium.app

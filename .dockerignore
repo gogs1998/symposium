@@ -1,53 +1,23 @@
-# Python
-__pycache__
-*.py[cod]
-*$py.class
-*.so
-.Python
-*.egg-info
-dist/
-build/
-
-# Virtual environments
-venv/
-env/
-ENV/
-
-# IDE
-.vscode/
-.idea/
-*.swp
-*.swo
-
-# Testing
-.pytest_cache/
-.coverage
-htmlcov/
-
-# Git
-.git/
-.gitignore
-
-# Frontend (not needed in backend image)
-frontend/
-node_modules/
-
-# Documentation
-*.md
-README.md
-RAILWAY_SETUP.md
-
-# Environment files (use Railway variables instead)
+# Keep the Docker build context small. The image needs backend code, the ingestion
+# SOURCES (jsonl + txt/md corpus the seed rebuilds from), scripts, and deploy/.
+# NOTE: do NOT blanket-exclude *.md — some figures' corpus is markdown (e.g.
+# franklin/biography.md). Only exclude persona drafts, which the seed doesn't read.
+**/__pycache__
+**/*.py[cod]
+backend/venv
+frontend
+node_modules
+.git
+.github
 .env
-backend/.env
-*.env
-
-# Logs
+**/.env
+assets
+docs
+evals
+tools
+.playwright-mcp
+**/persona/*.md
+*.png
+*.jpeg
+*.jpg
 *.log
-
-# OS
-.DS_Store
-Thumbs.db
-
-# Keep only the vector database
-!backend/vector_db_data/
